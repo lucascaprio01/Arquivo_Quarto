@@ -32,6 +32,12 @@ $$
 $$ {#eq-2ª-Lei}
 
 
+e temos $\mu$ = $G(M + m) \approx GM$ como parametro gravitacional, com essa aproximação sendo possível pela diferença muito grande de massa entre os dois corpos.
+
+A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se da por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M [@bate1971; @murray2000]. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas $r$ e $\nu$ se da por: 
+
+$$ r = \frac{p}{1 + cos \nu} $$
+
 
 
 
