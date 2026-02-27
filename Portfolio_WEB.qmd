@@ -21,17 +21,17 @@ Entretanto, diferente do que se pode imaginar, o jovem matemático não pensou e
 
 Durante esse período, existiram dois modelos cosmológicos que dividiram as opiniões, o modelo geocêntrico de Ptolomeu e o modelo Heliocêntrico de Copérnico. No modelo de Ptolomeu, como o próprio nome sugere, a Terra, nosso planeta, estaria no centro do Universo, com os outros corpos celestes a orbitando, com órbitas perfeitamente circulares. Já, no modelo de Copérnico, o heliocêntrico, teríamos o Sol como objeto central e os planetas também o circundando com órbitas perfeitamente circulares [@damasio2011].
 
-![Modelo de Ptolomeu. Fonte: brasilescola](\Imagens\Ptolomeu.png){width="65%" #fig-ModeloPtolomeu}
+![Modelo de Ptolomeu. Fonte: brasilescola](Imagens\Ptolomeu.png){width="65%" #fig-ModeloPtolomeu}
 
-![Modelo de Copérnico. Fonte: Copérnico 1543](\Imagens\copernico.JPG){width="65%" #fig-ModeloCopernico}
+![Modelo de Copérnico. Fonte: Copérnico 1543](Imagens\copernico.JPG){width="65%" #fig-ModeloCopernico}
 
 O modelo de Tycho era inspirado no modelo de Ptolomeu, a Terra estava no centro e o Sol a orbitava, porém, diferente do modelo anterior, os planetas orbitavam o Sol. Esse modelo, assim como os outros dois também previa órbitas circulares .Por fim, o modelo de Kepler, auto declarado copernicano, se baseava no modelo heliocêntrico. O mesmo consistia quase que inteiramente igual ao de Copérnico, exceto que ele propunha uma proporção entre as distâncias, baseadas nos sólidos regulares, onde cada órbita era circunscrita em um dos sólidos [@cohen1967], como é possível ver no esquema [tal].
 
-![Modelo de Tycho. Fonte: Wikipédia](\Imagens\Tycho Brahe.png){width="50%" #fig-ModeloTycho}
+![Modelo de Tycho. Fonte: Wikipédia](Imagens\Tycho Brahe.png){width="50%" #fig-ModeloTycho}
 
 Porém, como todos os cidadãos brasileiros que passaram pela educação básica brasileira sabem — ou pelo menos deveriam saber — todos os modelos cometem o mesmo erro: as órbitas circulares. Foi daí que surgiu a grande sacada de Kepler, munido do grandioso arsenal de observações de Tycho Brahe, que por sua vez era excepcional em fazer e registrar as mesmas, abandonou as órbitas circulares e percebeu que as órbitas na verdade descreviam elipses, uma curva oval. Esse ato de Kepler, além de genial, foi de extrema coragem, tendo em vista que as órbitas circulares prevaleciam desde a época de Platão e Aristóteles (século V a. C.).
 
-![Modelo de Kepler. Fonte: Murray 2000](\Imagens\Kepler.png){width="70%" #fig-ModeloKepler}
+![Modelo de Kepler. Fonte: Murray 2000](Imagens\Kepler.png){width="70%" #fig-ModeloKepler}
 
 Com essa mudança de perspectiva, Kepler originou suas três Leis que, por sua vez, descreviam os movimentos elípticos das órbitas planetárias. Sendo a primeira lei, a Lei das órbitas, a segunda, a Lei das Áreas e por último, mas não menos importante, a terceira lei, a Lei dos Períodos.
 
@@ -43,19 +43,19 @@ Todas as 3 Leis utilizaram [@halliday&resnick2012] como referência.
 
 $$ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 $$ {#eq-elipse}
 
-![Elipse da primeira lei](\Imagens\elipse.JPG){width="70%" #fig-elipselei1}
+![Elipse da primeira lei](Imagens\elipse.JPG){width="70%" #fig-elipselei1}
 
 - Lei das áreas:  A linha reta conectando o planeta ao Sol varre áreas iguais em tempos iguais.
 
 $$ \frac{A_{1}}{\Delta t_{1}} = \frac{A_{2}}{\Delta t_{2}} $$ {#eq-2lei}
 
-![Elipse da segunda lei](\Imagens\elipselei2.JPG){width="70%" #fig-elipselei2}
+![Elipse da segunda lei](Imagens\elipselei2.JPG){width="70%" #fig-elipselei2}
 
 - Lei dos períodos: O quadrado do período orbital ($T^2$), é proporcional ao cubo da distância média ao Sol ($R^3$).
 
 $$ \frac{T_1^2}{R_1^3} = \frac{T_2^2}{R_2^3}$$ {#eq-3lei}
 
-![Elipse da terceira lei](\Imagens\elipselei3.JPG){width="70%" #fig-elipselei3}
+![Elipse da terceira lei](Imagens\elipselei3.JPG){width="70%" #fig-elipselei3}
 
 # 4. Primeiro código em Python
 
