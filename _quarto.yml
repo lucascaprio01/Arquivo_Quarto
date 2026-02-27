@@ -1,0 +1,8 @@
+project:
+  type: website
+  output-dir: docs
+
+website: 
+  title: "Quarto Portfolio"
+  site-url: "https://lucascaprio01.github.io/Arquivo_Quarto/"
+  repo-url: "https://github.com/lucascaprio01/Arquivo_Quarto"
