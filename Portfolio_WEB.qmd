@@ -21,17 +21,17 @@ Entretanto, diferente do que se pode imaginar, o jovem matemático não pensou e
 
 Durante esse período, existiram dois modelos cosmológicos que dividiram as opiniões, o modelo geocêntrico de Ptolomeu e o modelo Heliocêntrico de Copérnico. No modelo de Ptolomeu, como o próprio nome sugere, a Terra, nosso planeta, estaria no centro do Universo, com os outros corpos celestes a orbitando, com órbitas perfeitamente circulares. Já, no modelo de Copérnico, o heliocêntrico, teríamos o Sol como objeto central e os planetas também o circundando com órbitas perfeitamente circulares [@damasio2011].
 
-![Modelo de Ptolomeu. Fonte: brasilescola](Imagens\Ptolomeu.png){width="65%" #fig-ModeloPtolomeu}
+![Modelo de Ptolomeu. Fonte: brasilescola.](Imagens\Ptolomeu.png){width="65%" #fig-ModeloPtolomeu}
 
-![Modelo de Copérnico. Fonte: Copérnico 1543](Imagens\copernico.JPG){width="65%" #fig-ModeloCopernico}
+![Modelo de Copérnico. Fonte: Copérnico 1543.](Imagens\copernico.JPG){width="65%" #fig-ModeloCopernico}
 
 O modelo de Tycho era inspirado no modelo de Ptolomeu, a Terra estava no centro e o Sol a orbitava, porém, diferente do modelo anterior, os planetas orbitavam o Sol. Esse modelo, assim como os outros dois também previa órbitas circulares .Por fim, o modelo de Kepler, auto declarado copernicano, se baseava no modelo heliocêntrico. O mesmo consistia quase que inteiramente igual ao de Copérnico, exceto que ele propunha uma proporção entre as distâncias, baseadas nos sólidos regulares, onde cada órbita era circunscrita em um dos sólidos [@cohen1967], como é possível ver no esquema [tal].
 
-![Modelo de Tycho. Fonte: Wikipédia](Imagens\Tycho Brahe.png){width="50%" #fig-ModeloTycho}
+![Modelo de Tycho. Fonte: Wikipédia.](Imagens\Tycho Brahe.png){width="50%" #fig-ModeloTycho}
 
 Porém, como todos os cidadãos brasileiros que passaram pela educação básica brasileira sabem — ou pelo menos deveriam saber — todos os modelos cometem o mesmo erro: as órbitas circulares. Foi daí que surgiu a grande sacada de Kepler, munido do grandioso arsenal de observações de Tycho Brahe, que por sua vez era excepcional em fazer e registrar as mesmas, abandonou as órbitas circulares e percebeu que as órbitas na verdade descreviam elipses, uma curva oval. Esse ato de Kepler, além de genial, foi de extrema coragem, tendo em vista que as órbitas circulares prevaleciam desde a época de Platão e Aristóteles (século V a. C.).
 
-![Modelo de Kepler. Fonte: Murray 2000](Imagens\Kepler.png){width="70%" #fig-ModeloKepler}
+![Modelo de Kepler. Fonte: Murray 2000.](Imagens\Kepler.png){width="70%" #fig-ModeloKepler}
 
 Com essa mudança de perspectiva, Kepler originou suas três Leis que, por sua vez, descreviam os movimentos elípticos das órbitas planetárias. Sendo a primeira lei, a Lei das órbitas, a segunda, a Lei das Áreas e por último, mas não menos importante, a terceira lei, a Lei dos Períodos.
 
@@ -43,19 +43,19 @@ Todas as 3 Leis utilizaram [@halliday&resnick2012] como referência.
 
 $$ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 $$ {#eq-elipse}
 
-![Elipse da primeira lei](Imagens\elipse.JPG){width="70%" #fig-elipselei1}
+![Elipse da primeira lei.](Imagens\elipse.JPG){width="70%" #fig-elipselei1}
 
 - Lei das áreas:  A linha reta conectando o planeta ao Sol varre áreas iguais em tempos iguais.
 
 $$ \frac{A_{1}}{\Delta t_{1}} = \frac{A_{2}}{\Delta t_{2}} $$ {#eq-2lei}
 
-![Elipse da segunda lei](Imagens\elipselei2.JPG){width="70%" #fig-elipselei2}
+![Elipse da segunda lei.](Imagens\elipselei2.JPG){width="70%" #fig-elipselei2}
 
 - Lei dos períodos: O quadrado do período orbital ($T^2$), é proporcional ao cubo da distância média ao Sol ($R^3$).
 
 $$ \frac{T_1^2}{R_1^3} = \frac{T_2^2}{R_2^3}$$ {#eq-3lei}
 
-![Elipse da terceira lei](Imagens\elipselei3.JPG){width="70%" #fig-elipselei3}
+![Elipse da terceira lei.](Imagens\elipselei3.JPG){width="70%" #fig-elipselei3}
 
 # 4. Primeiro código em Python
 
@@ -156,7 +156,70 @@ e temos $\mu$ = $G(M + m) \approx GM$ como parametro gravitacional, com essa apr
 
 A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se da por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M [@bate1971; @murray2000]. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas $r$ e $\nu$ se da por: 
 
-$$ r = \frac{p}{1 + cos \nu} $$
+$$ r = \frac{p}{1 + e \space cos \nu} $$
+
+Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maior e $e$ a excentricidade.
+
+## 5.1 Elementos Orbitais Clássicos
+
+Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita [@bate1971].
+
+Os seis parâmetros são: 
+
+- Semieixo maior ($a$)
+
+- Excentricidade ($e$)
+
+- Inclinação ($i$)
+
+- Ascensão Reta do Nodo Ascendente ($Ω$)
+
+- Argumento do Perigeu ($ω$)
+
+- Anomalia Verdadeira ($ν$) ou Anomalia Média ($M_0$ para um tempo $T_0$)
+
+
+A partir dos próximos subtópicos cada um dos elementos orbitais será explicado e exemplificado por imagens.
+
+### Semieixo maior $a$
+
+O semieixo maior $a$ é a definição do tamanho da órbita, mostrado na (@fig-semieixomaior)
+
+![Semieixo maior $a$.](Imagens/Semieixo%20maior.jpg){width=50% #fig-semieixomaior}
+
+### Excentricidade $e$
+
+Como já comentado tópicos atrás, a excentricidade $e$ define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de $e$, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita degenera para uma elipse. Como mostrado na (@fig-excentricidade)
+
+![Excentricidade.](Imagens/Excentricidade.jpg){#fig-excentricidade}
+
+### Inclinação $i$
+
+É o angulo entre o plano equatorial e o plano orbital, representado na (@fig-inclinação)
+
+![Inclinação.](Imagens/Inclina%C3%A7%C3%A3o.jpg){width=50% #fig-inclinação}
+
+### Ascensão Reta do Nodo Ascendente $Ω$
+
+Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o corpo orbitador cruza o equador em direção ao Norte (nodo ascendente), como mostra a (@fig-bigomega)
+
+![Ascensão Reta do Nodo Ascendente $\Omega$.](Imagens/Big%20Omega.jpg){width=50% #fig-bigomega}
+
+### Argumento do Perigeu $ω$
+
+O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o periastro. Pode ser observado na (@fig-omega)
+
+![Argumento do Perigeu $\omega$.](Imagens/Omega.jpg){width=50% #fig-omega}
+
+### Anomalia Verdadeira $ν$
+
+É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do periastro até a posição do corpo que orbita. Como mostrado na (@fig-anomaliaverdadeira)
+
+![Anomalia Verdadeira $\nu$.](Imagens/Anomalia%20Verdadeira.jpg){width=50% #fig-anomaliaverdadeira}
+
+### Anomalia Média $M$
+
+É uma medida angular que representa uma fração de deslocamento do astro que orbita, desde sua ultima passagem pelo periastro, ou seja, é como se fosse a Anomalia verdadeira, mas assumindo uma velocidade angular constante.
 
 
 
