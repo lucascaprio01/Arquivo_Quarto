@@ -312,7 +312,7 @@ Figure&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2">
 <h2 class="anchored" data-anchor-id="primeira-simulação">4.3. Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="4674950a" class="cell" data-execution_count="1">
+<div id="30eac52d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -360,13 +360,57 @@ Figure&nbsp;7: Elipse da terceira lei.
 </div>
 </section>
 </section>
+<section id="kepler-para-newton" class="level1">
+<h1>5. Kepler para Newton</h1>
+<p>Para o estudo de órbitas, além de Kepler, é necessário, principalmente, o entendimento da Lei da Gravitação Universal de Newton. É pertinente entender como surge essa lei, dedução que é possível através das Leis de Kepler. A abordagem utilizada neste portfólio é por meio da aceleração centrípeta.</p>
+<p>Baseado no fato de que, para um corpo se manter em um movimento circular, é necessária a ação de uma aceleração centrípeta, descrita pela equação (6)</p>
+<p><span id="eq-aceleração-centrípeta"><span class="math display">\[
+a_{c} = \frac{v^2}{R}
+\tag{6}\]</span></span></p>
+<p>Tendo em vista que <span class="math inline">\(a_{c}\)</span> é a aceleração centrípeta, <span class="math inline">\(R\)</span> é o raio orbital e <span class="math inline">\(v\)</span> é a velocidade orbital. Podemos também substituir a velocidade por <span class="math display">\[
+v = \frac{2 \pi R}{T}
+\]</span></p>
+<p>Substituindo <span class="math inline">\(v\)</span>,</p>
+<p><span id="eq-aceleração-centripeta2"><span class="math display">\[
+a_{c} = \frac{(\frac{2 \pi R}{T})^2}{R} = \frac{4 \pi^2 R^2}{T^2} \frac{1}{R} = \frac{4 \pi^2 R}{T^2}
+\tag{7}\]</span></span></p>
+<p>Anteriormente, foi definida a Terceira Lei de Kepler como</p>
+<p><span class="math display">\[
+\frac{T_{1}^2}{R_{1}^3} = \frac{T_{2}^2}{R_{2}^3}
+\]</span></p>
+<p>Sendo estabelecida a igualdade dessa razão, é possível expressá-la, também, na forma</p>
+<p><span class="math display">\[
+\frac{T^2}{R^3} = k
+\]</span></p>
+<p>onde <span class="math inline">\(k\)</span> é a constante de Kepler.</p>
+<p>Portanto, isolando <span class="math inline">\(T^2\)</span>, obtemos a seguinte relação</p>
+<p><span class="math display">\[
+T^2 = k R^3
+\]</span></p>
+<p>Substituindo esse novo resultado na equação (7)</p>
+<p><span class="math display">\[
+a_{c} = \frac{4 \pi^2 R}{k R^3} = \frac{4 \pi^2}{k} \frac{1}{R^2}
+\]</span></p>
+<p>Agora, utilizando a Segunda Lei de Newton, <span class="math inline">\(F = m a\)</span>, onde <span class="math inline">\(F\)</span> é a força (em Newtons), <span class="math inline">\(m\)</span> é a massa (em Kg) e <span class="math inline">\(a\)</span> é a aceleração (em m/s), temos que a força centrípeta (<span class="math inline">\(F_{c}\)</span>) é dada por</p>
+<p><span class="math display">\[
+F_{c} = m (\frac{4 \pi^2}{k R^2})
+\]</span></p>
+<p>Por fim, com a utilização da Terceira Lei de Newton, que estabelece que toda força exercida em um corpo resulta em uma outra força com mesmo módulo e intensidade, porém de direções opostas, temos os dois corpos (<span class="math inline">\(m\)</span> e <span class="math inline">\(M\)</span>) exercendo a mesma Força em direções opostas, resultando na atração gravitacional. Por isso, Newton concluiu que a constante <span class="math inline">\(k\)</span> da equação deveria estar relacionada à massa do corpo central <span class="math inline">\(M\)</span>, juntamente de uma constante, a qual ele definiu como a constante gravitacional, <span class="math inline">\(G\)</span>:</p>
+<p><span class="math display">\[
+k = \frac{4 \pi^2}{G M}
+\]</span></p>
+<p>Dessa forma, Newton concluiu sua equação clássica</p>
+<p><span id="eq-leigravitação"><span class="math display">\[
+F_{g} = G \frac{M m}{R^2}
+\tag{8}\]</span></span></p>
+</section>
 <section id="órbitas-keplerianas" class="level1">
-<h1>5. Órbitas Keplerianas</h1>
+<h1>6. Órbitas Keplerianas</h1>
 <p>A partir deste tópico, cursar ou estar cursando uma graduação de exatas, pode ser de extrema ajuda para entender com mais facilidade os conteúdos, porém, novamente, não é de fato um requisito, sintam-se a vontade para se desafiar.</p>
 <p>O ponto de partida para entender a dinâmica orbital é o problema de dois corpos. Esse sistema consiste em um corpo esférico central (Terra) de massa = <span class="math inline">\(M\)</span> e um satélite (ISS) de massa = <span class="math inline">\(m\)</span>, onde temos a condição <span class="math inline">\(M &gt;&gt; m\)</span>. Com a atração gravitacional (<span class="math inline">\(F_g\)</span>) sendo a única força atuante no sistema e <span class="math inline">\(G\)</span> como constante gravitacional, dada pela seguinte equação, retirada de <span class="citation" data-cites="curtis2013">CURTIS (<a href="#ref-curtis2013" role="doc-biblioref">2013</a>)</span>:</p>
 <p><span id="eq-Força-G"><span class="math display">\[
 F_g = - G \frac{M \cdot m}{r^2} \hat{r}
-\tag{6}\]</span></span></p>
+\tag{9}\]</span></span></p>
 <p>Entenda <span class="math inline">\(r\)</span> como a distancia do ponto central de cada massa e <span class="math inline">\(\hat{r}\)</span> como o sentido do vetor, que no caso é radial.</p>
 <p>Esquema do problema de dois corpos (P2C):</p>
 <div id="fig-esquemap2c" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -382,13 +426,13 @@ Figure&nbsp;8: Esquema do problema de dois corpos
 <p>onde, <span class="math inline">\(r\)</span> <span class="math inline">\(\cdot\)</span> <span class="math inline">\(\hat{r}\)</span> = <span class="math inline">\(\textbf{r}\)</span> é o vetor posição do satélite com origem no centro da Terra. Assim, temos a seguinte equação quando aplicamos a força na 2ª Lei de Newton:</p>
 <p><span id="eq-2ª-Lei"><span class="math display">\[  
 \ddot r + \frac{\mu}{r^3} \textbf{r} = 0
-\tag{7}\]</span></span></p>
-<p>e temos <span class="math inline">\(\mu\)</span> = <span class="math inline">\(G(M + m) \approx GM\)</span> como parametro gravitacional, com essa aproximação sendo possível pela diferença muito grande de massa entre os dois corpos.</p>
-<p>A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se da por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M <span class="citation" data-cites="bate1971 murray2000">(<a href="#ref-bate1971" role="doc-biblioref">BATE 1971</a>; <a href="#ref-murray2000" role="doc-biblioref">MURRAY 2000</a>)</span>. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas <span class="math inline">\(r\)</span> e <span class="math inline">\(\nu\)</span> se da por:</p>
+\tag{10}\]</span></span></p>
+<p>e temos <span class="math inline">\(\mu\)</span> = <span class="math inline">\(G(M + m) \approx GM\)</span> como parâmetro gravitacional, com essa aproximação sendo possível pela diferença muito grande de massa entre os dois corpos.</p>
+<p>A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se dá por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M <span class="citation" data-cites="bate1971 murray2000">(<a href="#ref-bate1971" role="doc-biblioref">BATE 1971</a>; <a href="#ref-murray2000" role="doc-biblioref">MURRAY 2000</a>)</span>. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas <span class="math inline">\(r\)</span> e <span class="math inline">\(\nu\)</span> se da por:</p>
 <p><span class="math display">\[ r = \frac{p}{1 + e \space cos \nu} \]</span></p>
 <p>Sendo, <span class="math inline">\(p\)</span> = <span class="math inline">\(a(1-e^2)\)</span> o semi-latus rectum, <span class="math inline">\(a\)</span> o comprimento do semi eixo maior e <span class="math inline">\(e\)</span> a excentricidade.</p>
 <section id="elementos-orbitais-clássicos" class="level2">
-<h2 class="anchored" data-anchor-id="elementos-orbitais-clássicos">5.1 Elementos Orbitais Clássicos</h2>
+<h2 class="anchored" data-anchor-id="elementos-orbitais-clássicos">6.1 Elementos Orbitais Clássicos</h2>
 <p>Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita <span class="citation" data-cites="bate1971">(<a href="#ref-bate1971" role="doc-biblioref">BATE 1971</a>)</span>.</p>
 <p>Os seis parâmetros são:</p>
 <ul>
@@ -397,12 +441,15 @@ Figure&nbsp;8: Esquema do problema de dois corpos
 <li><p>Inclinação (<span class="math inline">\(i\)</span>)</p></li>
 <li><p>Ascensão Reta do Nodo Ascendente (<span class="math inline">\(Ω\)</span>)</p></li>
 <li><p>Argumento do Perigeu (<span class="math inline">\(ω\)</span>)</p></li>
-<li><p>Anomalia Verdadeira (<span class="math inline">\(ν\)</span>) ou Anomalia Média (<span class="math inline">\(M_0\)</span> para um tempo <span class="math inline">\(T_0\)</span>)</p></li>
+<li><p>Anomalia Verdadeira (<span class="math inline">\(ν\)</span>), Anomalia Excêntrica (<span class="math inline">\(E\)</span>) ou Anomalia Média (<span class="math inline">\(M_0\)</span> para um tempo <span class="math inline">\(T_0\)</span>)</p></li>
 </ul>
 <p>A partir dos próximos subtópicos cada um dos elementos orbitais será explicado e exemplificado por imagens.</p>
 <section id="semieixo-maior-a" class="level3">
 <h3 class="anchored" data-anchor-id="semieixo-maior-a">Semieixo maior <span class="math inline">\(a\)</span></h3>
-<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;9</a>)</p>
+<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;9</a>). Ele é a metade da distância do periastro (ponto mais próximo) e o apogeu (ponto mais distante).</p>
+<p><span class="math display">\[
+a = - \frac{\mu}{2 \epsilon}
+\]</span></p>
 <div id="fig-semieixomaior" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-semieixomaior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -417,6 +464,9 @@ Figure&nbsp;9: Semieixo maior <span class="math inline">\(a\)</span>.
 <section id="excentricidade-e" class="level3">
 <h3 class="anchored" data-anchor-id="excentricidade-e">Excentricidade <span class="math inline">\(e\)</span></h3>
 <p>Como já comentado tópicos atrás, a excentricidade <span class="math inline">\(e\)</span> define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de <span class="math inline">\(e\)</span>, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita degenera para uma elipse. Como mostrado na (<a href="#fig-excentricidade" class="quarto-xref">Figure&nbsp;10</a>)</p>
+<p><span class="math display">\[
+e = |\frac{1}{\mu}[(v^2 - \frac{\mu}{r})r - (r \cdot v)v]|
+\]</span></p>
 <div id="fig-excentricidade" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-excentricidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -430,7 +480,10 @@ Figure&nbsp;10: Excentricidade.
 </section>
 <section id="inclinação-i" class="level3">
 <h3 class="anchored" data-anchor-id="inclinação-i">Inclinação <span class="math inline">\(i\)</span></h3>
-<p>É o angulo entre o plano equatorial e o plano orbital, representado na (<a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;11</a>)</p>
+<p>Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na <a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;11</a>.</p>
+<p><span class="math display">\[
+i = arccos (\frac{h_{z}}{h})
+\]</span></p>
 <div id="fig-inclinação" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-inclinação-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -444,7 +497,10 @@ Figure&nbsp;11: Inclinação.
 </section>
 <section id="ascensão-reta-do-nodo-ascendente-ω" class="level3">
 <h3 class="anchored" data-anchor-id="ascensão-reta-do-nodo-ascendente-ω">Ascensão Reta do Nodo Ascendente <span class="math inline">\(Ω\)</span></h3>
-<p>Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o corpo orbitador cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;12</a>)</p>
+<p>Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o corpo orbitador cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;12</a>). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.</p>
+<p><span class="math display">\[
+cos(\Omega) = \frac{n_{x}}{|n|}
+\]</span></p>
 <div id="fig-bigomega" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bigomega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -458,7 +514,10 @@ Figure&nbsp;12: Ascensão Reta do Nodo Ascendente <span class="math inline">\(\O
 </section>
 <section id="argumento-do-perigeu-ω" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-do-perigeu-ω">Argumento do Perigeu <span class="math inline">\(ω\)</span></h3>
-<p>O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o periastro. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;13</a>)</p>
+<p>O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o periastro. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;13</a>). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.</p>
+<p><span class="math display">\[
+cos(\omega) = \frac{n \cdot e}{|n||e|}
+\]</span></p>
 <div id="fig-omega" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-omega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -472,7 +531,10 @@ Figure&nbsp;13: Argumento do Perigeu <span class="math inline">\(\omega\)</span>
 </section>
 <section id="anomalia-verdadeira-ν" class="level3">
 <h3 class="anchored" data-anchor-id="anomalia-verdadeira-ν">Anomalia Verdadeira <span class="math inline">\(ν\)</span></h3>
-<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do periastro até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;14</a>)</p>
+<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do periastro até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;14</a>). Ou seja, dado ponto de início <span class="math inline">\(0 \degree\)</span>, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo <span class="math inline">\(\omega\)</span>.</p>
+<p><span class="math display">\[
+cos(\nu) = \frac{e \cdot r}{|e||r|}
+\]</span></p>
 <div id="fig-anomaliaverdadeira" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anomaliaverdadeira-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -484,17 +546,45 @@ Figure&nbsp;14: Anomalia Verdadeira <span class="math inline">\(\nu\)</span>.
 </figure>
 </div>
 </section>
+<section id="anomalia-excêntrica-e" class="level3">
+<h3 class="anchored" data-anchor-id="anomalia-excêntrica-e">Anomalia Excêntrica (<span class="math inline">\(E\)</span>)</h3>
+<p>A Anomalia Excêntrica (<span class="math inline">\(E\)</span>) é um parâmetro angular auxiliar utilizado para facilitar a transição entre a geometria de uma elipse e o movimento temporal de um satélite.</p>
+<p><span class="math display">\[
+tan(\frac{E}{2}) = \sqrt{\frac{1-e}{1+e}} tan(\frac{nu}{2})
+\]</span></p>
+</section>
 <section id="anomalia-média-m" class="level3">
 <h3 class="anchored" data-anchor-id="anomalia-média-m">Anomalia Média <span class="math inline">\(M\)</span></h3>
 <p>É uma medida angular que representa uma fração de deslocamento do astro que orbita, desde sua ultima passagem pelo periastro, ou seja, é como se fosse a Anomalia verdadeira, mas assumindo uma velocidade angular constante.</p>
+<p><span class="math display">\[
+M = E - e sen(E)
+\]</span></p>
+</section>
+</section>
+</section>
+<section id="glossário" class="level1">
+<h1>?. Glossário</h1>
+<ul>
+<li>Elipse:</li>
+<li>Cônicas:</li>
+<li>Período orbital:</li>
+<li>Array:</li>
+<li>Matriz:</li>
+<li>Aceleração centrípeta:</li>
+<li>Raio orbital:</li>
+<li>Velocidade orbital:</li>
+<li>Periastro:</li>
+<li>Apoastro:</li>
+</ul>
+</section>
+<section id="bibliografia" class="level1">
+
 
 
 
 </section>
-</section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliografia</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bate1971" class="csl-entry" role="listitem">
 BATE, R., R. 1971. <em>Fundamentals of Astrodynamics</em>.
 </div>

@@ -128,7 +128,72 @@ plt.show()
 ```
 
 
-# 5. Órbitas Keplerianas 
+# 5. Kepler para Newton
+
+Para o estudo de órbitas, além de Kepler, é necessário, principalmente, o entendimento da Lei da Gravitação Universal de Newton. É pertinente entender como surge essa lei, dedução que é possível através das Leis de Kepler. A abordagem utilizada neste portfólio é por meio da aceleração centrípeta.
+
+Baseado no fato de que, para um corpo se manter em um movimento circular, é necessária a ação de uma aceleração centrípeta, descrita pela equação (6)
+
+$$
+a_{c} = \frac{v^2}{R}
+$$ {#eq-aceleração-centrípeta}
+
+Tendo em vista que $a_{c}$ é a aceleração centrípeta, $R$ é o raio orbital e $v$ é a velocidade orbital. Podemos também substituir a velocidade por 
+$$
+v = \frac{2 \pi R}{T}
+$$
+
+Substituindo $v$,
+
+$$
+a_{c} = \frac{(\frac{2 \pi R}{T})^2}{R} = \frac{4 \pi^2 R^2}{T^2} \frac{1}{R} = \frac{4 \pi^2 R}{T^2}
+$$ {#eq-aceleração-centripeta2}
+
+Anteriormente, foi definida a Terceira Lei de Kepler como
+
+$$
+\frac{T_{1}^2}{R_{1}^3} = \frac{T_{2}^2}{R_{2}^3}
+$$
+
+Sendo estabelecida a igualdade dessa razão, é possível expressá-la, também, na forma
+
+$$
+\frac{T^2}{R^3} = k
+$$
+
+onde $k$ é a constante de Kepler.
+
+Portanto, isolando $T^2$, obtemos a seguinte relação
+
+$$
+T^2 = k R^3
+$$
+
+Substituindo esse novo resultado na equação (7)
+
+$$
+a_{c} = \frac{4 \pi^2 R}{k R^3} = \frac{4 \pi^2}{k} \frac{1}{R^2}
+$$
+
+Agora, utilizando a Segunda Lei de Newton, $F = m a$, onde $F$ é a força (em Newtons), $m$ é a massa (em Kg) e $a$ é a aceleração (em m/s), temos que a força centrípeta ($F_{c}$) é dada por
+
+$$
+F_{c} = m (\frac{4 \pi^2}{k R^2})
+$$
+
+Por fim, com a utilização da Terceira Lei de Newton, que estabelece que toda força exercida em um corpo resulta em uma outra força com mesmo módulo e intensidade, porém de direções opostas, temos os dois corpos ($m$ e $M$) exercendo a mesma Força em direções opostas, resultando na atração gravitacional. Por isso, Newton concluiu que a constante $k$ da equação deveria estar relacionada à massa do corpo central $M$, juntamente de uma constante, a qual ele definiu como a constante gravitacional, $G$:
+
+$$
+k = \frac{4 \pi^2}{G M}
+$$
+
+Dessa forma, Newton concluiu sua equação clássica
+
+$$
+F_{g} = G \frac{M m}{R^2} 
+$$ {#eq-leigravitação}
+
+# 6. Órbitas Keplerianas 
 
 A partir deste tópico, cursar ou estar cursando uma graduação de exatas, pode ser de extrema ajuda para entender com mais facilidade os conteúdos, porém, novamente, não é de fato um requisito, sintam-se a vontade para se desafiar.
 
@@ -152,15 +217,15 @@ $$
 $$ {#eq-2ª-Lei}
 
 
-e temos $\mu$ = $G(M + m) \approx GM$ como parametro gravitacional, com essa aproximação sendo possível pela diferença muito grande de massa entre os dois corpos.
+e temos $\mu$ = $G(M + m) \approx GM$ como parâmetro gravitacional, com essa aproximação sendo possível pela diferença muito grande de massa entre os dois corpos.
 
-A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se da por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M [@bate1971; @murray2000]. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas $r$ e $\nu$ se da por: 
+A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se dá por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M [@bate1971; @murray2000]. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas $r$ e $\nu$ se da por: 
 
 $$ r = \frac{p}{1 + e \space cos \nu} $$
 
 Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maior e $e$ a excentricidade.
 
-## 5.1 Elementos Orbitais Clássicos
+## 6.1 Elementos Orbitais Clássicos
 
 Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita [@bate1971].
 
@@ -176,14 +241,18 @@ Os seis parâmetros são:
 
 - Argumento do Perigeu ($ω$)
 
-- Anomalia Verdadeira ($ν$) ou Anomalia Média ($M_0$ para um tempo $T_0$)
+- Anomalia Verdadeira ($ν$), Anomalia Excêntrica ($E$) ou Anomalia Média ($M_0$ para um tempo $T_0$)
 
 
 A partir dos próximos subtópicos cada um dos elementos orbitais será explicado e exemplificado por imagens.
 
 ### Semieixo maior $a$
 
-O semieixo maior $a$ é a definição do tamanho da órbita, mostrado na (@fig-semieixomaior)
+O semieixo maior $a$ é a definição do tamanho da órbita, mostrado na (@fig-semieixomaior). Ele é a metade da distância do periastro (ponto mais próximo) e o apogeu (ponto mais distante).
+
+$$
+a = - \frac{\mu}{2 \epsilon}
+$$
 
 ![Semieixo maior $a$.](Imagens/Semieixo%20maior.jpg){width=50% #fig-semieixomaior}
 
@@ -191,36 +260,80 @@ O semieixo maior $a$ é a definição do tamanho da órbita, mostrado na (@fig-s
 
 Como já comentado tópicos atrás, a excentricidade $e$ define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de $e$, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita degenera para uma elipse. Como mostrado na (@fig-excentricidade)
 
+$$
+e = |\frac{1}{\mu}[(v^2 - \frac{\mu}{r})r - (r \cdot v)v]|
+$$
+
 ![Excentricidade.](Imagens/Excentricidade.jpg){#fig-excentricidade}
 
 ### Inclinação $i$
 
-É o angulo entre o plano equatorial e o plano orbital, representado na (@fig-inclinação)
+Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na @fig-inclinação.
+
+$$
+i = arccos (\frac{h_{z}}{h})
+$$
 
 ![Inclinação.](Imagens/Inclina%C3%A7%C3%A3o.jpg){width=50% #fig-inclinação}
 
 ### Ascensão Reta do Nodo Ascendente $Ω$
 
-Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o corpo orbitador cruza o equador em direção ao Norte (nodo ascendente), como mostra a (@fig-bigomega)
+Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o corpo orbitador cruza o equador em direção ao Norte (nodo ascendente), como mostra a (@fig-bigomega). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.
+
+$$
+cos(\Omega) = \frac{n_{x}}{|n|}
+$$
 
 ![Ascensão Reta do Nodo Ascendente $\Omega$.](Imagens/Big%20Omega.jpg){width=50% #fig-bigomega}
 
 ### Argumento do Perigeu $ω$
 
-O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o periastro. Pode ser observado na (@fig-omega)
+O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o periastro. Pode ser observado na (@fig-omega). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.
+
+$$
+cos(\omega) = \frac{n \cdot e}{|n||e|}
+$$
 
 ![Argumento do Perigeu $\omega$.](Imagens/Omega.jpg){width=50% #fig-omega}
 
 ### Anomalia Verdadeira $ν$
 
-É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do periastro até a posição do corpo que orbita. Como mostrado na (@fig-anomaliaverdadeira)
+É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do periastro até a posição do corpo que orbita. Como mostrado na (@fig-anomaliaverdadeira). Ou seja, dado ponto de início $0 \degree$, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo $\omega$.
+
+$$
+cos(\nu) = \frac{e \cdot r}{|e||r|}
+$$
 
 ![Anomalia Verdadeira $\nu$.](Imagens/Anomalia%20Verdadeira.jpg){width=50% #fig-anomaliaverdadeira}
+
+### Anomalia Excêntrica ($E$)
+A Anomalia Excêntrica ($E$) é um parâmetro angular auxiliar utilizado para facilitar a transição entre a geometria de uma elipse e o movimento temporal de um satélite.
+
+$$
+tan(\frac{E}{2}) = \sqrt{\frac{1-e}{1+e}} tan(\frac{nu}{2})
+$$
 
 ### Anomalia Média $M$
 
 É uma medida angular que representa uma fração de deslocamento do astro que orbita, desde sua ultima passagem pelo periastro, ou seja, é como se fosse a Anomalia verdadeira, mas assumindo uma velocidade angular constante.
 
+$$
+M = E - e sen(E)
+$$
 
+# ?. Glossário
+- Elipse:
+- Cônicas: 
+- Período orbital:
+- Array:
+- Matriz:
+- Aceleração centrípeta:
+- Raio orbital:
+- Velocidade orbital:
+- Periastro:
+- Apoastro:
+
+
+# Bibliografia
 
 
