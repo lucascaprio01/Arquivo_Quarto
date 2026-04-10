@@ -312,7 +312,7 @@ Figure&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2">
 <h2 class="anchored" data-anchor-id="primeira-simulação">4.3. Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="5ed4d98a" class="cell" data-execution_count="1">
+<div id="dbcafe6a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -404,8 +404,75 @@ k = \frac{4 \pi^2}{G M}
 F_{g} = G \frac{M m}{R^2}
 \tag{8}\]</span></span></p>
 </section>
+<section id="introdução-às-coordenadas-equatoriais" class="level1">
+<h1>6. Introdução às Coordenadas Equatoriais</h1>
+<p>O intuito deste tópico é a introdução das coordenadas equatorias, porém, para uma compreensão mais completa, é interessante ter a noção de coordenadas esféricas fresca na mente.</p>
+<section id="coordenadas-esféricas" class="level2">
+<h2 class="anchored" data-anchor-id="coordenadas-esféricas">6.1 Coordenadas Esféricas</h2>
+<p>O sistema de coordenadas esféricas é uma forma alternativa de se definir coordenadas que se diferem das coordenadas cartesianas <span class="math inline">\((x,y,z)\)</span>. Esse novo sistema utiliza uma distância radial <span class="math inline">\(r\)</span> e dois ângulos auxiliares, <span class="math inline">\(\theta\)</span> e <span class="math inline">\(\phi\)</span>, a fim de varrer uma superfície esférica de tamanho variável.</p>
+<p>Como é possível observar na imagem, temos um ponto <span class="math inline">\(P\)</span> que é descrito por um segmento de reta, <span class="math inline">\(r\)</span>, centrado na origem, e dois ângulos auxiliares que o orientam, <span class="math inline">\(\theta\)</span>, o ângulo polar, e <span class="math inline">\(\phi\)</span>, o ângulo azimutal.</p>
+<div id="fig-coordesf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coordesf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Coordenadas esféricas.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coordesf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Coordenadas esféricas exemplificadas: <span class="math inline">\(r\)</span>=distância radial, <span class="math inline">\(\theta\)</span>=ângulo polar e <span class="math inline">\(\phi\)</span>=ângulo azimutal.
+</figcaption>
+</figure>
+</div>
+<p>A transformação das coordenadas cartesianas para as coordenadas esféricas se dá por</p>
+<p><span class="math display">\[
+x = r \space \text{sen} \space \theta \cos{\phi}
+\]</span></p>
+<p><span class="math display">\[
+y= r \space \text{sen} \space \theta \space \text{sen} \phi
+\]</span></p>
+<p><span class="math display">\[
+z=r \cos{\theta}
+\]</span></p>
+</section>
+<section id="coordenadas-equatoriais" class="level2">
+<h2 class="anchored" data-anchor-id="coordenadas-equatoriais">6.2 Coordenadas Equatoriais</h2>
+<p>O sistema de coordenadas equatorial, por sua vez, utiliza uma base muito parecida com o sistema de coordenadas esféricas genérico. Entretanto este sistema faz uso de outras denominações e intervalos, além do referencial fixo nas estrelas distantes.</p>
+<p>Para este sistema será utilizado como base o conceito de <strong>esfera celeste</strong>. A esfera celeste é um globo fictício de raio indefinido, onde todos os astros que estão distantes o suficiente da Terra para criar uma ilusão de que estão parados são planificados de forma a perder a noção de profundidade entre eles e estampados na superfície interior da esfera fictícia.</p>
+<div id="fig-esfceleste" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-esfceleste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Esfera celeste.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esfceleste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Esfera Celeste: Um globo fictício com todos os astros distantes estampados na face interior, contendo a Terra dentro.
+</figcaption>
+</figure>
+</div>
+<p>Outro conceito utilizado como referência é o <strong>plano equatorial</strong>. O plano equatorial é um plano fictício perpendicular ao eixo de rotação da Terra, de forma a estar centralizada no meio da mesma.</p>
+<div id="fig-planoequatorial" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-planoequatorial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Plano equatorial.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-planoequatorial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Plano equatorial: Plano fictício perpendicular ao eixo de rotação da Terra e centralizado na mesma.
+</figcaption>
+</figure>
+</div>
+<p>Outras duas referências utilizadas é a <strong>eclíptica</strong> e o <strong>ponto vernal</strong>. A eclíptica é outro plano fixo, porém utilizando como base a translação dos planetas, tendo em vista que todos eles giram quase perfeitamente no mesmo plano. Já o ponto vernal (<span class="math inline">\(\gamma\)</span>) é a intersecção entre a eclíptica e o equador celeste, ocorrendo quando o Sol passa do hemisfério sul para o norte, por volta de 20 a 21 de março.</p>
+<p>Finalmente, podemos definir os parâmetros variáveis utilizados pelo sistema de coordenadas equatorial. Neste sistema, tomando fixa uma estrela qualquer <span class="math inline">\(P\)</span>, temos a Ascensão Reta (AR), que é o ângulo, na direção do equador celeste, formado pelo meridiano onde está o ponto vernal e o meridiano onde está a estrela <span class="math inline">\(P\)</span>; e a Declinação (<span class="math inline">\(\delta\)</span>), que é o ângulo, na direção do meridiano, formado pelo Equador e o paralelo onde está a estrela.</p>
+<div id="fig-sistemaequatorial" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sistemaequatorial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Sistema Equatorial.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sistemaequatorial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Esquematização dos parâmetros variáveis do referêncial equatorial: AR-Ascensão Reta e <span class="math inline">\(\delta\)</span>-Declinação.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
 <section id="órbitas-keplerianas" class="level1">
-<h1>6. Órbitas Keplerianas</h1>
+<h1>7. Órbitas Keplerianas</h1>
 <p>A partir deste tópico, cursar ou estar cursando uma graduação de exatas, pode ser de extrema ajuda para entender com mais facilidade os conteúdos, porém, novamente, não é de fato um requisito, sintam-se a vontade para se desafiar.</p>
 <p>O ponto de partida para entender a dinâmica orbital é o problema de dois corpos. Esse sistema consiste em um corpo esférico central (Terra) de massa = <span class="math inline">\(M\)</span> e um satélite (ISS) de massa = <span class="math inline">\(m\)</span>, onde temos a condição <span class="math inline">\(M &gt;&gt; m\)</span>. Com a atração gravitacional (<span class="math inline">\(F_g\)</span>) sendo a única força atuante no sistema e <span class="math inline">\(G\)</span> como constante gravitacional, dada pela seguinte equação, retirada de <span class="citation" data-cites="curtis2013">CURTIS (<a href="#ref-curtis2013" role="doc-biblioref">2013</a>)</span>:</p>
 <p><span id="eq-Força-G"><span class="math display">\[
@@ -419,7 +486,7 @@ F_{g} = G \frac{M m}{R^2}
 <img src="Imagens\Esquema1.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esquemap2c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Esquema do problema de dois corpos
+Figure&nbsp;12: Esquema do problema de dois corpos
 </figcaption>
 </figure>
 </div>
@@ -432,7 +499,7 @@ Figure&nbsp;8: Esquema do problema de dois corpos
 <p><span class="math display">\[ r = \frac{p}{1 + e \space cos \nu} \]</span></p>
 <p>Sendo, <span class="math inline">\(p\)</span> = <span class="math inline">\(a(1-e^2)\)</span> o semi-latus rectum, <span class="math inline">\(a\)</span> o comprimento do semi eixo maior e <span class="math inline">\(e\)</span> a excentricidade.</p>
 <section id="elementos-orbitais-clássicos" class="level2">
-<h2 class="anchored" data-anchor-id="elementos-orbitais-clássicos">6.1 Elementos Orbitais Clássicos</h2>
+<h2 class="anchored" data-anchor-id="elementos-orbitais-clássicos">7.1 Elementos Orbitais Clássicos</h2>
 <p>Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita <span class="citation" data-cites="bate1971">(<a href="#ref-bate1971" role="doc-biblioref">BATE 1971</a>)</span>.</p>
 <p>Os seis parâmetros são:</p>
 <ul>
@@ -446,7 +513,7 @@ Figure&nbsp;8: Esquema do problema de dois corpos
 <p>A partir dos próximos subtópicos cada um dos elementos orbitais será explicado e exemplificado por imagens.</p>
 <section id="semieixo-maior-a" class="level3">
 <h3 class="anchored" data-anchor-id="semieixo-maior-a">Semieixo maior <span class="math inline">\(a\)</span></h3>
-<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;9</a>). Ele é a metade da distância do perigeu (ponto mais próximo) e o apogeu (ponto mais distante).</p>
+<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;13</a>). Ele é a metade da distância do perigeu (ponto mais próximo) e o apogeu (ponto mais distante).</p>
 <p><span class="math display">\[
 a = - \frac{\mu}{2 \epsilon}
 \]</span></p>
@@ -456,14 +523,14 @@ a = - \frac{\mu}{2 \epsilon}
 <img src="Imagens/Semieixo maior.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-semieixomaior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: Semieixo maior <span class="math inline">\(a\)</span>.
+Figure&nbsp;13: Semieixo maior <span class="math inline">\(a\)</span>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="excentricidade-e" class="level3">
 <h3 class="anchored" data-anchor-id="excentricidade-e">Excentricidade <span class="math inline">\(e\)</span></h3>
-<p>Como já comentado tópicos atrás, a excentricidade <span class="math inline">\(e\)</span> define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de <span class="math inline">\(e\)</span>, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (<a href="#fig-excentricidade" class="quarto-xref">Figure&nbsp;10</a>)</p>
+<p>Como já comentado tópicos atrás, a excentricidade <span class="math inline">\(e\)</span> define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de <span class="math inline">\(e\)</span>, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (<a href="#fig-excentricidade" class="quarto-xref">Figure&nbsp;14</a>)</p>
 <p><span class="math display">\[
 e = |\frac{1}{\mu}[\left(v^2 - \frac{\mu}{r}\right)r - (\vec{r} \cdot \vec{v})v]|
 \]</span></p>
@@ -473,14 +540,14 @@ e = |\frac{1}{\mu}[\left(v^2 - \frac{\mu}{r}\right)r - (\vec{r} \cdot \vec{v})v]
 <img src="Imagens/Excentricidade.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-excentricidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: Excentricidade.
+Figure&nbsp;14: Excentricidade.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="inclinação-i" class="level3">
 <h3 class="anchored" data-anchor-id="inclinação-i">Inclinação <span class="math inline">\(i\)</span></h3>
-<p>Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na <a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;11</a>.</p>
+<p>Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na <a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;15</a>.</p>
 <p><span class="math display">\[
 i = \arccos{ \left(\frac{h_{z}}{h}\right)}
 \]</span></p>
@@ -490,14 +557,14 @@ i = \arccos{ \left(\frac{h_{z}}{h}\right)}
 <img src="Imagens/Inclinacao.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inclinação-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11: Inclinação.
+Figure&nbsp;15: Inclinação.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="ascensão-reta-do-nodo-ascendente-ω" class="level3">
 <h3 class="anchored" data-anchor-id="ascensão-reta-do-nodo-ascendente-ω">Ascensão Reta do Nodo Ascendente <span class="math inline">\(Ω\)</span></h3>
-<p>Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde a Terra cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;12</a>). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.</p>
+<p>Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde a Terra cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;16</a>). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.</p>
 <p><span class="math display">\[
 \cos{(\Omega)} = \frac{n_{x}}{|n|}
 \]</span></p>
@@ -507,14 +574,14 @@ Figure&nbsp;11: Inclinação.
 <img src="Imagens/Big Omega.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bigomega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: Ascensão Reta do Nodo Ascendente <span class="math inline">\(\Omega\)</span>.
+Figure&nbsp;16: Ascensão Reta do Nodo Ascendente <span class="math inline">\(\Omega\)</span>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="argumento-do-perigeu-ω" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-do-perigeu-ω">Argumento do Perigeu <span class="math inline">\(ω\)</span></h3>
-<p>O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;13</a>). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.</p>
+<p>O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;17</a>). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.</p>
 <p><span class="math display">\[
 \cos{(\omega)} = \frac{n \cdot e}{|n||e|}
 \]</span></p>
@@ -524,14 +591,14 @@ Figure&nbsp;12: Ascensão Reta do Nodo Ascendente <span class="math inline">\(\O
 <img src="Imagens/Omega.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-omega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13: Argumento do Perigeu <span class="math inline">\(\omega\)</span>.
+Figure&nbsp;17: Argumento do Perigeu <span class="math inline">\(\omega\)</span>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="anomalia-verdadeira-ν" class="level3">
 <h3 class="anchored" data-anchor-id="anomalia-verdadeira-ν">Anomalia Verdadeira <span class="math inline">\(ν\)</span></h3>
-<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do perigeu até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;14</a>). Ou seja, dado ponto de início <span class="math inline">\(0 \degree\)</span>, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo <span class="math inline">\(\omega\)</span>.</p>
+<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do perigeu até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;18</a>). Ou seja, dado ponto de início <span class="math inline">\(0 \degree\)</span>, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo <span class="math inline">\(\omega\)</span>.</p>
 <p><span class="math display">\[
 \cos{(\nu)} = \frac{\vec{e} \cdot \vec{r}}{|e||r|}
 \]</span></p>
@@ -541,7 +608,7 @@ Figure&nbsp;13: Argumento do Perigeu <span class="math inline">\(\omega\)</span>
 <img src="Imagens/Anomalia Verdadeira.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anomaliaverdadeira-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14: Anomalia Verdadeira <span class="math inline">\(\nu\)</span>.
+Figure&nbsp;18: Anomalia Verdadeira <span class="math inline">\(\nu\)</span>.
 </figcaption>
 </figure>
 </div>

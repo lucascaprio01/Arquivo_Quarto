@@ -193,7 +193,48 @@ $$
 F_{g} = G \frac{M m}{R^2} 
 $$ {#eq-leigravitação}
 
-# 6. Órbitas Keplerianas 
+# 6. Introdução às Coordenadas Equatoriais
+O intuito deste tópico é a introdução das coordenadas equatorias, porém, para uma compreensão mais completa, é interessante ter a noção de coordenadas esféricas fresca na mente.
+
+## 6.1 Coordenadas Esféricas
+O sistema de coordenadas esféricas é uma forma alternativa de se definir coordenadas que se diferem das coordenadas cartesianas $(x,y,z)$. Esse novo sistema utiliza uma distância radial $r$ e dois ângulos auxiliares, $\theta$ e $\phi$, a fim de varrer uma superfície esférica de tamanho variável.
+
+Como é possível observar na imagem, temos um ponto $P$ que é descrito por um segmento de reta, $r$, centrado na origem, e dois ângulos auxiliares que o orientam, $\theta$, o ângulo polar, e $\phi$, o ângulo azimutal.
+
+![Coordenadas esféricas exemplificadas: $r$=distância radial, $\theta$=ângulo polar e $\phi$=ângulo azimutal.](Imagens/Coordenadas%20esf%C3%A9ricas.png){width="70%" #fig-coordesf}
+
+A transformação das coordenadas cartesianas para as coordenadas esféricas se dá por
+
+$$
+x = r \space \text{sen} \space \theta \cos{\phi} 
+$$
+
+$$
+y= r \space \text{sen} \space \theta \space \text{sen} \phi
+$$
+
+$$
+z=r \cos{\theta}
+$$
+
+## 6.2 Coordenadas Equatoriais
+O sistema de coordenadas equatorial, por sua vez, utiliza uma base muito parecida com o sistema de coordenadas esféricas genérico. Entretanto este sistema faz uso de outras denominações e intervalos, além do referencial fixo nas estrelas distantes.
+
+Para este sistema será utilizado como base o conceito de **esfera celeste**. A esfera celeste é um globo fictício de raio indefinido, onde todos os astros que estão distantes o suficiente da Terra para criar uma ilusão de que estão parados são planificados de forma a perder a noção de profundidade entre eles e estampados na superfície interior da esfera fictícia.
+
+![Esfera Celeste: Um globo fictício com todos os astros distantes estampados na face interior, contendo a Terra dentro.](Imagens/Esfera%20celeste.png){width="70%" #fig-esfceleste}
+
+Outro conceito utilizado como referência é o **plano equatorial**. O plano equatorial é um plano fictício perpendicular ao eixo de rotação da Terra, de forma a estar centralizada no meio da mesma.
+
+![Plano equatorial: Plano fictício perpendicular ao eixo de rotação da Terra e centralizado na mesma.](Imagens/Plano%20equatorial.png){width="70%" #fig-planoequatorial}
+
+Outras duas referências utilizadas é a **eclíptica** e o **ponto vernal**. A eclíptica é outro plano fixo, porém utilizando como base a translação dos planetas, tendo em vista que todos eles giram quase perfeitamente no mesmo plano. Já o ponto vernal ($\gamma$) é a intersecção entre a eclíptica e o equador celeste, ocorrendo quando o Sol passa do hemisfério sul para o norte, por volta de 20 a 21 de março.
+
+Finalmente, podemos definir os parâmetros variáveis utilizados pelo sistema de coordenadas equatorial. Neste sistema, tomando fixa uma estrela qualquer $P$, temos a Ascensão Reta (AR), que é o ângulo, na direção do equador celeste, formado pelo meridiano onde está o ponto vernal e o meridiano onde está a estrela $P$; e a Declinação ($\delta$), que é o ângulo, na direção do meridiano, formado pelo Equador e o paralelo onde está a estrela.
+
+![Esquematização dos parâmetros variáveis do referêncial equatorial: AR-Ascensão Reta e  $\delta$-Declinação.](Imagens/Sistema%20Equatorial.png){width="70%" #fig-sistemaequatorial}
+
+# 7. Órbitas Keplerianas 
 
 A partir deste tópico, cursar ou estar cursando uma graduação de exatas, pode ser de extrema ajuda para entender com mais facilidade os conteúdos, porém, novamente, não é de fato um requisito, sintam-se a vontade para se desafiar.
 
@@ -225,7 +266,7 @@ $$ r = \frac{p}{1 + e \space cos \nu} $$
 
 Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maior e $e$ a excentricidade.
 
-## 6.1 Elementos Orbitais Clássicos
+## 7.1 Elementos Orbitais Clássicos
 
 Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita [@bate1971].
 
