@@ -31,11 +31,11 @@ O modelo de Tycho era inspirado no modelo de Ptolomeu, a Terra estava no centro 
 
 Porém, como todos os cidadãos brasileiros que passaram pela educação básica brasileira sabem — ou pelo menos deveriam saber — todos os modelos cometem o mesmo erro: as órbitas circulares. Foi daí que surgiu a grande sacada de Kepler, munido do grandioso arsenal de observações de Tycho Brahe, que por sua vez era excepcional em fazer e registrar as mesmas, abandonou as órbitas circulares e percebeu que as órbitas na verdade descreviam elipses, uma curva oval. Esse ato de Kepler, além de genial, foi de extrema coragem, tendo em vista que as órbitas circulares prevaleciam desde a época de Platão e Aristóteles (século V a. C.).
 
-![Modelo de Kepler. Fonte: Murray 2000.](Imagens\Kepler.png){width="70%" #fig-ModeloKepler}
+![Modelo de Kepler. Fonte: @mysteriumkepler.](Imagens\Kepler.png){width="50%" #fig-ModeloKepler}
 
 Com essa mudança de perspectiva, Kepler originou suas três Leis que, por sua vez, descreviam os movimentos elípticos das órbitas planetárias. Sendo a primeira lei, a Lei das órbitas, a segunda, a Lei das Áreas e por último, mas não menos importante, a terceira lei, a Lei dos Períodos.
 
-# 3. Leis de Kepler (educação básica)
+# 3. Leis de Kepler
 
 Todas as 3 Leis utilizaram [@halliday&resnick2012] como referência.
 
@@ -194,7 +194,7 @@ F_{g} = G \frac{M m}{R^2}
 $$ {#eq-leigravitação}
 
 # 6. Introdução às Coordenadas Equatoriais
-O intuito deste tópico é a introdução das coordenadas equatorias, porém, para uma compreensão mais completa, é interessante ter a noção de coordenadas esféricas fresca na mente.
+O intuito deste tópico é a introdução das coordenadas equatorias, baseadas em @boczko, porém, para uma compreensão mais completa, é interessante ter a noção de coordenadas esféricas fresca na mente.
 
 ## 6.1 Coordenadas Esféricas
 O sistema de coordenadas esféricas é uma forma alternativa de se definir coordenadas que se diferem das coordenadas cartesianas $(x,y,z)$. Esse novo sistema utiliza uma distância radial $r$ e dois ângulos auxiliares, $\theta$ e $\phi$, a fim de varrer uma superfície esférica de tamanho variável.
@@ -207,22 +207,22 @@ A transformação das coordenadas cartesianas para as coordenadas esféricas se 
 
 $$
 x = r \space \text{sen} \space \theta \cos{\phi} 
-$$
+$$ {#eq-xtrans}
 
 $$
 y= r \space \text{sen} \space \theta \space \text{sen} \phi
-$$
+$$ {#eq-ytrans}
 
 $$
 z=r \cos{\theta}
-$$
+$$ {#eq-ztrans}
 
 ## 6.2 Coordenadas Equatoriais
 O sistema de coordenadas equatorial, por sua vez, utiliza uma base muito parecida com o sistema de coordenadas esféricas genérico. Entretanto este sistema faz uso de outras denominações e intervalos, além do referencial fixo nas estrelas distantes.
 
 Para este sistema será utilizado como base o conceito de **esfera celeste**. A esfera celeste é um globo fictício de raio indefinido, onde todos os astros que estão distantes o suficiente da Terra para criar uma ilusão de que estão parados são planificados de forma a perder a noção de profundidade entre eles e estampados na superfície interior da esfera fictícia.
 
-![Esfera Celeste: Um globo fictício com todos os astros distantes estampados na face interior, contendo a Terra dentro.](Imagens/Esfera%20celeste.png){width="70%" #fig-esfceleste}
+![Esfera Celeste: Um globo fictício com todos os astros distantes estampados na superfície interior, contendo a Terra dentro.](Imagens/Esfera%20celeste.png){width="70%" #fig-esfceleste}
 
 Outro conceito utilizado como referência é o **plano equatorial**. O plano equatorial é um plano fictício perpendicular ao eixo de rotação da Terra, de forma a estar centralizada no meio da mesma.
 
@@ -233,6 +233,8 @@ Outras duas referências utilizadas é a **eclíptica** e o **ponto vernal**. A 
 Finalmente, podemos definir os parâmetros variáveis utilizados pelo sistema de coordenadas equatorial. Neste sistema, tomando fixa uma estrela qualquer $P$, temos a Ascensão Reta (AR), que é o ângulo, na direção do equador celeste, formado pelo meridiano onde está o ponto vernal e o meridiano onde está a estrela $P$; e a Declinação ($\delta$), que é o ângulo, na direção do meridiano, formado pelo Equador e o paralelo onde está a estrela.
 
 ![Esquematização dos parâmetros variáveis do referêncial equatorial: AR-Ascensão Reta e  $\delta$-Declinação.](Imagens/Sistema%20Equatorial.png){width="70%" #fig-sistemaequatorial}
+
+![Esquematização dos parâmetros variáveis nas coordenadas geográficas.](Imagens/Coordenadas%20Geogr%C3%A1ficas.png){width="70%" #fig-coorgeo}
 
 # 7. Órbitas Keplerianas 
 
@@ -262,11 +264,32 @@ e temos $\mu$ = $G(M + m) \approx GM$ como parâmetro gravitacional, com essa ap
 
 A solução desta equação diferencial vetorial é o movimento do satélite em um plano fixo (plano orbital), e sua trajetória se dá por uma das seções cônicas (círculo, elipse, parábola ou hipérbole), tendo como um dos focos a massa central M [@bate1971; @murray2000]. Como este portfólio utiliza em específico um satélite com órbita fechada, a solução do mesmo é uma elipse com o centro de massa presente em um dos focos. A equação da órbita elíptica nas coordenadas $r$ e $\nu$ se da por: 
 
-$$ r = \frac{p}{1 + e \space cos \nu} $$
+$$ r = \frac{p}{1 + e \space cos \nu} $$ {#eq-r}
 
 Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maior e $e$ a excentricidade.
 
-## 7.1 Elementos Orbitais Clássicos
+## 7.1 Tipos de órbitas
+Agora, por questão de curiosidade, faremos uma breve introdução aos principais tipos de órbitas terrestres. Para basear este material, utilizamos como referência @esa e @vallado2013.
+
+#### LEO (Low Earth Orbits)
+É o principal tipo de órbita estudado neste portfólio, pois se trata da órbita que a Estação Espacial Internacional realiza. Como seu próprio nome sugere, essa órbita precisa ser próxima da Terra, com o limite superior de $2000 \text{Km}$ e limite inferior de $180 \text{Km}$, que é, aproximadamente, o mínimo de altitude que um satélite pode orbitar sem ocasionar na colisão com a Terra. Além da ISS, outro satélite famoso que desempenha uma órbita LEO, é o telescópio espacial Hubble.
+
+#### GEO (Geostationary Orbits)
+É uma órbita que fica específicamente em cima do equador Terrestre. Ela possui a característica de estar sincronizada com o movimento de rotação da Terra, por isso o nome Geoestacionária, o que implica em uma velocidade específica de $3 \space \text{Km/s}$. Sua altitude também é mantida fixa, sendo de $35.786 \space \text{Km}$. Ela é muito utilizada para satélites que precisam ficar parados em uma posição, como redes de comunicação.
+
+#### MEO (Medium Earth Orbits)
+As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas ($2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}$). Como a LEO, ela não precisa ter rotas específicas.
+
+#### Órbita Polar (OP)
+As órbitas polares são baixas em altitude e possuem uma inclinação ($i$) muito elevada, fazendo com que passem muito próximo ou exatamente em cima dos Polos Norte e Sul. Para ser classificada como uma órbita polar, é aceito um desvio de até $10 \degree$ dos Polos. São excelentes tipos de órbitas para rastreio terrestre.
+
+#### Órbita Síncrona com o Sol (SSO)
+São órbitas, com alta inclinação ($i$), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres.
+
+#### Órbita Molniya
+São órbitas que possuem inclinação ($i$) de $63,4 \degree$, são altamente elípticas, ou seja, possuem uma excentricidade ($e$) elevada, com a Terra em um dos seus focos. Ela possui um período orbital específico de meio dia sideral, logo dão duas voltas ao redor da Terra por dia. São órbitas muito utilizadas para redes de comunicação, principalmente nas áreas em que as GEOs não conseguem cobrir.
+
+## 7.2 Elementos Orbitais Clássicos
 
 Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita [@bate1971].
 
@@ -293,19 +316,19 @@ O semieixo maior $a$ é a definição do tamanho da órbita, mostrado na (@fig-s
 
 $$
 a = - \frac{\mu}{2 \epsilon}
-$$
+$$ {#eq-semieixomaior}
 
 ![Semieixo maior $a$.](Imagens/Semieixo%20maior.png){width=100% #fig-semieixomaior}
 
 ### Excentricidade $e$
 
-Como já comentado tópicos atrás, a excentricidade $e$ define o formato da órbita, no caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de $e$, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (@fig-excentricidade)
+Como já comentado tópicos atrás, a excentricidade $e$ define o formato da órbita. No caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de $e$, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (@fig-excentricidade).
 
 $$
 e = |\frac{1}{\mu}[\left(v^2 - \frac{\mu}{r}\right)r - (\vec{r} \cdot \vec{v})v]|
-$$
+$$ {#eq-excentricidade}
 
-![Excentricidade.](Imagens/Excentricidade.png){#fig-excentricidade}
+![Esquema de excentricidades, uma circular e uma elíptica.](Imagens/Excentricidade.png){#fig-excentricidade}
 
 ### Inclinação $i$
 
@@ -313,29 +336,29 @@ Tendo um plano fixo de referência, que, geralmente, é o plano do equador terre
 
 $$
 i = \arccos{ \left(\frac{h_{z}}{h}\right)}
-$$
+$$ {#eq-inclinacao}
 
-![Inclinação.](Imagens/Inclinacao.png){width=100% #fig-inclinação}
+![Esquematização da órbita com inclinação em relação ao plano equatorial.](Imagens/Inclinacao.png){width=100% #fig-inclinação}
 
 ### Ascensão Reta do Nodo Ascendente $Ω$
 
-Também conhecido como Big omega, ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde a Terra cruza o equador em direção ao Norte (nodo ascendente), como mostra a (@fig-bigomega). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.
+Também conhecido como Big omega ($\Omega$), ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o satélite cruza o equador em direção ao Norte (nodo ascendente), como mostra a (@fig-bigomega). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.
 
 $$
 \cos{(\Omega)} = \frac{n_{x}}{|n|}
-$$
+$$ {#eq-bigomega}
 
-![Ascensão Reta do Nodo Ascendente $\Omega$.](Imagens/Big%20Omega.png){width=100% #fig-bigomega}
+![Equematização que mostra a Ascensão Reta do Nodo Ascendente $\Omega$ da órbita e o Nodo Ascendente, em relação ao plano equatorial.](Imagens/Big%20Omega.png){width=100% #fig-bigomega}
 
 ### Argumento do Perigeu $ω$
 
-O argumento do perigeu, ou omega, é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (@fig-omega). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.
+O argumento do perigeu, ou omega ($\omega$), é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (@fig-omega). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.
 
 $$
 \cos{(\omega)} = \frac{n \cdot e}{|n||e|}
-$$
+$$ {#eq-omega}
 
-![Argumento do Perigeu $\omega$.](Imagens/Omega.png){width=100% #fig-omega}
+![Esquematização do Argumento do Perigeu $\omega$ da órbita e do Nodo Ascendente, em relação ao plano equatorial.](Imagens/Omega.png){width=100% #fig-omega}
 
 ### Anomalia Verdadeira $ν$
 
@@ -343,9 +366,9 @@ $$
 
 $$
 \cos{(\nu)} = \frac{\vec{e} \cdot \vec{r}}{|e||r|}
-$$
+$$ {#eq-anomaliaverdadeira}
 
-![Anomalia Verdadeira $\nu$.](Imagens/Anomalia%20Verdadeira.png){width=100% #fig-anomaliaverdadeira}
+![Esquematização da Anomalia Verdadeira, $\nu$, da órbita, partindo do argumento do Perigeu, em relação ao plano equatorial.](Imagens/Anomalia%20Verdadeira.png){width="100%" #fig-anomaliaverdadeira}
 
 
 
@@ -354,7 +377,9 @@ A Anomalia Excêntrica ($E$) é um parâmetro angular auxiliar utilizado para fa
 
 $$
 \tan{\left( \frac{E}{2} \right)} = \sqrt{\frac{1-e}{1+e}} \tan{\left(\frac{\nu}{2}\right)}
-$$
+$$ {#eq-anomaliaexcentrica}
+
+![Esquematização da Anomalia Excêntrica ($E$) da órbita, em relação com a Anomalia Verdadeira.](Imagens/Anomalia%20Excentrica.png){ #fig-anomaliaexcentrica}
 
 ### Anomalia Média $M$
 
@@ -362,7 +387,7 @@ A Anomalia Média é uma representação da Anomalia Verdadeira, assumindo uma v
 
 $$
 M = E - e \space \text{sen}(E)
-$$
+$$ {#eq-anomaliamedia}
 
 # ?. Glossário
 - Elipse:
