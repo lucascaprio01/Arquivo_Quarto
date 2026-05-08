@@ -312,7 +312,7 @@ Figure&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2">
 <h2 class="anchored" data-anchor-id="primeira-simulação">4.3. Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="5de118b7" class="cell" data-execution_count="1">
+<div id="66984054" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -514,26 +514,96 @@ Figure&nbsp;13: Esquema do problema de dois corpos
 <section id="leo-low-earth-orbits" class="level4">
 <h4 class="anchored" data-anchor-id="leo-low-earth-orbits">LEO (Low Earth Orbits)</h4>
 <p>É o principal tipo de órbita estudado neste portfólio, pois se trata da órbita que a Estação Espacial Internacional realiza. Como seu próprio nome sugere, essa órbita precisa ser próxima da Terra, com o limite superior de <span class="math inline">\(2000 \text{Km}\)</span> e limite inferior de <span class="math inline">\(180 \text{Km}\)</span>, que é, aproximadamente, o mínimo de altitude que um satélite pode orbitar sem ocasionar na colisão com a Terra. Além da ISS, outro satélite famoso que desempenha uma órbita LEO, é o telescópio espacial Hubble.</p>
+<div id="fig-LEO" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-LEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/LEO.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Esquema exemplo da LEO.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="geo-geostationary-orbits" class="level4">
 <h4 class="anchored" data-anchor-id="geo-geostationary-orbits">GEO (Geostationary Orbits)</h4>
 <p>É uma órbita que fica específicamente em cima do equador Terrestre. Ela possui a característica de estar sincronizada com o movimento de rotação da Terra, por isso o nome Geoestacionária, o que implica em uma velocidade específica de <span class="math inline">\(3 \space \text{Km/s}\)</span>. Sua altitude também é mantida fixa, sendo de <span class="math inline">\(35.786 \space \text{Km}\)</span>. Ela é muito utilizada para satélites que precisam ficar parados em uma posição, como redes de comunicação.</p>
+<div id="fig-GEO1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-GEO1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/GEO2.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-GEO1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Esquema exemplo da GEO
+</figcaption>
+</figure>
+</div>
+<div id="fig-GEO" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-GEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/GEO.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-GEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: Esquema mostrando a cobertura de um satélite em uma GEO.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="meo-medium-earth-orbits" class="level4">
 <h4 class="anchored" data-anchor-id="meo-medium-earth-orbits">MEO (Medium Earth Orbits)</h4>
 <p>As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas (<span class="math inline">\(2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}\)</span>). Como a LEO, ela não precisa ter rotas específicas.</p>
+<div id="fig-MEO" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-MEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/MEO.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17: Esquema exemplo da MEO.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="órbita-polar-op" class="level4">
 <h4 class="anchored" data-anchor-id="órbita-polar-op">Órbita Polar (OP)</h4>
 <p>As órbitas polares são baixas em altitude e possuem uma inclinação (<span class="math inline">\(i\)</span>) muito elevada, fazendo com que passem muito próximo ou exatamente em cima dos Polos Norte e Sul. Para ser classificada como uma órbita polar, é aceito um desvio de até <span class="math inline">\(10 \degree\)</span> dos Polos. São excelentes tipos de órbitas para rastreio terrestre.</p>
+<div id="fig-Polar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Polar.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18: Esquema exemplo da Órbita Polar.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="órbita-síncrona-com-o-sol-sso" class="level4">
 <h4 class="anchored" data-anchor-id="órbita-síncrona-com-o-sol-sso">Órbita Síncrona com o Sol (SSO)</h4>
 <p>São órbitas, com alta inclinação (<span class="math inline">\(i\)</span>), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres.</p>
+<div id="fig-SSO" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-SSO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/SSO.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-SSO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19: Esquema exemplo da Órbita SSO.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="órbita-molniya" class="level4">
 <h4 class="anchored" data-anchor-id="órbita-molniya">Órbita Molniya</h4>
 <p>São órbitas que possuem inclinação (<span class="math inline">\(i\)</span>) de <span class="math inline">\(63,4 \degree\)</span>, são altamente elípticas, ou seja, possuem uma excentricidade (<span class="math inline">\(e\)</span>) elevada, com a Terra em um dos seus focos. Ela possui um período orbital específico de meio dia sideral, logo dão duas voltas ao redor da Terra por dia. São órbitas muito utilizadas para redes de comunicação, principalmente nas áreas em que as GEOs não conseguem cobrir.</p>
+<div id="fig-Molniya" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Molniya-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Imagens/Molniya.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Molniya-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20: Esquema exemplo da Órbita Molniya.
+</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="elementos-orbitais-clássicos" class="level2">
@@ -551,7 +621,7 @@ Figure&nbsp;13: Esquema do problema de dois corpos
 <p>A partir dos próximos subtópicos cada um dos elementos orbitais será explicado e exemplificado por imagens.</p>
 <section id="semieixo-maior-a" class="level3">
 <h3 class="anchored" data-anchor-id="semieixo-maior-a">Semieixo maior <span class="math inline">\(a\)</span></h3>
-<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;14</a>). Ele é a metade da distância do perigeu (ponto mais próximo) e o apogeu (ponto mais distante).</p>
+<p>O semieixo maior <span class="math inline">\(a\)</span> é a definição do tamanho da órbita, mostrado na (<a href="#fig-semieixomaior" class="quarto-xref">Figure&nbsp;21</a>). Ele é a metade da distância do perigeu (ponto mais próximo) e o apogeu (ponto mais distante).</p>
 <p><span id="eq-semieixomaior"><span class="math display">\[
 a = - \frac{\mu}{2 \epsilon}
 \tag{15}\]</span></span></p>
@@ -561,14 +631,14 @@ a = - \frac{\mu}{2 \epsilon}
 <img src="Imagens/Semieixo maior.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-semieixomaior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14: Semieixo maior <span class="math inline">\(a\)</span>.
+Figure&nbsp;21: Semieixo maior <span class="math inline">\(a\)</span>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="excentricidade-e" class="level3">
 <h3 class="anchored" data-anchor-id="excentricidade-e">Excentricidade <span class="math inline">\(e\)</span></h3>
-<p>Como já comentado tópicos atrás, a excentricidade <span class="math inline">\(e\)</span> define o formato da órbita. No caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de <span class="math inline">\(e\)</span>, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (<a href="#fig-excentricidade" class="quarto-xref">Figure&nbsp;15</a>).</p>
+<p>Como já comentado tópicos atrás, a excentricidade <span class="math inline">\(e\)</span> define o formato da órbita. No caso específico das órbitas fechadas, quanto mais próximo de 0 o valor de <span class="math inline">\(e\)</span>, a órbita tende a um círculo, e quanto mais próximo de 1, a órbita tende a uma elipse com focos infinitos, ou seja, próximo de uma linha reta. Como mostrado na (<a href="#fig-excentricidade" class="quarto-xref">Figure&nbsp;22</a>).</p>
 <p><span id="eq-excentricidade"><span class="math display">\[
 e = |\frac{1}{\mu}[\left(v^2 - \frac{\mu}{r}\right)r - (\vec{r} \cdot \vec{v})v]|
 \tag{16}\]</span></span></p>
@@ -578,14 +648,14 @@ e = |\frac{1}{\mu}[\left(v^2 - \frac{\mu}{r}\right)r - (\vec{r} \cdot \vec{v})v]
 <img src="Imagens/Excentricidade.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-excentricidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15: Esquema de excentricidades, uma circular e uma elíptica.
+Figure&nbsp;22: Esquema de excentricidades, uma circular e uma elíptica.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="inclinação-i" class="level3">
 <h3 class="anchored" data-anchor-id="inclinação-i">Inclinação <span class="math inline">\(i\)</span></h3>
-<p>Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na <a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;16</a>.</p>
+<p>Tendo um plano fixo de referência, que, geralmente, é o plano do equador terrestre, no caso da Terra, é o ângulo entre esse plano referencial e o plano orbital. Assim medindo a inclinação da órbita, como na <a href="#fig-inclinação" class="quarto-xref">Figure&nbsp;23</a>.</p>
 <p><span id="eq-inclinacao"><span class="math display">\[
 i = \arccos{ \left(\frac{h_{z}}{h}\right)}
 \tag{17}\]</span></span></p>
@@ -595,14 +665,14 @@ i = \arccos{ \left(\frac{h_{z}}{h}\right)}
 <img src="Imagens/Inclinacao.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inclinação-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Esquematização da órbita com inclinação em relação ao plano equatorial.
+Figure&nbsp;23: Esquematização da órbita com inclinação em relação ao plano equatorial.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="ascensão-reta-do-nodo-ascendente-ω" class="level3">
 <h3 class="anchored" data-anchor-id="ascensão-reta-do-nodo-ascendente-ω">Ascensão Reta do Nodo Ascendente <span class="math inline">\(Ω\)</span></h3>
-<p>Também conhecido como Big omega (<span class="math inline">\(\Omega\)</span>), ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o satélite cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;17</a>). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.</p>
+<p>Também conhecido como Big omega (<span class="math inline">\(\Omega\)</span>), ele é o ângulo do equinócio vernal no plano equatorial até o ponto onde o satélite cruza o equador em direção ao Norte (nodo ascendente), como mostra a (<a href="#fig-bigomega" class="quarto-xref">Figure&nbsp;24</a>). Ou seja, dado um plano referencial fixo, o plano orbital gira na orientação do plano referencial, o que é medido por esse parâmetro.</p>
 <p><span id="eq-bigomega"><span class="math display">\[
 \cos{(\Omega)} = \frac{n_{x}}{|n|}
 \tag{18}\]</span></span></p>
@@ -612,14 +682,14 @@ Figure&nbsp;16: Esquematização da órbita com inclinação em relação ao pla
 <img src="Imagens/Big Omega.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bigomega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17: Equematização que mostra a Ascensão Reta do Nodo Ascendente <span class="math inline">\(\Omega\)</span> da órbita e o Nodo Ascendente, em relação ao plano equatorial.
+Figure&nbsp;24: Equematização que mostra a Ascensão Reta do Nodo Ascendente <span class="math inline">\(\Omega\)</span> da órbita e o Nodo Ascendente, em relação ao plano equatorial.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="argumento-do-perigeu-ω" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-do-perigeu-ω">Argumento do Perigeu <span class="math inline">\(ω\)</span></h3>
-<p>O argumento do perigeu, ou omega (<span class="math inline">\(\omega\)</span>), é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;18</a>). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.</p>
+<p>O argumento do perigeu, ou omega (<span class="math inline">\(\omega\)</span>), é o ângulo no plano orbital, do nodo ascendente até o ponto de maior aproximação do corpo central, o perigeu. Pode ser observado na (<a href="#fig-omega" class="quarto-xref">Figure&nbsp;25</a>). Ou seja, é o ângulo que mede o movimento da órbita ao girar em torno do plano orbital.</p>
 <p><span id="eq-omega"><span class="math display">\[
 \cos{(\omega)} = \frac{n \cdot e}{|n||e|}
 \tag{19}\]</span></span></p>
@@ -629,14 +699,14 @@ Figure&nbsp;17: Equematização que mostra a Ascensão Reta do Nodo Ascendente <
 <img src="Imagens/Omega.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-omega-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18: Esquematização do Argumento do Perigeu <span class="math inline">\(\omega\)</span> da órbita e do Nodo Ascendente, em relação ao plano equatorial.
+Figure&nbsp;25: Esquematização do Argumento do Perigeu <span class="math inline">\(\omega\)</span> da órbita e do Nodo Ascendente, em relação ao plano equatorial.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="anomalia-verdadeira-ν" class="level3">
 <h3 class="anchored" data-anchor-id="anomalia-verdadeira-ν">Anomalia Verdadeira <span class="math inline">\(ν\)</span></h3>
-<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do perigeu até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;19</a>). Ou seja, dado ponto de início <span class="math inline">\(0 \degree\)</span>, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo <span class="math inline">\(\omega\)</span>.</p>
+<p>É o ângulo que mede a posição real do satélite, medido do foco da elipse (corpo central), entre o ponto do perigeu até a posição do corpo que orbita. Como mostrado na (<a href="#fig-anomaliaverdadeira" class="quarto-xref">Figure&nbsp;26</a>). Ou seja, dado ponto de início <span class="math inline">\(0 \degree\)</span>, a anomalia verdadeira é o ângulo que mede a posição em relação ao início, que é dado pelo <span class="math inline">\(\omega\)</span>.</p>
 <p><span id="eq-anomaliaverdadeira"><span class="math display">\[
 \cos{(\nu)} = \frac{\vec{e} \cdot \vec{r}}{|e||r|}
 \tag{20}\]</span></span></p>
@@ -646,7 +716,7 @@ Figure&nbsp;18: Esquematização do Argumento do Perigeu <span class="math inlin
 <img src="Imagens/Anomalia Verdadeira.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anomaliaverdadeira-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;19: Esquematização da Anomalia Verdadeira, <span class="math inline">\(\nu\)</span>, da órbita, partindo do argumento do Perigeu, em relação ao plano equatorial.
+Figure&nbsp;26: Esquematização da Anomalia Verdadeira, <span class="math inline">\(\nu\)</span>, da órbita, partindo do argumento do Perigeu, em relação ao plano equatorial.
 </figcaption>
 </figure>
 </div>
@@ -663,7 +733,7 @@ Figure&nbsp;19: Esquematização da Anomalia Verdadeira, <span class="math inlin
 <img src="Imagens/Anomalia Excentrica.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anomaliaexcentrica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20: Esquematização da Anomalia Excêntrica (<span class="math inline">\(E\)</span>) da órbita, em relação com a Anomalia Verdadeira.
+Figure&nbsp;27: Esquematização da Anomalia Excêntrica (<span class="math inline">\(E\)</span>) da órbita, em relação com a Anomalia Verdadeira.
 </figcaption>
 </figure>
 </div>
@@ -675,6 +745,84 @@ Figure&nbsp;20: Esquematização da Anomalia Excêntrica (<span class="math inli
 M = E - e \space \text{sen}(E)
 \tag{22}\]</span></span></p>
 </section>
+</section>
+</section>
+<section id="cálculo-numérico" class="level1">
+<h1>8 Cálculo Numérico</h1>
+<p>Para colocar em prática tudo que aprendemos, é necessário o estudo de ferramentas mais robustas para dar conta de tal demanda. Somente com a programação em Python não é o suficiente, teremos que utilizar cálculo numérico de forma sólida. Cálculo numérico é a área da matemática que cria algoritmos e métodos para encontrar soluções aproximadas para problemas complexos, especialmente quando soluções exatas são difíceis ou impossíveis de obter.</p>
+<section id="método-de-newton-raphson" class="level2">
+<h2 class="anchored" data-anchor-id="método-de-newton-raphson">8.1 Método de Newton-Raphson</h2>
+<p>Almejando uma melhor digestão do assunto, iremos começar com um método mais simples, o método de Newton-Raphson (também conhecido como apenas método de Newton). Esse método consiste em um algoritmo para encontrar aproximações de raízes de uma função real. O método é um processo iterativo que utiliza derivadas para convergir rapidamente para as raízes, porém possui limitações claras dado que necessita de um chute inicial que seja próximo do valor de convergência. Entretanto é um excelente método para encontrar valores de raízes de funções ordinárias. A equação do método de Newton-Raphson se dá por <span class="citation" data-cites="burden2011">(<a href="#ref-burden2011" role="doc-biblioref">BURDEN 2011</a>)</span>:</p>
+<p><span id="eq-newtonraphson"><span class="math display">\[
+p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
+\tag{23}\]</span></span></p>
+<p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
+<div id="c5668d00" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"metodo de newton"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  xn <span class="op">=</span> x0</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(max_interacoes):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    fxn <span class="op">=</span> f(xn)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    dfxn <span class="op">=</span> df(xn)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(fxn) <span class="op">&lt;</span> tolerancia:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> xn</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dfxn <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"erro"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    xn <span class="op">=</span> xn <span class="op">-</span> fxn <span class="op">/</span> dfxn</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"limite de interações"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> math.cos(x) <span class="op">-</span> x</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> df(x):</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span>math.sin(x) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>chute <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>tolerancia_ideal <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>raiz_encontrada <span class="op">=</span> metodo_newton(f, df, chute, tolerancia<span class="op">=</span>tolerancia_ideal)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> raiz_encontrada <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"a raiz é </span><span class="sc">{</span>raiz_encontrada<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"não foi encontrada"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>metodo de newton
+a raiz é 0.7390851339208068</code></pre>
+</div>
+</div>
+<p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
+<div id="47aeb47f" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="dv">400</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.cos(x) <span class="op">-</span> x</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="fl">0.7390851339208068</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-4-output-1.png" width="590" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="glossário" class="level1">
@@ -706,6 +854,9 @@ BATE, R., R. 1971. <em>Fundamentals of Astrodynamics</em>.
 </div>
 <div id="ref-boczko" class="csl-entry" role="listitem">
 BOCZKO, R. 2022. <em>Conceitos de Astronomia</em>.
+</div>
+<div id="ref-burden2011" class="csl-entry" role="listitem">
+BURDEN, R. L. 2011. <em>Numerical Analysis</em>.
 </div>
 <div id="ref-cohen1967" class="csl-entry" role="listitem">
 COHEN, B. 1967. <em>O Nascimento de Uma Nova Física - de Copérnico a Newton</em>.

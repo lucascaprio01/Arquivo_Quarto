@@ -274,20 +274,37 @@ Agora, por questão de curiosidade, faremos uma breve introdução aos principai
 #### LEO (Low Earth Orbits)
 É o principal tipo de órbita estudado neste portfólio, pois se trata da órbita que a Estação Espacial Internacional realiza. Como seu próprio nome sugere, essa órbita precisa ser próxima da Terra, com o limite superior de $2000 \text{Km}$ e limite inferior de $180 \text{Km}$, que é, aproximadamente, o mínimo de altitude que um satélite pode orbitar sem ocasionar na colisão com a Terra. Além da ISS, outro satélite famoso que desempenha uma órbita LEO, é o telescópio espacial Hubble.
 
+![Esquema exemplo da LEO.](Imagens/LEO.png){width="70%" #fig-LEO}
+
 #### GEO (Geostationary Orbits)
 É uma órbita que fica específicamente em cima do equador Terrestre. Ela possui a característica de estar sincronizada com o movimento de rotação da Terra, por isso o nome Geoestacionária, o que implica em uma velocidade específica de $3 \space \text{Km/s}$. Sua altitude também é mantida fixa, sendo de $35.786 \space \text{Km}$. Ela é muito utilizada para satélites que precisam ficar parados em uma posição, como redes de comunicação.
+
+![Esquema exemplo da GEO](Imagens/GEO2.png){width="70%" #fig-GEO1}
+
+![Esquema mostrando a cobertura de um satélite em uma GEO.](Imagens/GEO.png){width="70%" #fig-GEO}
 
 #### MEO (Medium Earth Orbits)
 As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas ($2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}$). Como a LEO, ela não precisa ter rotas específicas.
 
+![Esquema exemplo da MEO.](Imagens/MEO.png){width="70%" #fig-MEO}
+
+
 #### Órbita Polar (OP)
 As órbitas polares são baixas em altitude e possuem uma inclinação ($i$) muito elevada, fazendo com que passem muito próximo ou exatamente em cima dos Polos Norte e Sul. Para ser classificada como uma órbita polar, é aceito um desvio de até $10 \degree$ dos Polos. São excelentes tipos de órbitas para rastreio terrestre.
+
+![Esquema exemplo da Órbita Polar.](Imagens/Polar.png){width="70%" #fig-Polar}
+
 
 #### Órbita Síncrona com o Sol (SSO)
 São órbitas, com alta inclinação ($i$), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres.
 
+![Esquema exemplo da Órbita SSO.](Imagens/SSO.png){width="70%" #fig-SSO}
+
 #### Órbita Molniya
 São órbitas que possuem inclinação ($i$) de $63,4 \degree$, são altamente elípticas, ou seja, possuem uma excentricidade ($e$) elevada, com a Terra em um dos seus focos. Ela possui um período orbital específico de meio dia sideral, logo dão duas voltas ao redor da Terra por dia. São órbitas muito utilizadas para redes de comunicação, principalmente nas áreas em que as GEOs não conseguem cobrir.
+
+![Esquema exemplo da Órbita Molniya.](Imagens/Molniya.png){width="70%" #fig-Molniya}
+
 
 ## 7.2 Elementos Orbitais Clássicos
 
@@ -388,6 +405,76 @@ A Anomalia Média é uma representação da Anomalia Verdadeira, assumindo uma v
 $$
 M = E - e \space \text{sen}(E)
 $$ {#eq-anomaliamedia}
+
+# 8 Cálculo Numérico
+Para colocar em prática tudo que aprendemos, é necessário o estudo de ferramentas mais robustas para dar conta de tal demanda. Somente com a programação em Python não é o suficiente, teremos que utilizar cálculo numérico de forma sólida. Cálculo numérico é a área da matemática que cria algoritmos e métodos para encontrar soluções aproximadas para problemas complexos, especialmente quando soluções exatas são difíceis ou impossíveis de obter.
+
+## 8.1 Método de Newton-Raphson
+Almejando uma melhor digestão do assunto, iremos começar com um método mais simples, o método de Newton-Raphson (também conhecido como apenas método de Newton). Esse método consiste em um algoritmo para encontrar aproximações de raízes de uma função real. O método é um processo iterativo que utiliza derivadas para convergir rapidamente para as raízes, porém possui limitações claras dado que necessita de um chute inicial que seja próximo do valor de convergência. Entretanto é um excelente método para encontrar valores de raízes de funções ordinárias. A equação do método de Newton-Raphson se dá por [@burden2011]:
+
+$$
+p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
+$$ {#eq-newtonraphson}
+
+Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função $\cos{x} - x$ como exemplo e o chute inicial sendo $x_{0} = 0.5$, tendo em vista que $\cos{x}$ é uma função que varia de $-1$ a $1$.
+
+```{python}
+import math
+
+def metodo_newton(f, df, x0, tolerancia=1e-5, max_interacoes=1000):
+  print("metodo de newton")
+  xn = x0
+  for i in range(max_interacoes):
+    fxn = f(xn)
+    dfxn = df(xn)
+
+    if abs(fxn) < tolerancia:
+      return xn
+
+    if dfxn == 0:
+      print("erro")
+      return None
+
+    xn = xn - fxn / dfxn
+
+  print("limite de interações")
+  return None
+
+def f(x):
+  return math.cos(x) - x
+
+def df(x):
+  return -math.sin(x) - 1
+
+chute = 0.5
+tolerancia_ideal = 1e-6
+
+raiz_encontrada = metodo_newton(f, df, chute, tolerancia=tolerancia_ideal)
+
+if raiz_encontrada is not None:
+  print(f"a raiz é {raiz_encontrada}")
+
+else:
+  print("não foi encontrada")
+```
+
+Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.
+
+```{python}
+import matplotlib.pyplot as plt
+
+import numpy as np
+
+x = np.linspace(0.6, 0.8, 400)
+
+y = np.cos(x) - x
+
+plt.plot(x, y)
+plt.axhline(0, color='black')
+plt.axvline(0.7390851339208068, color='black')
+plt.grid(True)
+plt.show()
+```
 
 # ?. Glossário
 - Elipse:
