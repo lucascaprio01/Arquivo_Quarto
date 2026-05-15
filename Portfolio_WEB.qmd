@@ -281,7 +281,7 @@ Agora, por questão de curiosidade, faremos uma breve introdução aos principai
 
 ![Esquema exemplo da GEO](Imagens/GEO2.png){width="70%" #fig-GEO1}
 
-![Esquema mostrando a cobertura de um satélite em uma GEO.](Imagens/GEO.png){width="70%" #fig-GEO}
+![Esquema mostrando o acompanhamento terrestre (Ground tracking) de um satélite em uma GEO.](Imagens/GEO.png){width="70%" #fig-GEO}
 
 #### MEO (Medium Earth Orbits)
 As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas ($2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}$). Como a LEO, ela não precisa ter rotas específicas.
@@ -296,7 +296,8 @@ As órbitas polares são baixas em altitude e possuem uma inclinação ($i$) mui
 
 
 #### Órbita Síncrona com o Sol (SSO)
-São órbitas, com alta inclinação ($i$), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres.
+São órbitas, com alta inclinação ($i$), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres. Para melhor visualização, pode ser encontrada uma simulação da órbita no seguinte endereço:
+[Órbita SSO](https://www.youtube.com/watch?v=ylvgxNF3C0c).
 
 ![Esquema exemplo da Órbita SSO.](Imagens/SSO.png){width="70%" #fig-SSO}
 
@@ -465,7 +466,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
-x = np.linspace(0.6, 0.8, 400)
+x = np.linspace(-1, 3, 400)
 
 y = np.cos(x) - x
 
@@ -475,6 +476,98 @@ plt.axvline(0.7390851339208068, color='black')
 plt.grid(True)
 plt.show()
 ```
+
+## 8.2 Método de Cowell
+Desenvolvido por Philip Herbert Cowell, o método de Cowell não é numérico, mas um método de perturbação. É uma das formas mais diretas de se descrever o problema de dois corpos e será utilizado nesse portfólio pela facilidade de adicionar as perturbações. Para descrever o método, utilizaremos como referência @bate1971. 
+
+A aplicação do método de Cowell é feita simplesmente escrevendo as equações de movimento do objeto sendo estudado, incluindo todas as suas perturbações, e, então, integrando-as passo a passo numericamente. Para a integração, utilizaremos métodos de integração numérica descritos posteriormente.
+
+Começamos, então, descrevendo a equação para o problema de dois corpos:
+
+$$  
+\vec{\ddot r} + \frac{\mu}{r^3} \vec{r} = \vec{a_{p}} 
+$$ {#eq-cowell}
+
+Onde $\vec{a_{p}}$ é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos o grau de liberdade da equação, tornando-a:
+
+$$
+\vec{\dot r} = \vec{v}
+$$ {#eq-1lib}
+
+$$
+\vec{v} = \vec{a_{p}} - \frac{\mu}{r^3} \vec{r}
+$$ {#eq-2lib}
+
+Onde $\vec{r}$ e $\vec{v}$ são, respectivamente, o raio e a velocidade do satélite em relação ao corpo central maior. Ambas as equações agora precisam ser destrinchadas em seus componentes vetoriais.
+
+$$
+\dot{x} = v_{x}
+$$ {#eq-x}
+
+$$
+\dot{y} = v_{y}
+$$ {#eq-y}
+
+$$
+\dot{z} = v_{z}
+$$ {#eq-z}
+
+$$
+\dot{v_{x}} = a_{p x} - \frac{\mu}{r^3} x
+$$ {#eq-vx}
+
+$$
+\dot{v_{y}} = a_{p y} - \frac{\mu}{r^3} y
+$$ {#eq-vy}
+
+$$
+\dot{v_{z}} = a_{p z} - \frac{\mu}{r^3} z 
+$$ {#eq-vz}
+
+Onde $r = \sqrt{x^2 +y^2 +z^2}$.
+
+## 8.3 Método de Euler
+O método de Euler é um dos mais elementares para integração numérica, é um ótimo ponto de partida para, posteriormente, entender o método de Runge-Kutta que será utilizado como método final desse portfólio. Para descrever esse método, utilizaremos como base @burden2011.
+
+O objetivo do método é obter aproximações para o problema de valor inicial da forma
+
+$$
+\frac{d y}{d t} = f(t,y), \space a \leq t \leq b, \space y(a)=\alpha 
+$$ {#eq-forma_euler}
+
+Este método irá gerar aproximações para $y$ em vários valores, chamados de pontos da malha, no intervalo $[a,b]$. Uma vez que essa aproximação é obtida nesses pontos, a solução aproximada em outros pontos é obtida através de interpolação.
+
+Primeiramente consideramos que os pontos da malha são distribuídos igualmente no intervalo $[a,b]$ e os selecionamos da seguinte forma
+
+$$
+t_{i} = a + i h, \space i = 0,1,2,...N
+$$ {#eq-pontosmalha}
+
+Onde $N$ é um inteiro positivo e $h = t_{i+1} - t_{i}$ é chamado de tamanho do passo.
+
+Para derivar o método de Euler, utilizamos o Teorema de Taylor. Suponha que a solução única, $y(t)$, possui duas derivadas contínuas em $[a,b]$, de forma que, para cada $i=0,1,2,... N-1$
+
+$$
+y(t_{i+1}) = y(t_{i}) + h \dot{y}(t_{i}) + \frac{h^2}{2} \ddot{y} (\xi_{i})
+$$ {#eq-taylor1}
+
+Onde $\xi_{i}$ é um número em ($t_{i}, t_{i+1}$). Como $y(t)$ satisfaz a equação diferencial do começo, temos 
+
+$$
+y(t_{i+1}) = y(t_{i}) +h f(t_{i}, y(t_{i})) + \frac{h^2}{2} \ddot{y} (\xi_{i})
+$$ {#eq-taylor2}
+
+O método de Euler, então, define $w_{i} \approx y(t_{i})$, para cada $i = 1,2,...,N$ ao excluir o último termo da equação anterior. Com isso, o método de Euler se resume a
+
+$$
+w_{0} = \alpha 
+$$
+
+$$
+w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
+$$ {#eq-meteuler}
+
+
 
 # ?. Glossário
 - Elipse:

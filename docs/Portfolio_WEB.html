@@ -312,7 +312,7 @@ Figure&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2">
 <h2 class="anchored" data-anchor-id="primeira-simulação">4.3. Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="66984054" class="cell" data-execution_count="1">
+<div id="3402b786" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -544,7 +544,7 @@ Figure&nbsp;15: Esquema exemplo da GEO
 <img src="Imagens/GEO.png" class="img-fluid figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-GEO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Esquema mostrando a cobertura de um satélite em uma GEO.
+Figure&nbsp;16: Esquema mostrando o acompanhamento terrestre (Ground tracking) de um satélite em uma GEO.
 </figcaption>
 </figure>
 </div>
@@ -579,7 +579,7 @@ Figure&nbsp;18: Esquema exemplo da Órbita Polar.
 </section>
 <section id="órbita-síncrona-com-o-sol-sso" class="level4">
 <h4 class="anchored" data-anchor-id="órbita-síncrona-com-o-sol-sso">Órbita Síncrona com o Sol (SSO)</h4>
-<p>São órbitas, com alta inclinação (<span class="math inline">\(i\)</span>), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres.</p>
+<p>São órbitas, com alta inclinação (<span class="math inline">\(i\)</span>), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres. Para melhor visualização, pode ser encontrada uma simulação da órbita no seguinte endereço: <a href="https://www.youtube.com/watch?v=ylvgxNF3C0c">Órbita SSO</a>.</p>
 <div id="fig-SSO" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-SSO-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -757,7 +757,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="c5668d00" class="cell" data-execution_count="2">
+<div id="085e45d6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -801,12 +801,12 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="47aeb47f" class="cell" data-execution_count="3">
+<div id="4f621abf" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="dv">400</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">400</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.cos(x) <span class="op">-</span> x</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -818,11 +818,76 @@ a raiz é 0.7390851339208068</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Portfolio_WEB_files/figure-html/cell-4-output-1.png" width="590" height="411" class="figure-img"></p>
+<p><img src="Portfolio_WEB_files/figure-html/cell-4-output-1.png" width="569" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="método-de-cowell" class="level2">
+<h2 class="anchored" data-anchor-id="método-de-cowell">8.2 Método de Cowell</h2>
+<p>Desenvolvido por Philip Herbert Cowell, o método de Cowell não é numérico, mas um método de perturbação. É uma das formas mais diretas de se descrever o problema de dois corpos e será utilizado nesse portfólio pela facilidade de adicionar as perturbações. Para descrever o método, utilizaremos como referência <span class="citation" data-cites="bate1971">BATE (<a href="#ref-bate1971" role="doc-biblioref">1971</a>)</span>.</p>
+<p>A aplicação do método de Cowell é feita simplesmente escrevendo as equações de movimento do objeto sendo estudado, incluindo todas as suas perturbações, e, então, integrando-as passo a passo numericamente. Para a integração, utilizaremos métodos de integração numérica descritos posteriormente.</p>
+<p>Começamos, então, descrevendo a equação para o problema de dois corpos:</p>
+<p><span id="eq-cowell"><span class="math display">\[  
+\vec{\ddot r} + \frac{\mu}{r^3} \vec{r} = \vec{a_{p}}
+\tag{24}\]</span></span></p>
+<p>Onde <span class="math inline">\(\vec{a_{p}}\)</span> é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos o grau de liberdade da equação, tornando-a:</p>
+<p><span id="eq-1lib"><span class="math display">\[
+\vec{\dot r} = \vec{v}
+\tag{25}\]</span></span></p>
+<p><span id="eq-2lib"><span class="math display">\[
+\vec{v} = \vec{a_{p}} - \frac{\mu}{r^3} \vec{r}
+\tag{26}\]</span></span></p>
+<p>Onde <span class="math inline">\(\vec{r}\)</span> e <span class="math inline">\(\vec{v}\)</span> são, respectivamente, o raio e a velocidade do satélite em relação ao corpo central maior. Ambas as equações agora precisam ser destrinchadas em seus componentes vetoriais.</p>
+<p><span id="eq-x"><span class="math display">\[
+\dot{x} = v_{x}
+\tag{27}\]</span></span></p>
+<p><span id="eq-y"><span class="math display">\[
+\dot{y} = v_{y}
+\tag{28}\]</span></span></p>
+<p><span id="eq-z"><span class="math display">\[
+\dot{z} = v_{z}
+\tag{29}\]</span></span></p>
+<p><span id="eq-vx"><span class="math display">\[
+\dot{v_{x}} = a_{p x} - \frac{\mu}{r^3} x
+\tag{30}\]</span></span></p>
+<p><span id="eq-vy"><span class="math display">\[
+\dot{v_{y}} = a_{p y} - \frac{\mu}{r^3} y
+\tag{31}\]</span></span></p>
+<p><span id="eq-vz"><span class="math display">\[
+\dot{v_{z}} = a_{p z} - \frac{\mu}{r^3} z
+\tag{32}\]</span></span></p>
+<p>Onde <span class="math inline">\(r = \sqrt{x^2 +y^2 +z^2}\)</span>.</p>
+</section>
+<section id="método-de-euler" class="level2">
+<h2 class="anchored" data-anchor-id="método-de-euler">8.3 Método de Euler</h2>
+<p>O método de Euler é um dos mais elementares para integração numérica, é um ótimo ponto de partida para, posteriormente, entender o método de Runge-Kutta que será utilizado como método final desse portfólio. Para descrever esse método, utilizaremos como base <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>O objetivo do método é obter aproximações para o problema de valor inicial da forma</p>
+<p><span id="eq-forma_euler"><span class="math display">\[
+\frac{d y}{d t} = f(t,y), \space a \leq t \leq b, \space y(a)=\alpha
+\tag{33}\]</span></span></p>
+<p>Este método irá gerar aproximações para <span class="math inline">\(y\)</span> em vários valores, chamados de pontos da malha, no intervalo <span class="math inline">\([a,b]\)</span>. Uma vez que essa aproximação é obtida nesses pontos, a solução aproximada em outros pontos é obtida através de interpolação.</p>
+<p>Primeiramente consideramos que os pontos da malha são distribuídos igualmente no intervalo <span class="math inline">\([a,b]\)</span> e os selecionamos da seguinte forma</p>
+<p><span id="eq-pontosmalha"><span class="math display">\[
+t_{i} = a + i h, \space i = 0,1,2,...N
+\tag{34}\]</span></span></p>
+<p>Onde <span class="math inline">\(N\)</span> é um inteiro positivo e <span class="math inline">\(h = t_{i+1} - t_{i}\)</span> é chamado de tamanho do passo.</p>
+<p>Para derivar o método de Euler, utilizamos o Teorema de Taylor. Suponha que a solução única, <span class="math inline">\(y(t)\)</span>, possui duas derivadas contínuas em <span class="math inline">\([a,b]\)</span>, de forma que, para cada <span class="math inline">\(i=0,1,2,... N-1\)</span></p>
+<p><span id="eq-taylor1"><span class="math display">\[
+y(t_{i+1}) = y(t_{i}) + h \dot{y}(t_{i}) + \frac{h^2}{2} \ddot{y} (\xi_{i})
+\tag{35}\]</span></span></p>
+<p>Onde <span class="math inline">\(\xi_{i}\)</span> é um número em (<span class="math inline">\(t_{i}, t_{i+1}\)</span>). Como <span class="math inline">\(y(t)\)</span> satisfaz a equação diferencial do começo, temos</p>
+<p><span id="eq-taylor2"><span class="math display">\[
+y(t_{i+1}) = y(t_{i}) +h f(t_{i}, y(t_{i})) + \frac{h^2}{2} \ddot{y} (\xi_{i})
+\tag{36}\]</span></span></p>
+<p>O método de Euler, então, define <span class="math inline">\(w_{i} \approx y(t_{i})\)</span>, para cada <span class="math inline">\(i = 1,2,...,N\)</span> ao excluir o último termo da equação anterior. Com isso, o método de Euler se resume a</p>
+<p><span class="math display">\[
+w_{0} = \alpha
+\]</span></p>
+<p><span id="eq-meteuler"><span class="math display">\[
+w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
+\tag{37}\]</span></span></p>
 </section>
 </section>
 <section id="glossário" class="level1">
