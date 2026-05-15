@@ -567,6 +567,37 @@ $$
 w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 $$ {#eq-meteuler}
 
+Agora, para praticar, faremos um exemplo retirado de @burden2011 da função 
+
+$$
+\dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
+$$
+
+```{python}
+# Euler para a função y_dot = y - t^2 + 1
+
+def euler(a, b, N, alpha): # definindo a função de euler
+  h = (b-a)/N # definindo o passo igualmente distribuído em a e b
+  t0 = a # definindo o tempo inicial
+  w0 = alpha # definindo w0
+
+  t = [t0] # criação de array para o armazenamento de t
+  w = [w0] # criação de array para o armazenamento de w
+
+  for i in range(1,N): # loop de integração
+    w0 = w0 + h*(w0 - t0**2 + 1) # definindo o próximo w
+    t0 = a + i*h # definindo o próximo t
+
+    t.append(t0) # armazenando de t
+    w.append(w0) # armazenando de w
+
+  return t,w # retornando a resposta de t e w
+
+
+
+euler(0, 2 , 10, 0.5) # chamando a função com os limites de integração do exemplo
+```
+
 
 
 # ?. Glossário
