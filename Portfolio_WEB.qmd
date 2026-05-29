@@ -488,7 +488,7 @@ $$
 \vec{\ddot r} + \frac{\mu}{r^3} \vec{r} = \vec{a_{p}} 
 $$ {#eq-cowell}
 
-Onde $\vec{a_{p}}$ é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos o grau de liberdade da equação, tornando-a:
+Onde $\vec{a_{p}}$ é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos a ordem da equação, tornando-a:
 
 $$
 \vec{\dot r} = \vec{v}
@@ -539,13 +539,30 @@ Este método irá gerar aproximações para $y$ em vários valores, chamados de 
 
 Primeiramente consideramos que os pontos da malha são distribuídos igualmente no intervalo $[a,b]$ e os selecionamos da seguinte forma
 
+
 $$
 t_{i} = a + i h, \space i = 0,1,2,...N
 $$ {#eq-pontosmalha}
 
 Onde $N$ é um inteiro positivo e $h = t_{i+1} - t_{i}$ é chamado de tamanho do passo.
 
-Para derivar o método de Euler, utilizamos o Teorema de Taylor. Suponha que a solução única, $y(t)$, possui duas derivadas contínuas em $[a,b]$, de forma que, para cada $i=0,1,2,... N-1$
+Para derivar o método de Euler, utilizamos o Teorema de Taylor. 
+
+### Teorema de Taylor
+
+O Teorema de Taylor é um utensílio matemático que transforma funções complexas em polinômios através de uma expansão em série. A expansão é dada por 
+
+$$
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^{2} +\frac{f'''(a)}{3!}(x-a)^{3} + ... +\frac{f^{n} (a)}{n!}(x-a)^{n}
+$$ {#eq-TeoremaTaylor}
+
+Onde $f(x)$ é a função, $a$ é o ponto a ser analisado, $f(a)$ é a função no ponto, $f'(a)$ é a primeira derivada da função no ponto, $f''(a)$ é a segunda derivada e assim por diante.
+
+No método de Euler, o ponto que queremos determinar é dado pelo $t_{i+1}$, dessa forma a função a ser analisada é $y(t_{i+1})$. Utilizaremos apenas até o terceiro termo do Teorema, uma vez que, para o nosso problema, possui uma precisão suficiente. Entretanto, entende-se que, quanto mais termos você utiliza, mais preciso é, por outro lado, quanto mais distante o termo, menos significante ele é.
+
+### Continuando...
+
+Suponha que a solução única, $y(t)$, possui duas derivadas contínuas em $[a,b]$, de forma que, para cada $i=0,1,2,... N-1$
 
 $$
 y(t_{i+1}) = y(t_{i}) + h \dot{y}(t_{i}) + \frac{h^2}{2} \ddot{y} (\xi_{i})
@@ -597,8 +614,124 @@ def euler(a, b, N, alpha): # definindo a função de euler
 
 euler(0, 2 , 10, 0.5) # chamando a função com os limites de integração do exemplo
 ```
+# 8.4 Método Runge-Kutta
+Agora temos o método Runge-Kutta que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos @burden2011.
+
+Este método utiliza o termo de segunda ordem do Teorema de Taylor. O Teorema de Taylor, como já visto anteriormente, pode ser expresso por
+
+$$
+y(t_{i+1}) = y(t) + h \dot{y}(t) + \frac{h^2}{2} \ddot{y}(t) +...
+$$
+
+Uma vez que $\dot{y}(t) = \frac{d y}{d t} = f(t,y)$, temos que:
+
+$$
+y(t_{i+1}) = y(t) +h f(t,y) + \frac{h^2}{2} \dot{f}(t,y) +...
+$$
+
+O termo de segunda ordem é obtido isolando $h$ nos dois últimos termos da equação acima, ou seja,
+
+$$
+y(t_{i+1}) = y(t) +h [f(t,y) +\frac{h}{2}\dot{f}(t,y)]+...
+$$
+
+$$
+T^{(2)} = f(t,y) +\frac{h}{2} \dot{f}(t,y)
+$$
+
+Pela regra da cadeira, ele se torna
+
+$$
+T^{(2)} = f(t,y) + \frac{h}{2} \frac{\partial f }{\partial t}(t,y) + \frac{h}{2} \frac{\partial f}{\partial y} (t,y) f(t,y)
+$$ {#eq-2ordemtaylor}
+
+O método pressupõe que uma equação da forma $a_{1} f(t+ \alpha_{1},y+ \beta_{1})$ se aproxime deste termo. Para isso, expandimos a equação pelo polinômio de Taylor de ordem um
+
+$$
+a_{1} f(t+ \alpha_{1}, y+ \beta_{1}) = a_{1}f(t,y) +a_{1} \alpha_{1} \frac{\partial f}{\partial t} (t,y) + a_{1} \beta_{1} \frac{\partial f}{\partial y} (t,y) + a_{1} R_{1}(t+ \alpha_{1}, y+ \beta_{1})
+$$ {#eq-funcrk}
+
+Onde 
+
+$$
+R_{1} (t+ \alpha_{1}, y+ \beta_{1}) = \frac{\alpha_{1}^2}{2} \frac{\partial^2 f}{\partial t^2} (\xi, \mu) + \alpha_{1} \beta_{1} \frac{\partial^2 f}{\partial t \partial y}(\xi, \mu) + \frac{\beta_{1}^2}{2} \frac{\partial^2 f}{\partial y^2} (\xi, \mu)
+$$
+
+para $\xi$ entre $t$ e $t+ \alpha_{1}$ e $\mu$ entre $y$ e $y+ \beta_{1}$.
+
+Igualando a @eq-funcrk com a @eq-2ordemtaylor, conseguimos determinar os valores de $a_{1}$, $\alpha_{1}$ e $\beta_{1}$:
+
+$$
+a_{1} = 1; \space \space  \alpha_{1} = \frac{h}{2}; \space \space  \beta_{1} = \frac{h}{2} f(t,y)
+$$
+
+Com isso, temos o termo de segunda ordem como
+
+$$
+T^{(2)} = f(t+\frac{h}{2}, y + \frac{h}{2} f(t,y)) - R_{1}(t+\frac{h}{2}, y+\frac{h}{2} f(t,y))
+$$
+
+e
+
+$$
+R_{1}(t+ \alpha_{1}, y+ \beta_{1}) = \frac{h^2}{8} \frac{\partial^2 f}{\partial t^2}(\xi, \mu) + \frac{h^2}{4} f(t,y) \frac{\partial^2 f}{\partial t \partial y} (\xi, \mu) +\frac{h^2}{8} (f(t,y))^2 \frac{\partial^2 f }{\partial y^2}(\xi, \mu)
+$$
+
+Dessa forma o método consegue eliminar a necessidade de avaliar as derivadas de $f(t,y)$.
+
+Esse desenvolvimento foi necessário para acharmos o termo de segunda ordem. Neste caso, o método se dará da mesma forma que fizemos com o método de Euler, tendo $f(t+\frac{h}{2}, y + \frac{h}{2} f(t,y))$, temos que
+
+$$
+w_0 = \alpha; \space \space w_{i+1} = w_{i} +\frac{h}{2}[f(t_{i},w_{i}) + f(t_{i+1}, w_{i} + hf(t_{i}, w_{i}))], \space \text{para} \space i = 0,1,...,N-1
+$$
+
+Porém, neste portfólio, utilizaremos o Runge-Kutta 4, o que implica que teremos de usar o termo de quarta ordem, que é encontrada de forma análoga e terá o formato de
+
+$$
+\begin{aligned}
+w_{0} &= \alpha \\
+k_{1} &= hf(t_i, w_i) \\
+k_{2} &= hf(t_i + \frac{h}{2}, w_i + \frac{h}{2} k_1) \\
+k_{3} &= hf(t_{i}+ \frac{h}{2}, w_{i} +\frac{1}{2} k_2) \\
+k_{4} &= hf(t_{i+1}, w_{i} + k_{3}) \\
+w_{i+1} &= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
+&\text{para cada} \space i = 0,1,...,N-1
+\end{aligned}
+$$
+
+Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.
+
+```{python}
+# Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1
+
+def rk4(a,b,N, alpha):
+  h = (b-a)/N
+  t = float(a)
+  w = alpha
+
+  t_final = [t]
+  w_final = [w]
+
+  for i in range(1,N):
+    k1 = h*(w -t**2 +1)
+    k2 = h*(w + k1/2 - (t + h/2)**2 + 1)
+    k3 = h*(w + k2/2 - (t + h/2)**2 + 1)
+    k4 = h*(w + k3 - (t + h)**2 + 1)
+
+    w = w + (k1 + 2*k2 + 2*k3 + k4)/6
+    t = a + i*h
+
+    t_final.append(t)
+    w_final.append(w)
+
+  return(t_final,w_final)
 
 
+t_value, w_value = rk4(0, 2, 10, 0.5)
+
+print(t_value)
+print(w_value)
+```
 
 # ?. Glossário
 - Elipse:

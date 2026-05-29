@@ -312,7 +312,7 @@ Figure&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2">
 <h2 class="anchored" data-anchor-id="primeira-simulação">4.3. Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="27c5afd2" class="cell" data-execution_count="1">
+<div id="5a9bd3eb" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -757,7 +757,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="2ec3f182" class="cell" data-execution_count="2">
+<div id="fb57723e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -801,7 +801,7 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="e2769102" class="cell" data-execution_count="3">
+<div id="dd08f0b4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -832,7 +832,7 @@ a raiz é 0.7390851339208068</code></pre>
 <p><span id="eq-cowell"><span class="math display">\[  
 \vec{\ddot r} + \frac{\mu}{r^3} \vec{r} = \vec{a_{p}}
 \tag{24}\]</span></span></p>
-<p>Onde <span class="math inline">\(\vec{a_{p}}\)</span> é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos o grau de liberdade da equação, tornando-a:</p>
+<p>Onde <span class="math inline">\(\vec{a_{p}}\)</span> é a aceleração da perturbação. Para utilizar o método de integração numérica, reduzimos a ordem da equação, tornando-a:</p>
 <p><span id="eq-1lib"><span class="math display">\[
 \vec{\dot r} = \vec{v}
 \tag{25}\]</span></span></p>
@@ -873,26 +873,38 @@ a raiz é 0.7390851339208068</code></pre>
 t_{i} = a + i h, \space i = 0,1,2,...N
 \tag{34}\]</span></span></p>
 <p>Onde <span class="math inline">\(N\)</span> é um inteiro positivo e <span class="math inline">\(h = t_{i+1} - t_{i}\)</span> é chamado de tamanho do passo.</p>
-<p>Para derivar o método de Euler, utilizamos o Teorema de Taylor. Suponha que a solução única, <span class="math inline">\(y(t)\)</span>, possui duas derivadas contínuas em <span class="math inline">\([a,b]\)</span>, de forma que, para cada <span class="math inline">\(i=0,1,2,... N-1\)</span></p>
+<p>Para derivar o método de Euler, utilizamos o Teorema de Taylor.</p>
+<section id="teorema-de-taylor" class="level3">
+<h3 class="anchored" data-anchor-id="teorema-de-taylor">Teorema de Taylor</h3>
+<p>O Teorema de Taylor é um utensílio matemático que transforma funções complexas em polinômios através de uma expansão em série. A expansão é dada por</p>
+<p><span id="eq-TeoremaTaylor"><span class="math display">\[
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^{2} +\frac{f'''(a)}{3!}(x-a)^{3} + ... +\frac{f^{n} (a)}{n!}(x-a)^{n}
+\tag{35}\]</span></span></p>
+<p>Onde <span class="math inline">\(f(x)\)</span> é a função, <span class="math inline">\(a\)</span> é o ponto a ser analisado, <span class="math inline">\(f(a)\)</span> é a função no ponto, <span class="math inline">\(f'(a)\)</span> é a primeira derivada da função no ponto, <span class="math inline">\(f''(a)\)</span> é a segunda derivada e assim por diante.</p>
+<p>No método de Euler, o ponto que queremos determinar é dado pelo <span class="math inline">\(t_{i+1}\)</span>, dessa forma a função a ser analisada é <span class="math inline">\(y(t_{i+1})\)</span>. Utilizaremos apenas até o terceiro termo do Teorema, uma vez que, para o nosso problema, possui uma precisão suficiente. Entretanto, entende-se que, quanto mais termos você utiliza, mais preciso é, por outro lado, quanto mais distante o termo, menos significante ele é.</p>
+</section>
+<section id="continuando" class="level3">
+<h3 class="anchored" data-anchor-id="continuando">Continuando…</h3>
+<p>Suponha que a solução única, <span class="math inline">\(y(t)\)</span>, possui duas derivadas contínuas em <span class="math inline">\([a,b]\)</span>, de forma que, para cada <span class="math inline">\(i=0,1,2,... N-1\)</span></p>
 <p><span id="eq-taylor1"><span class="math display">\[
 y(t_{i+1}) = y(t_{i}) + h \dot{y}(t_{i}) + \frac{h^2}{2} \ddot{y} (\xi_{i})
-\tag{35}\]</span></span></p>
+\tag{36}\]</span></span></p>
 <p>Onde <span class="math inline">\(\xi_{i}\)</span> é um número em (<span class="math inline">\(t_{i}, t_{i+1}\)</span>). Como <span class="math inline">\(y(t)\)</span> satisfaz a equação diferencial do começo, temos</p>
 <p><span id="eq-taylor2"><span class="math display">\[
 y(t_{i+1}) = y(t_{i}) +h f(t_{i}, y(t_{i})) + \frac{h^2}{2} \ddot{y} (\xi_{i})
-\tag{36}\]</span></span></p>
+\tag{37}\]</span></span></p>
 <p>O método de Euler, então, define <span class="math inline">\(w_{i} \approx y(t_{i})\)</span>, para cada <span class="math inline">\(i = 1,2,...,N\)</span> ao excluir o último termo da equação anterior. Com isso, o método de Euler se resume a</p>
 <p><span class="math display">\[
 w_{0} = \alpha
 \]</span></p>
 <p><span id="eq-meteuler"><span class="math display">\[
 w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
-\tag{37}\]</span></span></p>
+\tag{38}\]</span></span></p>
 <p>Agora, para praticar, faremos um exemplo retirado de <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span> da função</p>
 <p><span class="math display">\[
 \dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
 \]</span></p>
-<div id="10227e73" class="cell" data-execution_count="4">
+<div id="232fed8e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Euler para a função y_dot = y - t^2 + 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euler(a, b, N, alpha): <span class="co"># definindo a função de euler</span></span>
@@ -939,6 +951,104 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 </div>
 </div>
 </section>
+</section>
+</section>
+<section id="método-runge-kutta" class="level1">
+<h1>8.4 Método Runge-Kutta</h1>
+<p>Agora temos o método Runge-Kutta que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>Este método utiliza o termo de segunda ordem do Teorema de Taylor. O Teorema de Taylor, como já visto anteriormente, pode ser expresso por</p>
+<p><span class="math display">\[
+y(t_{i+1}) = y(t) + h \dot{y}(t) + \frac{h^2}{2} \ddot{y}(t) +...
+\]</span></p>
+<p>Uma vez que <span class="math inline">\(\dot{y}(t) = \frac{d y}{d t} = f(t,y)\)</span>, temos que:</p>
+<p><span class="math display">\[
+y(t_{i+1}) = y(t) +h f(t,y) + \frac{h^2}{2} \dot{f}(t,y) +...
+\]</span></p>
+<p>O termo de segunda ordem é obtido isolando <span class="math inline">\(h\)</span> nos dois últimos termos da equação acima, ou seja,</p>
+<p><span class="math display">\[
+y(t_{i+1}) = y(t) +h [f(t,y) +\frac{h}{2}\dot{f}(t,y)]+...
+\]</span></p>
+<p><span class="math display">\[
+T^{(2)} = f(t,y) +\frac{h}{2} \dot{f}(t,y)
+\]</span></p>
+<p>Pela regra da cadeira, ele se torna</p>
+<p><span id="eq-2ordemtaylor"><span class="math display">\[
+T^{(2)} = f(t,y) + \frac{h}{2} \frac{\partial f }{\partial t}(t,y) + \frac{h}{2} \frac{\partial f}{\partial y} (t,y) f(t,y)
+\tag{39}\]</span></span></p>
+<p>O método pressupõe que uma equação da forma <span class="math inline">\(a_{1} f(t+ \alpha_{1},y+ \beta_{1})\)</span> se aproxime deste termo. Para isso, expandimos a equação pelo polinômio de Taylor de ordem um</p>
+<p><span id="eq-funcrk"><span class="math display">\[
+a_{1} f(t+ \alpha_{1}, y+ \beta_{1}) = a_{1}f(t,y) +a_{1} \alpha_{1} \frac{\partial f}{\partial t} (t,y) + a_{1} \beta_{1} \frac{\partial f}{\partial y} (t,y) + a_{1} R_{1}(t+ \alpha_{1}, y+ \beta_{1})
+\tag{40}\]</span></span></p>
+<p>Onde</p>
+<p><span class="math display">\[
+R_{1} (t+ \alpha_{1}, y+ \beta_{1}) = \frac{\alpha_{1}^2}{2} \frac{\partial^2 f}{\partial t^2} (\xi, \mu) + \alpha_{1} \beta_{1} \frac{\partial^2 f}{\partial t \partial y}(\xi, \mu) + \frac{\beta_{1}^2}{2} \frac{\partial^2 f}{\partial y^2} (\xi, \mu)
+\]</span></p>
+<p>para <span class="math inline">\(\xi\)</span> entre <span class="math inline">\(t\)</span> e <span class="math inline">\(t+ \alpha_{1}\)</span> e <span class="math inline">\(\mu\)</span> entre <span class="math inline">\(y\)</span> e <span class="math inline">\(y+ \beta_{1}\)</span>.</p>
+<p>Igualando a <a href="#eq-funcrk" class="quarto-xref">Equation&nbsp;40</a> com a <a href="#eq-2ordemtaylor" class="quarto-xref">Equation&nbsp;39</a>, conseguimos determinar os valores de <span class="math inline">\(a_{1}\)</span>, <span class="math inline">\(\alpha_{1}\)</span> e <span class="math inline">\(\beta_{1}\)</span>:</p>
+<p><span class="math display">\[
+a_{1} = 1; \space \space  \alpha_{1} = \frac{h}{2}; \space \space  \beta_{1} = \frac{h}{2} f(t,y)
+\]</span></p>
+<p>Com isso, temos o termo de segunda ordem como</p>
+<p><span class="math display">\[
+T^{(2)} = f(t+\frac{h}{2}, y + \frac{h}{2} f(t,y)) - R_{1}(t+\frac{h}{2}, y+\frac{h}{2} f(t,y))
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+R_{1}(t+ \alpha_{1}, y+ \beta_{1}) = \frac{h^2}{8} \frac{\partial^2 f}{\partial t^2}(\xi, \mu) + \frac{h^2}{4} f(t,y) \frac{\partial^2 f}{\partial t \partial y} (\xi, \mu) +\frac{h^2}{8} (f(t,y))^2 \frac{\partial^2 f }{\partial y^2}(\xi, \mu)
+\]</span></p>
+<p>Dessa forma o método consegue eliminar a necessidade de avaliar as derivadas de <span class="math inline">\(f(t,y)\)</span>.</p>
+<p>Esse desenvolvimento foi necessário para acharmos o termo de segunda ordem. Neste caso, o método se dará da mesma forma que fizemos com o método de Euler, tendo <span class="math inline">\(f(t+\frac{h}{2}, y + \frac{h}{2} f(t,y))\)</span>, temos que</p>
+<p><span class="math display">\[
+w_0 = \alpha; \space \space w_{i+1} = w_{i} +\frac{h}{2}[f(t_{i},w_{i}) + f(t_{i+1}, w_{i} + hf(t_{i}, w_{i}))], \space \text{para} \space i = 0,1,...,N-1
+\]</span></p>
+<p>Porém, neste portfólio, utilizaremos o Runge-Kutta 4, o que implica que teremos de usar o termo de quarta ordem, que é encontrada de forma análoga e terá o formato de</p>
+<p><span class="math display">\[
+\begin{aligned}
+w_{0} &amp;= \alpha \\
+k_{1} &amp;= hf(t_i, w_i) \\
+k_{2} &amp;= hf(t_i + \frac{h}{2}, w_i + \frac{h}{2} k_1) \\
+k_{3} &amp;= hf(t_{i}+ \frac{h}{2}, w_{i} +\frac{1}{2} k_2) \\
+k_{4} &amp;= hf(t_{i+1}, w_{i} + k_{3}) \\
+w_{i+1} &amp;= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
+&amp;\text{para cada} \space i = 0,1,...,N-1
+\end{aligned}
+\]</span></p>
+<p>Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.</p>
+<div id="de351bb9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk4(a,b,N, alpha):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  h <span class="op">=</span> (b<span class="op">-</span>a)<span class="op">/</span>N</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  t <span class="op">=</span> <span class="bu">float</span>(a)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  w <span class="op">=</span> alpha</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  t_final <span class="op">=</span> [t]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  w_final <span class="op">=</span> [w]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,N):</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    k1 <span class="op">=</span> h<span class="op">*</span>(w <span class="op">-</span>t<span class="op">**</span><span class="dv">2</span> <span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    k2 <span class="op">=</span> h<span class="op">*</span>(w <span class="op">+</span> k1<span class="op">/</span><span class="dv">2</span> <span class="op">-</span> (t <span class="op">+</span> h<span class="op">/</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    k3 <span class="op">=</span> h<span class="op">*</span>(w <span class="op">+</span> k2<span class="op">/</span><span class="dv">2</span> <span class="op">-</span> (t <span class="op">+</span> h<span class="op">/</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    k4 <span class="op">=</span> h<span class="op">*</span>(w <span class="op">+</span> k3 <span class="op">-</span> (t <span class="op">+</span> h)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> w <span class="op">+</span> (k1 <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>k2 <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>k3 <span class="op">+</span> k4)<span class="op">/</span><span class="dv">6</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> a <span class="op">+</span> i<span class="op">*</span>h</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    t_final.append(t)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    w_final.append(w)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(t_final,w_final)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>t_value, w_value <span class="op">=</span> rk4(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t_value)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(w_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.0, 0.2, 0.4, 0.6000000000000001, 0.8, 1.0, 1.2000000000000002, 1.4000000000000001, 1.6, 1.8]
+[0.5, 0.8292933333333334, 1.2140762106666667, 1.6489220170416001, 2.1272026849479437, 2.6408226927287517, 3.1798941702322305, 3.7323400728549796, 4.283409498318405, 4.815085694579433]</code></pre>
+</div>
+</div>
 </section>
 <section id="glossário" class="level1">
 <h1>?. Glossário</h1>
