@@ -1,10 +1,29 @@
 ---
 title: "Portfólio WEB de Iniciação Científica sobre órbitas"
-format: html
+format:
+  html:
+    toc: true
+    toc-title: "Índice"
+    code-fold: false
+    highlight-style: github
+number-sections: true
+lang: pt-BR
 bibliography: Referências.bib
 ---
+# Glossário {.unnumbered}
+- Elipse:
+- Cônicas: 
+- Período orbital:
+- Array:
+- Matriz:
+- Aceleração centrípeta:
+- Raio orbital:
+- Velocidade orbital:
+- Periastro:
+- Apoastro:
+- Nodo ascendente:
 
-# 1. Introdução
+# Introdução
 A exploração do ambiente espacial, mais especificamente as órbitas terrestres, tem sido de suma importância e um dos maiores triúnfos da engenharia e física da atualidade. Desde os primeiros lançamentos de satélites, a previsão das trajetórias de objetos em órbita com alta precisão se tornou indispensável para a comunicação, GPS, pesquisas científicas e outros [@bate1971]. Nesse contexto, a Estação Espacial Internacional (International Space Station, ISS), literalmete um laboratório em constante queda livre, se torna objeto ideal de estudo para a demonstração das leis da mecânica clássica e o poder de previsão.
 
 Desta maneira, este Portfólio WEB apresenta uma proposta didática para o ensino das técnicas de simulção orbital utilizando a linguagem de programação Python, tomando como estudo de caso a trajetória da ISS em torno da Terra. O portfólio abordará os temas físicos como as descobertas de Tycho Brahe e Johann Kepler, a dedução da equação de Newton para o problema de 2 corpos, porém também passará por tópicos computacionais, como programação em python,métodos computacionais e métodos de integração numérica. O objetivo central é demonstrar como modelos matemáticos podem ser traduzidos em algoritmos, com capacidade de prever o comportamento de satélites em órbitas de baixa altitude (Low Earth Orbits, LEOs), com o intuito de passar todos os passos necessários para atingir o mesmo resultado do portfólio, e quando não for possível passar sugestões de referencias complementares. Através de uma abordagem prática, exploramos como as forças gravitacionais e outras variáveis moldam o movimentos dos objetos e como métodos de integração numérica, como Método de Euler e Runge Kutta, permitem estimar com alta precisão a posição e a velocidade da estação ao longo do tempo [@vallado2013; @curtis2013].
@@ -13,7 +32,7 @@ A intenção desse trabalho é ser mais que apenas um repositório de códigos, 
 
 Dessa forma esse portfólio serve como uma ponte entre a física teórica e a experimentação computacional, ofertando um recurso interativo aos entusiastas que queiram aprofundar seus conhecimentos sobre dinâmica orbital.
 
-# 2. Contexto Histórico das Leis de Kepler
+# Contexto Histórico das Leis de Kepler
 
 Johann Kepler foi um matemático e astrônomo alemão que viveu durante os séculos XVI e XVII. Época que ficou conhecida como Revolução Científica, pois foi palco de diversas descobertas e fortalecimento da ciência de modogeral, sendo uma delas as descobertas de Kepler. Apesar de ter feito diversos estudos, ficou amplamente conhecido por estudar mecânica celeste, e ter criado três leis do movimento, que posteriormente foram nomeadas de as três Leis de Kepler. 
 
@@ -35,7 +54,7 @@ Porém, como todos os cidadãos brasileiros que passaram pela educação básica
 
 Com essa mudança de perspectiva, Kepler originou suas três Leis que, por sua vez, descreviam os movimentos elípticos das órbitas planetárias. Sendo a primeira lei, a Lei das órbitas, a segunda, a Lei das Áreas e por último, mas não menos importante, a terceira lei, a Lei dos Períodos.
 
-# 3. Leis de Kepler
+# Leis de Kepler
 
 Todas as 3 Leis utilizaram [@halliday&resnick2012] como referência.
 
@@ -57,11 +76,11 @@ $$ \frac{T_1^2}{R_1^3} = \frac{T_2^2}{R_2^3}$$ {#eq-3lei}
 
 ![Elipse da terceira lei.](Imagens\elipselei3.png){width="70%" #fig-elipselei3}
 
-# 4. Primeiro código em Python
+# Primeiro código em Python
 
 Faremos esse primeiro código de forma mais simples, para que seja o primeiro contato com as simulações em python. Porém, apesar de mais simples precisaremos entrar em contato com alguns novos conhecimentos para a escrita desse código.
 
-## 4.1. Conhecimentos adicionais da elipse
+## Conhecimentos adicionais da elipse
 
 - $a$ = semieixo maior : Define a distância do centro da elipse até a maior extremidade.
 - $b$ = semieixo menor : Define a distância do centro da elipse até a menor extremidade, e pode ser calculado através de: 
@@ -74,7 +93,7 @@ $$ a \sqrt{1 - e^2} $$ {#eq-semieixomenor}
 
 $$ foco = a e $$ {#eq-foco}
 
-## 4.2. Conceitos adicionais de programação para o primeiro código
+## Conceitos adicionais de programação para o primeiro código
 
 Para este primeiro código é interessante possuir uma noção básica de programação, porém não é necessário e qualquer um pode embarcar nesse desafio. É recomendado a utilização do google Collab para escrita dos códigos, ele é uma ferramenta dinâmica, de facil utilização, não requisita hardware pesado e pode ser acessado de forma gratuita no seguinte endereço: <a href="https://developers.google.com/colab">Google Colab</a>.
 
@@ -82,7 +101,7 @@ No código iremos utilizar duas bibliotecas do Python: a Numpy, que é uma bibli
 
 Em questão de linguagem de programação utilizada para os códigos, será em sua totalidade apenas Python, logo não é necessário conhecimentos prévios de outras linguagens. A documentação da linguagem pode ser acessada através de: <a href="https://www.python.org/">Python</a>.
 
-## 4.3. Primeira simulação
+## Primeira simulação
 
 Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.
 
@@ -128,7 +147,7 @@ plt.show()
 ```
 
 
-# 5. Kepler para Newton
+# Kepler para Newton
 
 Para o estudo de órbitas, além de Kepler, é necessário, principalmente, o entendimento da Lei da Gravitação Universal de Newton. É pertinente entender como surge essa lei, dedução que é possível através das Leis de Kepler. A abordagem utilizada neste portfólio é por meio da aceleração centrípeta.
 
@@ -193,10 +212,10 @@ $$
 F_{g} = G \frac{M m}{R^2} 
 $$ {#eq-leigravitação}
 
-# 6. Introdução às Coordenadas Equatoriais
+# Introdução às Coordenadas Equatoriais
 O intuito deste tópico é a introdução das coordenadas equatorias, baseadas em @boczko, porém, para uma compreensão mais completa, é interessante ter a noção de coordenadas esféricas fresca na mente.
 
-## 6.1 Coordenadas Esféricas
+## Coordenadas Esféricas
 O sistema de coordenadas esféricas é uma forma alternativa de se definir coordenadas que se diferem das coordenadas cartesianas $(x,y,z)$. Esse novo sistema utiliza uma distância radial $r$ e dois ângulos auxiliares, $\theta$ e $\phi$, a fim de varrer uma superfície esférica de tamanho variável.
 
 Como é possível observar na imagem, temos um ponto $P$ que é descrito por um segmento de reta, $r$, centrado na origem, e dois ângulos auxiliares que o orientam, $\theta$, o ângulo polar, e $\phi$, o ângulo azimutal.
@@ -217,7 +236,7 @@ $$
 z=r \cos{\theta}
 $$ {#eq-ztrans}
 
-## 6.2 Coordenadas Equatoriais
+## Coordenadas Equatoriais
 O sistema de coordenadas equatorial, por sua vez, utiliza uma base muito parecida com o sistema de coordenadas esféricas genérico. Entretanto este sistema faz uso de outras denominações e intervalos, além do referencial fixo nas estrelas distantes.
 
 Para este sistema será utilizado como base o conceito de **esfera celeste**. A esfera celeste é um globo fictício de raio indefinido, onde todos os astros que estão distantes o suficiente da Terra para criar uma ilusão de que estão parados são planificados de forma a perder a noção de profundidade entre eles e estampados na superfície interior da esfera fictícia.
@@ -236,7 +255,7 @@ Finalmente, podemos definir os parâmetros variáveis utilizados pelo sistema de
 
 ![Esquematização dos parâmetros variáveis nas coordenadas geográficas.](Imagens/Coordenadas%20Geogr%C3%A1ficas.png){width="70%" #fig-coorgeo}
 
-# 7. Órbitas Keplerianas 
+# Órbitas Keplerianas 
 
 A partir deste tópico, cursar ou estar cursando uma graduação de exatas, pode ser de extrema ajuda para entender com mais facilidade os conteúdos, porém, novamente, não é de fato um requisito, sintam-se a vontade para se desafiar.
 
@@ -268,7 +287,7 @@ $$ r = \frac{p}{1 + e \space cos \nu} $$ {#eq-r}
 
 Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maior e $e$ a excentricidade.
 
-## 7.1 Tipos de órbitas
+## Tipos de órbitas
 Agora, por questão de curiosidade, faremos uma breve introdução aos principais tipos de órbitas terrestres. Para basear este material, utilizamos como referência @esa e @vallado2013.
 
 #### LEO (Low Earth Orbits)
@@ -307,7 +326,7 @@ São órbitas que possuem inclinação ($i$) de $63,4 \degree$, são altamente e
 ![Esquema exemplo da Órbita Molniya.](Imagens/Molniya.png){width="70%" #fig-Molniya}
 
 
-## 7.2 Elementos Orbitais Clássicos
+## Elementos Orbitais Clássicos
 
 Uma maneira muito boa — e que será usada neste portfólio — de descrever as órbitas keplerianas, são os elementos orbitais, que nada mais são do que um conjunto de seis parâmetros matemáticos, utilizados para definir de forma única o formato, orientação e posição de um corpo celeste ao redor de outro, ou seja, definir a órbita [@bate1971].
 
@@ -407,10 +426,10 @@ $$
 M = E - e \space \text{sen}(E)
 $$ {#eq-anomaliamedia}
 
-# 8 Cálculo Numérico
+# Cálculo Numérico
 Para colocar em prática tudo que aprendemos, é necessário o estudo de ferramentas mais robustas para dar conta de tal demanda. Somente com a programação em Python não é o suficiente, teremos que utilizar cálculo numérico de forma sólida. Cálculo numérico é a área da matemática que cria algoritmos e métodos para encontrar soluções aproximadas para problemas complexos, especialmente quando soluções exatas são difíceis ou impossíveis de obter.
 
-## 8.1 Método de Newton-Raphson
+## Método de Newton-Raphson
 Almejando uma melhor digestão do assunto, iremos começar com um método mais simples, o método de Newton-Raphson (também conhecido como apenas método de Newton). Esse método consiste em um algoritmo para encontrar aproximações de raízes de uma função real. O método é um processo iterativo que utiliza derivadas para convergir rapidamente para as raízes, porém possui limitações claras dado que necessita de um chute inicial que seja próximo do valor de convergência. Entretanto é um excelente método para encontrar valores de raízes de funções ordinárias. A equação do método de Newton-Raphson se dá por [@burden2011]:
 
 $$
@@ -477,7 +496,7 @@ plt.grid(True)
 plt.show()
 ```
 
-## 8.2 Método de Cowell
+## Método de Cowell
 Desenvolvido por Philip Herbert Cowell, o método de Cowell não é numérico, mas um método de perturbação. É uma das formas mais diretas de se descrever o problema de dois corpos e será utilizado nesse portfólio pela facilidade de adicionar as perturbações. Para descrever o método, utilizaremos como referência @bate1971. 
 
 A aplicação do método de Cowell é feita simplesmente escrevendo as equações de movimento do objeto sendo estudado, incluindo todas as suas perturbações, e, então, integrando-as passo a passo numericamente. Para a integração, utilizaremos métodos de integração numérica descritos posteriormente.
@@ -526,7 +545,7 @@ $$ {#eq-vz}
 
 Onde $r = \sqrt{x^2 +y^2 +z^2}$.
 
-## 8.3 Método de Euler
+## Método de Euler
 O método de Euler é um dos mais elementares para integração numérica, é um ótimo ponto de partida para, posteriormente, entender o método de Runge-Kutta que será utilizado como método final desse portfólio. Para descrever esse método, utilizaremos como base @burden2011.
 
 O objetivo do método é obter aproximações para o problema de valor inicial da forma
@@ -548,7 +567,7 @@ Onde $N$ é um inteiro positivo e $h = t_{i+1} - t_{i}$ é chamado de tamanho do
 
 Para derivar o método de Euler, utilizamos o Teorema de Taylor. 
 
-### Teorema de Taylor
+### Teorema de Taylor {.unnumbered}
 
 O Teorema de Taylor é um utensílio matemático que transforma funções complexas em polinômios através de uma expansão em série. A expansão é dada por 
 
@@ -560,7 +579,7 @@ Onde $f(x)$ é a função, $a$ é o ponto a ser analisado, $f(a)$ é a função 
 
 No método de Euler, o ponto que queremos determinar é dado pelo $t_{i+1}$, dessa forma a função a ser analisada é $y(t_{i+1})$. Utilizaremos apenas até o terceiro termo do Teorema, uma vez que, para o nosso problema, possui uma precisão suficiente. Entretanto, entende-se que, quanto mais termos você utiliza, mais preciso é, por outro lado, quanto mais distante o termo, menos significante ele é.
 
-### Continuando...
+### Continuando... {.unnumbered}
 
 Suponha que a solução única, $y(t)$, possui duas derivadas contínuas em $[a,b]$, de forma que, para cada $i=0,1,2,... N-1$
 
@@ -612,9 +631,12 @@ def euler(a, b, N, alpha): # definindo a função de euler
 
 
 
-euler(0, 2 , 10, 0.5) # chamando a função com os limites de integração do exemplo
+t_value, w_value = euler(0, 2 , 10, 0.5) # chamando a função com os limites de integração do exemplo
+
+print(t_value)
+print(w_value)
 ```
-# 8.4 Método Runge-Kutta
+# Método Runge-Kutta
 Agora temos o método Runge-Kutta que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos @burden2011.
 
 Este método utiliza o termo de segunda ordem do Teorema de Taylor. O Teorema de Taylor, como já visto anteriormente, pode ser expresso por
@@ -733,19 +755,50 @@ print(t_value)
 print(w_value)
 ```
 
-# ?. Glossário
-- Elipse:
-- Cônicas: 
-- Período orbital:
-- Array:
-- Matriz:
-- Aceleração centrípeta:
-- Raio orbital:
-- Velocidade orbital:
-- Periastro:
-- Apoastro:
-- Nodo ascendente:
+# Perturbações
+Como citado anteriormente, para uma maior previsibilidade e fidelidade da órbita, levaremos em consideração algumas perturbações. Uma perturbação é um desvio de um movimento normal ou esperado [@bate1971]. Existem vários tipos de perturbações como, por exemplo, perturbações gravitacionais de terceiros corpos, pressão de radiação solar, marés, efeitos eletromagnéticos, entre outros. Entretanto, neste portfólio, utilizaremos apenas o arrasto atmosférico e as perturbações de efeito de achatamento terrestre. Por se tratar de uma órbita LEO, essas duas já contemplam a maior parte da magnitude das perturbações sofridas.
 
+## Arrasto atmosférico
+O arrasto atmosférico é a força atmosférica dominante que age em satélites de baixa altitude com direção oposta à velocidade dos mesmos, esse efeito desacelera o movimento [@montenbruck2000].
+
+A abordagem utilizada neste portfólio é relativamente simples. Utilizaremos o coeficiente de arrasto atmosférico da ISS, a área que sofre o arrasto e a massa da ISS. Todos esses dados são fornecidos diretamente das efemérides da NASA — local principal de retirada de efemérides. Somente a densidade atmosférica utilizada que foi simplificada para a densidade atmosférica em uma altitude de $400 \space \text{Km}$, que está dentro da faixa de $1 \space \text{a} \space 3 \times 10^{-12} \space \text{kg/m}^3$ [@emmert2015]. 
+
+O cálculo do arrasto, segundo @bate1971, se dá por:
+
+$$
+\vec{\ddot r} = - \frac{1}{2} C_{D} \frac{A}{m} \rho v_{a} \vec{\dot r}_a
+$$ {#eq-arrasto}
+
+Onde 
+
+- $A$ é a área do veículo que está perpendicular à direção do movimento;
+- $C_{D}$ é o coeficiente de arrasto associado à area;
+- $m$ é a massa do veículo;
+- $\rho$ é a densidade atmosférica na altitude do veículo;
+- $v_{a}$ é o módulo da velocidade do veículo relativo à atmosfera rotativa;
+- $\vec{\dot r}$ é a velocidade do veículo relativo à atmosfera rotativa em forma vetorial.
+
+
+## Achatamento terrestre
+Diferente do que muitas pessoas pensam, a Terra não uma esfera perfeita. Por mais que exista uma simetria esférica bem grande, existem regiões que não seguem a simetria. Uma dessas regiões, muito notável, é o equador da Terra, que possui uma espécie de bojo. Essa condição se dá pela alta taxa de rotação da Terra em relação à sua massa e tamanho, o que causa o achatamento dos polos e, consequentemente, a protuberância no equador [@curtis2013].
+
+![Esquema do achatamento da Terra.](Imagens\Achatamento.png){width="70%" #fig-achatamento}
+
+Esse fenômeno gera diferenças no campo gravitacional terrestre, que deixa de ser homogêneo. Segundo @curtis2013, o parâmetro sem dimensões que quantifica os maiores efeitos de achatamento em órbitas é o $J_{2}$. 
+
+Neste portfólio, a abordagem para o cálculo do $J_{2}$, retiradas de @curtis2013, será a taxa média de precessão da linha do nodo ($\dot{\Omega}$) e a taxa de mudança do argumento do perigeu ($\dot{\omega}$):
+
+$$
+\dot{\Omega} = -\left[\frac{3}{2} \frac{\sqrt{\mu} J_{2} R^2}{(1-e^2)^2 a^{\frac{7}{2}}}\right] \cos{i}
+$$ {#eq-taxaprecessao}
+
+$$
+\dot{\omega} = - \left[\frac{3}{2} \frac{\sqrt{\mu} J_{2} R^2}{(1-e^2)^2 a^{\frac{7}{2}}}\right] \left( \frac{5}{2} \sin^2{i} -2 \right)
+$$ {#eq-taxaperigeu}
+
+O parâmetro $J_{2}$ é estudado a muito tempo e, com isso, os valores de $J_{2}$ dos planetas do Sistema Solar foram tabelados, como é possível ver os valores na tabela retirada de @curtis2013.
+
+![Valores de $J_{2}$ para os planetas do Sistema Solar [@curtis2013].](Imagens\TabelaJ2.png){width="70%" #fig-j2}
 
 # Bibliografia
 
