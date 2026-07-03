@@ -637,7 +637,7 @@ print(t_value)
 print(w_value)
 ```
 # Método Runge-Kutta
-Agora temos o método Runge-Kutta que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos @burden2011.
+Agora temos o método Runge-Kutta (RK) que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos @burden2011.
 
 Este método utiliza o termo de segunda ordem do Teorema de Taylor. O Teorema de Taylor, como já visto anteriormente, pode ser expresso por
 
@@ -799,6 +799,44 @@ $$ {#eq-taxaperigeu}
 O parâmetro $J_{2}$ é estudado a muito tempo e, com isso, os valores de $J_{2}$ dos planetas do Sistema Solar foram tabelados, como é possível ver os valores na tabela retirada de @curtis2013.
 
 ![Valores de $J_{2}$ para os planetas do Sistema Solar [@curtis2013].](Imagens\TabelaJ2.png){width="70%" #fig-j2}
+
+# Runge-Kutta adaptativo
+Afim de refinarmos ainda mais o nosso código, podemos, além de melhorar a precisão do integrador, poupar recurso computacional através de uma alteração no Runge-Kutta, utilizando sua forma adaptativa.
+
+Para entender o que essa alteração faz, pense em uma montanha onde nós, que estamos subindo, não podemos enxergá-la. Enquanto estamos subindo a montanha, existem diferenças de inclinação no chão, quando a inclinação é nula (ou quase zero) podemos ir mais rápido, sem perigo de tropeçar. Já quando a inclinação aumenta (ou diminui) de forma considerável, precisamos ir com precaução para não cairmos. O integrador funcionará de forma análoga, quando a derivada da curva é muito alta, serão utilizados muitos passos naquela região, entretanto, quando a derivada for zero (ou quase zero), não há necessidade de tantos passos para mapear a trajetória. Por isso temos esse método chamado de Runge-Kutta de passo adaptativo.
+
+Existem várias maneira de utilizar RKs adaptativos. Para o nosso trabalho, utilizaremos a produzida por Fehlberg, se baseando no @burden2011.
+
+Esse método utiliza uma aproximação finita de 5ª ordem,
+
+$$
+\tilde{w}_{i+1} = w_{1} + \frac{16}{135} k_{1} + \frac{6656}{12825} k_{3} + \frac{28561}{56430} k_{4} - \frac{9}{50} k_{5} + \frac{2}{55} k_{6}
+$$
+
+para estimar o erro local em um método Runge-Kutta de ordem quatro dado por
+
+$$
+w_{i+1} = w_{i} + \frac{25}{216} k_{1} + \frac{1408}{2565} k_{3} + \frac{2197}{4104} k_{4} - \frac{1}{5} k_{5}
+$$
+
+no qual as equações de coeficiente são
+
+$$
+\begin{aligned}
+k_{1} &= h f(t_{i}, w_{i}), \\
+k_{2} &= h f(t_{i} + \frac{h}{4}, w_{i} + \frac{1}{4} k_{1}), \\
+k_{3} &= h f(t_{i} + \frac{3 h}{8}, w_{i} + \frac{3}{32} k_{1} + \frac{9}{32} k_{2}), \\
+k_{4} &= h f(t_{i} + \frac{12 h}{13}, w_{i} + \frac{1932}{2197}k_{1} - \frac{7200}{2197} k_{2} + \frac{7296}{2197}k_{3}), \\
+k_{5} &= h f(t_{i} + h, w_{i} + \frac{439}{216} k_{1} - 8 k_{2} + \frac{3680}{513} k_{3} - \frac{845}{4104} k_{4}), \\
+k_{6} &= h f(t_{i} + \frac{h}{2}, w_{i} - \frac{8}{27} k_{1} + 2 k_{2} - \frac{3544}{2565} k_{3} + \frac{1859}{4104} k_{4} - \frac{11}{40} k_{5}).
+\end{aligned}
+$$
+
+Fazendo essa alteração no código, junto com a adição das perturbações, chegamos, então, ao código final do propagador, sendo:
+
+```{python}
+print("Código final")
+```
 
 # Bibliografia
 

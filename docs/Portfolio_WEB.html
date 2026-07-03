@@ -214,7 +214,8 @@ window.Quarto = {
   <li><a href="#arrasto-atmosférico" id="toc-arrasto-atmosférico" class="nav-link" data-scroll-target="#arrasto-atmosférico"><span class="header-section-number">10.1</span> Arrasto atmosférico</a></li>
   <li><a href="#achatamento-terrestre" id="toc-achatamento-terrestre" class="nav-link" data-scroll-target="#achatamento-terrestre"><span class="header-section-number">10.2</span> Achatamento terrestre</a></li>
   </ul></li>
-  <li><a href="#bibliografia" id="toc-bibliografia" class="nav-link" data-scroll-target="#bibliografia"><span class="header-section-number">11</span> Bibliografia</a></li>
+  <li><a href="#runge-kutta-adaptativo" id="toc-runge-kutta-adaptativo" class="nav-link" data-scroll-target="#runge-kutta-adaptativo"><span class="header-section-number">11</span> Runge-Kutta adaptativo</a></li>
+  <li><a href="#bibliografia" id="toc-bibliografia" class="nav-link" data-scroll-target="#bibliografia"><span class="header-section-number">12</span> Bibliografia</a></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +384,7 @@ Figura&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="primeira-simulação"><span class="header-section-number">4.3</span> Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="a2e5b7ce" class="cell" data-execution_count="1">
+<div id="7bd38182" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -828,7 +829,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="c997ebc4" class="cell" data-execution_count="2">
+<div id="e2070b78" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -872,7 +873,7 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="b6a0623f" class="cell" data-execution_count="3">
+<div id="e89c413f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -975,7 +976,7 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 <p><span class="math display">\[
 \dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
 \]</span></p>
-<div id="bf9b7b7f" class="cell" data-execution_count="4">
+<div id="9232c2f7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Euler para a função y_dot = y - t^2 + 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euler(a, b, N, alpha): <span class="co"># definindo a função de euler</span></span>
@@ -1011,7 +1012,7 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 </section>
 <section id="método-runge-kutta" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Método Runge-Kutta</h1>
-<p>Agora temos o método Runge-Kutta que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>Agora temos o método Runge-Kutta (RK) que, por sua vez, é uma forma aprimorada do método de Euler. Ele permite uma precisão muito maior com custo computacional menor, o que é de suma importância para a simulação de órbitas. Como base para explicação, utilizaremos <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span>.</p>
 <p>Este método utiliza o termo de segunda ordem do Teorema de Taylor. O Teorema de Taylor, como já visto anteriormente, pode ser expresso por</p>
 <p><span class="math display">\[
 y(t_{i+1}) = y(t) + h \dot{y}(t) + \frac{h^2}{2} \ddot{y}(t) +...
@@ -1070,7 +1071,7 @@ w_{i+1} &amp;= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
 \end{aligned}
 \]</span></p>
 <p>Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.</p>
-<div id="910b95b0" class="cell" data-execution_count="5">
+<div id="ff70be82" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk4(a,b,N, alpha):</span>
@@ -1161,14 +1162,46 @@ Figura&nbsp;29: Valores de <span class="math inline">\(J_{2}\)</span> para os pl
 </div>
 </section>
 </section>
-<section id="bibliografia" class="level1" data-number="11">
+<section id="runge-kutta-adaptativo" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Runge-Kutta adaptativo</h1>
+<p>Afim de refinarmos ainda mais o nosso código, podemos, além de melhorar a precisão do integrador, poupar recurso computacional através de uma alteração no Runge-Kutta, utilizando sua forma adaptativa.</p>
+<p>Para entender o que essa alteração faz, pense em uma montanha onde nós, que estamos subindo, não podemos enxergá-la. Enquanto estamos subindo a montanha, existem diferenças de inclinação no chão, quando a inclinação é nula (ou quase zero) podemos ir mais rápido, sem perigo de tropeçar. Já quando a inclinação aumenta (ou diminui) de forma considerável, precisamos ir com precaução para não cairmos. O integrador funcionará de forma análoga, quando a derivada da curva é muito alta, serão utilizados muitos passos naquela região, entretanto, quando a derivada for zero (ou quase zero), não há necessidade de tantos passos para mapear a trajetória. Por isso temos esse método chamado de Runge-Kutta de passo adaptativo.</p>
+<p>Existem várias maneira de utilizar RKs adaptativos. Para o nosso trabalho, utilizaremos a produzida por Fehlberg, se baseando no <span class="citation" data-cites="burden2011">BURDEN (<a href="#ref-burden2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>Esse método utiliza uma aproximação finita de 5ª ordem,</p>
+<p><span class="math display">\[
+\tilde{w}_{i+1} = w_{1} + \frac{16}{135} k_{1} + \frac{6656}{12825} k_{3} + \frac{28561}{56430} k_{4} - \frac{9}{50} k_{5} + \frac{2}{55} k_{6}
+\]</span></p>
+<p>para estimar o erro local em um método Runge-Kutta de ordem quatro dado por</p>
+<p><span class="math display">\[
+w_{i+1} = w_{i} + \frac{25}{216} k_{1} + \frac{1408}{2565} k_{3} + \frac{2197}{4104} k_{4} - \frac{1}{5} k_{5}
+\]</span></p>
+<p>no qual as equações de coeficiente são</p>
+<p><span class="math display">\[
+\begin{aligned}
+k_{1} &amp;= h f(t_{i}, w_{i}), \\
+k_{2} &amp;= h f(t_{i} + \frac{h}{4}, w_{i} + \frac{1}{4} k_{1}), \\
+k_{3} &amp;= h f(t_{i} + \frac{3 h}{8}, w_{i} + \frac{3}{32} k_{1} + \frac{9}{32} k_{2}), \\
+k_{4} &amp;= h f(t_{i} + \frac{12 h}{13}, w_{i} + \frac{1932}{2197}k_{1} - \frac{7200}{2197} k_{2} + \frac{7296}{2197}k_{3}), \\
+k_{5} &amp;= h f(t_{i} + h, w_{i} + \frac{439}{216} k_{1} - 8 k_{2} + \frac{3680}{513} k_{3} - \frac{845}{4104} k_{4}), \\
+k_{6} &amp;= h f(t_{i} + \frac{h}{2}, w_{i} - \frac{8}{27} k_{1} + 2 k_{2} - \frac{3544}{2565} k_{3} + \frac{1859}{4104} k_{4} - \frac{11}{40} k_{5}).
+\end{aligned}
+\]</span></p>
+<p>Fazendo essa alteração no código, junto com a adição das perturbações, chegamos, então, ao código final do propagador, sendo:</p>
+<div id="91402004" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Código final"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Código final</code></pre>
+</div>
+</div>
+</section>
+<section id="bibliografia" class="level1" data-number="12">
 
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">11 Bibliografia</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">12 Bibliografia</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bate1971" class="csl-entry" role="listitem">
 BATE, R., R. 1971. <em>Fundamentals of Astrodynamics</em>.
 </div>
