@@ -215,7 +215,8 @@ window.Quarto = {
   <li><a href="#achatamento-terrestre" id="toc-achatamento-terrestre" class="nav-link" data-scroll-target="#achatamento-terrestre"><span class="header-section-number">10.2</span> Achatamento terrestre</a></li>
   </ul></li>
   <li><a href="#runge-kutta-adaptativo" id="toc-runge-kutta-adaptativo" class="nav-link" data-scroll-target="#runge-kutta-adaptativo"><span class="header-section-number">11</span> Runge-Kutta adaptativo</a></li>
-  <li><a href="#bibliografia" id="toc-bibliografia" class="nav-link" data-scroll-target="#bibliografia"><span class="header-section-number">12</span> Bibliografia</a></li>
+  <li><a href="#simplified-general-perturbations-4-sgp4" id="toc-simplified-general-perturbations-4-sgp4" class="nav-link" data-scroll-target="#simplified-general-perturbations-4-sgp4"><span class="header-section-number">12</span> Simplified General Perturbations 4 (SGP4)</a></li>
+  <li><a href="#bibliografia" id="toc-bibliografia" class="nav-link" data-scroll-target="#bibliografia"><span class="header-section-number">13</span> Bibliografia</a></li>
   </ul>
 </nav>
     </div>
@@ -384,7 +385,7 @@ Figura&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="primeira-simulação"><span class="header-section-number">4.3</span> Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="7bd38182" class="cell" data-execution_count="1">
+<div id="9d344c73" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -829,7 +830,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="e2070b78" class="cell" data-execution_count="2">
+<div id="bfdf4a59" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -873,7 +874,7 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="e89c413f" class="cell" data-execution_count="3">
+<div id="8f0780af" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -976,7 +977,7 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 <p><span class="math display">\[
 \dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
 \]</span></p>
-<div id="9232c2f7" class="cell" data-execution_count="4">
+<div id="cfa700e3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Euler para a função y_dot = y - t^2 + 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euler(a, b, N, alpha): <span class="co"># definindo a função de euler</span></span>
@@ -1071,7 +1072,7 @@ w_{i+1} &amp;= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
 \end{aligned}
 \]</span></p>
 <p>Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.</p>
-<div id="ff70be82" class="cell" data-execution_count="5">
+<div id="dd548025" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk4(a,b,N, alpha):</span>
@@ -1187,21 +1188,27 @@ k_{6} &amp;= h f(t_{i} + \frac{h}{2}, w_{i} - \frac{8}{27} k_{1} + 2 k_{2} - \fr
 \end{aligned}
 \]</span></p>
 <p>Fazendo essa alteração no código, junto com a adição das perturbações, chegamos, então, ao código final do propagador, sendo:</p>
-<div id="91402004" class="cell" data-execution_count="6">
+<div id="9b3bad76" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Código final"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Código final</code></pre>
 </div>
 </div>
 </section>
-<section id="bibliografia" class="level1" data-number="12">
+<section id="simplified-general-perturbations-4-sgp4" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Simplified General Perturbations 4 (SGP4)</h1>
+<p>No ramo da Astrodinâmica, o que chamamos de padrão ouro para simulação de baixa altitude seria a utilização do Simplified General Perturbations 4 (SGP4), um propagador de órbitas que possui as principais perturbações das órbitas LEOs de forma simplificada, sendo estas o arrasto atmosférico, o efeito do achatamento terrestre, radiação solar e atração gravitacional de outros corpos.</p>
+<p>Por ser considerado o melhor modelo para órbitas baixas, utilizamos o mesmo como forma de aferir a qualidade do nosso modelo final. Como se trata de um modelo muito complexo, não serão abordados nem o aspecto matemático nem computacional do SGP4. Entretanto, o modelo do SGP4 que utilizamos foi uma forma adaptada em Python do código disponível em <span class="citation" data-cites="spacetrack1988">HOOTS (<a href="#ref-spacetrack1988" role="doc-biblioref">1988</a>)</span>.</p>
+<p>Dessa forma conseguimos concluir que o modelo construído durante o portfólio possui uma precisão satisfatória para fins de previsão observacional que não dependa de uma extrema precisão. Nos testes realizados, ele possui um erro na casa dos <span class="math inline">\(8 \space \text{Km}\)</span> para uma simulação de 100 horas, o que é o suficiente para observação, tendo em vista que o modelo SGP4 costuma ser atualizado em, no máximo, 24 horas.</p>
+</section>
+<section id="bibliografia" class="level1" data-number="13">
 
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">12 Bibliografia</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">13 Bibliografia</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bate1971" class="csl-entry" role="listitem">
 BATE, R., R. 1971. <em>Fundamentals of Astrodynamics</em>.
 </div>
@@ -1228,6 +1235,9 @@ ESA. 2020. <span>“Typer of Orbits”</span>. <a href="https://www.esa.int/Enab
 </div>
 <div id="ref-halliday&amp;resnick2012" class="csl-entry" role="listitem">
 HALLIDAY, R., D. ; RESNICK. 2012. <em>Fundamentos de Física Volume 2</em>.
+</div>
+<div id="ref-spacetrack1988" class="csl-entry" role="listitem">
+HOOTS, R. L., F. R.; ROEHRICH. 1988. <span>“SPACETRACK REPORT NO.3”</span>.
 </div>
 <div id="ref-mysteriumkepler" class="csl-entry" role="listitem">
 KEPLER, J. 1596. <em>Mysterium Cosmographicum</em>.

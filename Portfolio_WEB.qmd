@@ -838,6 +838,13 @@ Fazendo essa alteração no código, junto com a adição das perturbações, ch
 print("Código final")
 ```
 
+# Simplified General Perturbations 4 (SGP4)
+No ramo da Astrodinâmica, o que chamamos de padrão ouro para simulação de baixa altitude seria a utilização do Simplified General Perturbations 4 (SGP4), um propagador de órbitas que possui as principais perturbações das órbitas LEOs de forma simplificada, sendo estas o arrasto atmosférico, o efeito do achatamento terrestre, radiação solar e atração gravitacional de outros corpos.
+
+Por ser considerado o melhor modelo para órbitas baixas, utilizamos o mesmo como forma de aferir a qualidade do nosso modelo final. Como se trata de um modelo muito complexo, não serão abordados nem o aspecto matemático nem computacional do SGP4. Entretanto, o modelo do SGP4 que utilizamos foi uma forma adaptada em Python do código disponível em @spacetrack1988.
+
+Dessa forma conseguimos concluir que o modelo construído durante o portfólio possui uma precisão satisfatória para fins de previsão observacional que não dependa de uma extrema precisão. Nos testes realizados, ele possui um erro na casa dos $8 \space \text{Km}$ para uma simulação de 100 horas, o que é o suficiente para observação, tendo em vista que o modelo SGP4 costuma ser atualizado em, no máximo, 24 horas.
+
 # Bibliografia
 
 
