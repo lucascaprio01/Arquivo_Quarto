@@ -385,7 +385,7 @@ Figura&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="primeira-simulação"><span class="header-section-number">4.3</span> Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="9d344c73" class="cell" data-execution_count="1">
+<div id="5d7819d2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -830,7 +830,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="bfdf4a59" class="cell" data-execution_count="2">
+<div id="44311625" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -874,7 +874,7 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="8f0780af" class="cell" data-execution_count="3">
+<div id="3c2eefe3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -977,7 +977,7 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 <p><span class="math display">\[
 \dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
 \]</span></p>
-<div id="cfa700e3" class="cell" data-execution_count="4">
+<div id="a2280567" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Euler para a função y_dot = y - t^2 + 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euler(a, b, N, alpha): <span class="co"># definindo a função de euler</span></span>
@@ -1072,7 +1072,7 @@ w_{i+1} &amp;= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
 \end{aligned}
 \]</span></p>
 <p>Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.</p>
-<div id="dd548025" class="cell" data-execution_count="5">
+<div id="7d737819" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk4(a,b,N, alpha):</span>
@@ -1188,10 +1188,685 @@ k_{6} &amp;= h f(t_{i} + \frac{h}{2}, w_{i} - \frac{8}{27} k_{1} + 2 k_{2} - \fr
 \end{aligned}
 \]</span></p>
 <p>Fazendo essa alteração no código, junto com a adição das perturbações, chegamos, então, ao código final do propagador, sendo:</p>
-<div id="9b3bad76" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Código final"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="348d37cf" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Estado inicial</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>MU <span class="op">=</span> <span class="fl">398601.87717000005</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>x_init <span class="op">=</span> <span class="fl">2103.963425777700</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>y_init <span class="op">=</span> <span class="op">-</span><span class="fl">6358.838741164520</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>z_init <span class="op">=</span> <span class="fl">1128.786006468580</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>v_x_init <span class="op">=</span> <span class="fl">4.28137831609971</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>v_y_init <span class="op">=</span> <span class="fl">2.46835745541399</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>v_z_init <span class="op">=</span> <span class="fl">5.86343807843212</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>u0 <span class="op">=</span> np.array([x_init, y_init, z_init, v_x_init, v_y_init, v_z_init])</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>R_P <span class="op">=</span> u0[:<span class="dv">3</span>]</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>V_P <span class="op">=</span> u0[<span class="dv">3</span>:]</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>T_MAX <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>h_teorico <span class="op">=</span> np.linalg.norm(np.cross(R_P, V_P))</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estado Inicial: </span><span class="sc">{</span>u0<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Parâmetros de Arrasto para a ISS (Exemplos)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>CD <span class="op">=</span> <span class="fl">2.6</span>         <span class="co"># Coeficiente de arrasto típico</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>AREA <span class="op">=</span> <span class="fl">1211.10</span><span class="op">/</span><span class="dv">4</span>    <span class="co"># Área em m^2 (ISS é grande)</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>MASSA <span class="op">=</span> <span class="fl">450000.0</span> <span class="co"># Massa em kg</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>RHO <span class="op">=</span> <span class="fl">2.5e-12</span>      <span class="co"># Densidade atmosférica simplificada em kg/m^3 a ~400km</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Parâmetros para o J2</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>J2 <span class="op">=</span> <span class="fl">0.00108263</span>      <span class="co"># Coeficiente de achatamento</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>R_EARTH <span class="op">=</span> <span class="fl">6378.137</span>   <span class="co"># Raio equatorial da Terra em km</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Aceleração sem perturbações</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> acceleration_3d_0(x, t):</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    r_vec_0 <span class="op">=</span> x[:<span class="dv">3</span>]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    v_vec_0 <span class="op">=</span> x[<span class="dv">3</span>:]</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    r_norm_0 <span class="op">=</span> np.linalg.norm(r_vec_0)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r_norm_0 <span class="op">==</span> <span class="dv">0</span>: <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Colisão!"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    a_vec_0 <span class="op">=</span> <span class="op">-</span>MU <span class="op">*</span> r_vec_0 <span class="op">/</span> (r_norm_0<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((v_vec_0, a_vec_0))</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Aceleração com arrasto</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> acceleration_3d_drag(x, t):</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    r_vec_drag <span class="op">=</span> x[:<span class="dv">3</span>]</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    v_vec_drag <span class="op">=</span> x[<span class="dv">3</span>:]</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    r_norm_drag <span class="op">=</span> np.linalg.norm(r_vec_drag)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    v_norm_drag <span class="op">=</span> np.linalg.norm(v_vec_drag)</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r_norm_drag <span class="op">==</span> <span class="dv">0</span>: <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Colisão!"</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Gravitacional (Central)</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    a_grav <span class="op">=</span> <span class="op">-</span>MU <span class="op">*</span> r_vec_drag <span class="op">/</span> (r_norm_drag<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração de Arrasto (Perturbação)</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Importante: converter AREA para km² se MU e r estiverem em km</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ou converter r e MU para metros. Vamos manter km:</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    area_km2 <span class="op">=</span> AREA <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    massa_kg <span class="op">=</span> MASSA</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    rho_kg_km3 <span class="op">=</span> RHO <span class="op">*</span> <span class="fl">1e9</span> <span class="co"># Convertendo kg/m³ para kg/km³</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cálculo do módulo do arrasto</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A fórmula simplificada: a = -0.5 * (CD * A / m) * rho * v^2 * unit_v</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    drag_mag <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (CD <span class="op">*</span> area_km2 <span class="op">/</span> massa_kg) <span class="op">*</span> rho_kg_km3 <span class="op">*</span> (v_norm_drag<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    a_drag <span class="op">=</span> <span class="op">-</span>drag_mag <span class="op">*</span> (v_vec_drag <span class="op">/</span> v_norm_drag)</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Total</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((v_vec_drag, a_grav <span class="op">+</span> a_drag))</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Aceleração com J2</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> acceleration_3d_J2(x, t):</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>    r_vec_J2 <span class="op">=</span> x[:<span class="dv">3</span>]</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>    v_vec_J2 <span class="op">=</span> x[<span class="dv">3</span>:]</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>    r_norm_J2 <span class="op">=</span> np.linalg.norm(r_vec_J2)</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>    v_norm_J2 <span class="op">=</span> np.linalg.norm(v_vec_J2)</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r_norm_J2 <span class="op">==</span> <span class="dv">0</span>: <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Colisão!"</span>)</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Gravitacional Central</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>    a_grav_J2 <span class="op">=</span> <span class="op">-</span>MU <span class="op">*</span> r_vec_J2 <span class="op">/</span> (r_norm_J2<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  Perturbação J2</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fator comum da aceleração J2</span></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>    z2 <span class="op">=</span> r_vec_J2[<span class="dv">2</span>]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>    r2 <span class="op">=</span> r_norm_J2<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> (<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> J2 <span class="op">*</span> (MU <span class="op">*</span> R_EARTH<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> r_norm_J2<span class="op">**</span><span class="dv">5</span>)</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    ax_j2 <span class="op">=</span> factor <span class="op">*</span> r_vec_J2[<span class="dv">0</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2 <span class="op">/</span> r2) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>    ay_j2 <span class="op">=</span> factor <span class="op">*</span> r_vec_J2[<span class="dv">1</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2 <span class="op">/</span> r2) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>    az_j2 <span class="op">=</span> factor <span class="op">*</span> r_vec_J2[<span class="dv">2</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2 <span class="op">/</span> r2) <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>    a_j2 <span class="op">=</span> np.array([ax_j2, ay_j2, az_j2])</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Total</span></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((v_vec_J2, a_grav_J2 <span class="op">+</span> a_j2))</span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Aceleração com Arrasto e J2</span></span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> acceleration_3d_dragJ2(x, t):</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>    r_vec_dragJ2 <span class="op">=</span> x[:<span class="dv">3</span>]</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>    v_vec_dragJ2 <span class="op">=</span> x[<span class="dv">3</span>:]</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>    r_norm_dragJ2 <span class="op">=</span> np.linalg.norm(r_vec_dragJ2)</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>    v_norm_dragJ2 <span class="op">=</span> np.linalg.norm(v_vec_dragJ2)</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r_norm_dragJ2 <span class="op">==</span> <span class="dv">0</span>: <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Colisão!"</span>)</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Gravitacional Central</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>    a_grav_dragJ2 <span class="op">=</span> <span class="op">-</span>MU <span class="op">*</span> r_vec_dragJ2 <span class="op">/</span> (r_norm_dragJ2<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Perturbação J2</span></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fator comum da aceleração J2</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>    z2_dragJ2 <span class="op">=</span> r_vec_dragJ2[<span class="dv">2</span>]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>    r2_dragJ2 <span class="op">=</span> r_norm_dragJ2<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>    factor_dragJ2 <span class="op">=</span> (<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> J2 <span class="op">*</span> (MU <span class="op">*</span> R_EARTH<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> r_norm_dragJ2<span class="op">**</span><span class="dv">5</span>)</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>    ax_j2 <span class="op">=</span> factor_dragJ2 <span class="op">*</span> r_vec_dragJ2[<span class="dv">0</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2_dragJ2 <span class="op">/</span> r2_dragJ2) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>    ay_j2 <span class="op">=</span> factor_dragJ2 <span class="op">*</span> r_vec_dragJ2[<span class="dv">1</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2_dragJ2 <span class="op">/</span> r2_dragJ2) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>    az_j2 <span class="op">=</span> factor_dragJ2 <span class="op">*</span> r_vec_dragJ2[<span class="dv">2</span>] <span class="op">*</span> (<span class="dv">5</span> <span class="op">*</span> (z2_dragJ2 <span class="op">/</span> r2_dragJ2) <span class="op">-</span> <span class="dv">3</span>)</span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>    a_j2 <span class="op">=</span> np.array([ax_j2, ay_j2, az_j2])</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração de Arrasto</span></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>    area_km2 <span class="op">=</span> AREA <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>    rho_kg_km3 <span class="op">=</span> RHO <span class="op">*</span> <span class="fl">1e9</span></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>    drag_mag <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (CD <span class="op">*</span> area_km2 <span class="op">/</span> MASSA) <span class="op">*</span> rho_kg_km3 <span class="op">*</span> (v_norm_dragJ2<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>    a_dragJ2 <span class="op">=</span> <span class="op">-</span>drag_mag <span class="op">*</span> (v_vec_dragJ2 <span class="op">/</span> v_norm_dragJ2)</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aceleração Total</span></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.concatenate((v_vec_dragJ2, a_grav_dragJ2 <span class="op">+</span> a_j2 <span class="op">+</span> a_dragJ2))</span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge Kutta</span></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> runge_kutta_fehlberg(g, x, t, h):</span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x.astype(<span class="bu">float</span>)</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>    k1 <span class="op">=</span> h <span class="op">*</span> g(x, t)</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>    k2 <span class="op">=</span> h <span class="op">*</span> g(x <span class="op">+</span> k1 <span class="op">/</span> <span class="fl">4.0</span>, t <span class="op">+</span> h <span class="op">/</span> <span class="fl">4.0</span>)</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>    k3 <span class="op">=</span> h <span class="op">*</span> g(x <span class="op">+</span> <span class="fl">3.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">32.0</span> <span class="op">+</span> <span class="fl">9.0</span> <span class="op">*</span> k2 <span class="op">/</span> <span class="fl">32.0</span>, t <span class="op">+</span> <span class="fl">3.0</span> <span class="op">*</span> h <span class="op">/</span> <span class="fl">8.0</span>)</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>    k4 <span class="op">=</span> h <span class="op">*</span> g(x <span class="op">+</span> <span class="fl">1932.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">2197.0</span> <span class="op">-</span> <span class="fl">7200.0</span> <span class="op">*</span> k2 <span class="op">/</span> <span class="fl">2197.0</span> <span class="op">+</span> <span class="fl">7296.0</span> <span class="op">*</span> k3 <span class="op">/</span> <span class="fl">2197.0</span>, t <span class="op">+</span> <span class="fl">12.0</span> <span class="op">*</span> h <span class="op">/</span> <span class="fl">13.0</span>)</span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>    k5 <span class="op">=</span> h <span class="op">*</span> g(x <span class="op">+</span> <span class="fl">439.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">216.0</span> <span class="op">-</span> <span class="fl">8.0</span> <span class="op">*</span> k2 <span class="op">+</span> <span class="fl">3680.0</span> <span class="op">*</span> k3 <span class="op">/</span> <span class="fl">513.0</span> <span class="op">-</span> <span class="fl">845.0</span> <span class="op">*</span> k4 <span class="op">/</span> <span class="fl">4104.0</span>, t <span class="op">+</span> h)</span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>    k6 <span class="op">=</span> h <span class="op">*</span> g(x <span class="op">-</span> <span class="fl">8.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">27.0</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> k2 <span class="op">-</span> <span class="fl">3544.0</span> <span class="op">*</span> k3 <span class="op">/</span> <span class="dv">2565</span> <span class="op">+</span> <span class="fl">1859.0</span> <span class="op">*</span> k4 <span class="op">/</span> <span class="fl">4104.0</span> <span class="op">-</span> <span class="fl">11.0</span> <span class="op">*</span> k5 <span class="op">/</span> <span class="fl">40.0</span>, t <span class="op">+</span> h <span class="op">/</span> <span class="fl">2.0</span>)</span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> x <span class="op">+</span> <span class="fl">25.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">216.0</span> <span class="op">+</span> <span class="fl">1408.0</span> <span class="op">*</span> k3 <span class="op">/</span> <span class="fl">2565.0</span> <span class="op">+</span> <span class="fl">2197.0</span> <span class="op">*</span> k4 <span class="op">/</span> <span class="fl">4104.0</span> <span class="op">-</span> k5 <span class="op">/</span> <span class="fl">5.0</span></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>    q <span class="op">=</span> x <span class="op">+</span> <span class="fl">16.0</span> <span class="op">*</span> k1 <span class="op">/</span> <span class="fl">135.0</span> <span class="op">+</span> <span class="fl">6656.0</span> <span class="op">*</span> k3 <span class="op">/</span> <span class="fl">12825.0</span> <span class="op">+</span> <span class="fl">28561.0</span> <span class="op">*</span> k4 <span class="op">/</span> <span class="fl">56430.0</span> <span class="op">-</span> <span class="fl">9.0</span> <span class="op">*</span> k5 <span class="op">/</span> <span class="fl">50.0</span> <span class="op">+</span> <span class="fl">2.0</span> <span class="op">*</span> k6 <span class="op">/</span> <span class="fl">55.0</span></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w, q</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk_adaptive(ode, rhs, y0, t0<span class="op">=</span><span class="fl">0.0</span>, TOL<span class="op">=</span><span class="fl">1e-9</span>, theta<span class="op">=</span><span class="fl">1e-8</span>, tmax<span class="op">=</span><span class="fl">1.0</span>):</span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>    y, t <span class="op">=</span> [np.array(y0)], [t0]</span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="fl">10.0</span></span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span> <span class="co"># Initialize iteration counter</span></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> t[<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> tmax:</span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a>        w, q <span class="op">=</span> ode(rhs, y[<span class="op">-</span><span class="dv">1</span>], t[<span class="op">-</span><span class="dv">1</span>], h)</span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>        diff <span class="op">=</span> np.linalg.norm(w <span class="op">-</span> q)</span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>        scale <span class="op">=</span> <span class="bu">max</span>(np.linalg.norm(y[<span class="op">-</span><span class="dv">1</span>]), <span class="fl">1e-8</span>)</span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>        err <span class="op">=</span> diff <span class="op">/</span> scale</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> err <span class="op">&gt;</span> TOL:</span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>            h <span class="op">=</span> <span class="fl">0.9</span> <span class="op">*</span> h <span class="op">*</span> (TOL <span class="op">/</span> err)<span class="op">**</span><span class="fl">0.2</span></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>        y.append(q)</span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>        t.append(t[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> h)</span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span> <span class="co"># Increment iteration counter</span></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> err <span class="op">&lt;</span> <span class="fl">0.1</span> <span class="op">*</span> TOL: h <span class="op">*=</span> <span class="fl">2.0</span></span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> t[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> h <span class="op">&gt;</span> tmax: h <span class="op">=</span> tmax <span class="op">-</span> t[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(y), np.array(t), i <span class="co"># Return i as well</span></span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a><span class="co"># Execução da Integração sem perturbações</span></span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>pos_0, times, iterations_0 <span class="op">=</span> rk_adaptive(runge_kutta_fehlberg, acceleration_3d_0, y0<span class="op">=</span>u0, t0<span class="op">=</span><span class="fl">0.0</span>, TOL<span class="op">=</span><span class="fl">1e-9</span>, theta<span class="op">=</span><span class="fl">1e-8</span>, tmax<span class="op">=</span>T_MAX)</span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Integração sem perturbações concluída em </span><span class="sc">{</span>iterations_0<span class="sc">}</span><span class="ss"> passos."</span>)</span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Execução da Integração com arrasto</span></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a>pos_drag, times, iterations_drag <span class="op">=</span> rk_adaptive(runge_kutta_fehlberg, acceleration_3d_drag, y0<span class="op">=</span>u0, t0<span class="op">=</span><span class="fl">0.0</span>, TOL<span class="op">=</span><span class="fl">1e-9</span>, theta<span class="op">=</span><span class="fl">1e-8</span>, tmax<span class="op">=</span>T_MAX)</span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Integração com arrasto concluída em </span><span class="sc">{</span>iterations_drag<span class="sc">}</span><span class="ss"> passos."</span>)</span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="co"># Execução da Integração com J2</span></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a>pos_J2, times, iterations_J2 <span class="op">=</span> rk_adaptive(runge_kutta_fehlberg, acceleration_3d_J2, y0<span class="op">=</span>u0, t0<span class="op">=</span><span class="fl">0.0</span>, TOL<span class="op">=</span><span class="fl">1e-9</span>, theta<span class="op">=</span><span class="fl">1e-8</span>, tmax<span class="op">=</span>T_MAX)</span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Integração com J2 concluída em </span><span class="sc">{</span>iterations_J2<span class="sc">}</span><span class="ss"> passos."</span>)</span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a><span class="co"># Execução da Integração com arrasto e J2</span></span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>pos_dragJ2, times, iterations_dragJ2 <span class="op">=</span> rk_adaptive(runge_kutta_fehlberg, acceleration_3d_dragJ2, y0<span class="op">=</span>u0, t0<span class="op">=</span><span class="fl">0.0</span>, TOL<span class="op">=</span><span class="fl">1e-9</span>, theta<span class="op">=</span><span class="fl">1e-8</span>, tmax<span class="op">=</span>T_MAX)</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Integração com arrasto e J2 concluída em </span><span class="sc">{</span>iterations_dragJ2<span class="sc">}</span><span class="ss"> passos."</span>)</span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento de todos os Parâmetros sem perturbações</span></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a>r_mags_0, h_mags_0, e_mags_0, nu_list_0, p_0, a_0 <span class="op">=</span> [], [], [], [], [], []</span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>incs_0, big_omegas_0, small_omegas_0 <span class="op">=</span> [], [], []</span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>K_0 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state <span class="kw">in</span> pos_0:</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a>    rv_0, vv_0 <span class="op">=</span> state[:<span class="dv">3</span>], state[<span class="dv">3</span>:]</span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a>    rm_0 <span class="op">=</span> np.linalg.norm(rv_0)</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a>    hv_0 <span class="op">=</span> np.cross(rv_0, vv_0)</span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a>    hm_0 <span class="op">=</span> np.linalg.norm(hv_0)</span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a>    ev_0 <span class="op">=</span> (np.cross(vv_0, hv_0) <span class="op">/</span> MU) <span class="op">-</span> (rv_0 <span class="op">/</span> rm_0)</span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>    em_0 <span class="op">=</span> np.linalg.norm(ev_0)</span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Magnitudes</span></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>    r_mags_0.append(rm_0)</span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a>    h_mags_0.append(hm_0)</span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>    e_mags_0.append(em_0)</span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anomalia Verdadeira (theta)</span></span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>    cp_0 <span class="op">=</span> np.clip(((hm_0<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (MU <span class="op">*</span> rm_0)) <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">/</span> em_0, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> np.arccos(cp_0)</span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.dot(rv_0, vv_0) <span class="op">&lt;</span> <span class="dv">0</span>: theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> theta</span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>    nu_list_0.append(np.degrees(theta))</span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inclinação (i)</span></span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>    incs_0.append(np.degrees(np.arccos(np.clip(hv_0[<span class="dv">2</span>]<span class="op">/</span>hm_0, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))))</span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Big Omega (RAAN)</span></span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>    nv_0 <span class="op">=</span> np.cross(K_0, hv_0)</span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a>    nm_0 <span class="op">=</span> np.linalg.norm(nv_0)</span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_0 <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>        Omega_0 <span class="op">=</span> np.arccos(np.clip(nv_0[<span class="dv">0</span>]<span class="op">/</span>nm_0, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> nv_0[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span>: Omega_0 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> Omega_0</span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a>        big_omegas_0.append(np.degrees(Omega_0))</span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a>        big_omegas_0.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Small Omega (Arg. Perigeu)</span></span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_0 <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> em_0 <span class="op">&gt;</span> <span class="fl">1e-12</span>:</span>
+<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a>        w_rad_0 <span class="op">=</span> np.arccos(np.clip(np.dot(nv_0, ev_0)<span class="op">/</span>(nm_0<span class="op">*</span>em_0), <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ev_0[<span class="dv">2</span>] <span class="op">&lt;</span> <span class="dv">0</span>: w_rad_0 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> w_rad_0</span>
+<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a>        small_omegas_0.append(np.degrees(w_rad_0))</span>
+<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a>        small_omegas_0.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semilatus Rectum (p)</span></span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a>    p_mag_0 <span class="op">=</span> (hm_0<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> MU)</span>
+<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a>    p_0.append(p_mag_0)</span>
+<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semi eixo maior (a)</span></span>
+<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a>    a_mag_0 <span class="op">=</span> (p_mag_0 <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> em_0<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a>    a_0.append(a_mag_0)</span>
+<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a><span class="co"># Erro Numérico</span></span>
+<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>minimo_0 <span class="op">=</span> <span class="bu">min</span>(h_mags_0)</span>
+<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a>maximo_0 <span class="op">=</span> <span class="bu">max</span>(h_mags_0)</span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>erro_numerico_0 <span class="op">=</span> maximo_0 <span class="op">-</span> minimo_0</span>
+<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Erro Numérico sem Perturbações: </span><span class="sc">{</span>erro_numerico_0<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento de todos os Parâmetros com arrasto</span></span>
+<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a>r_mags_drag, h_mags_drag, e_mags_drag, nu_list_drag, p_drag, a_drag <span class="op">=</span> [], [], [], [], [], []</span>
+<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a>incs_drag, big_omegas_drag, small_omegas_drag <span class="op">=</span> [], [], []</span>
+<span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a>K_drag <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state <span class="kw">in</span> pos_drag:</span>
+<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a>    rv_drag, vv_drag <span class="op">=</span> state[:<span class="dv">3</span>], state[<span class="dv">3</span>:]</span>
+<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a>    rm_drag <span class="op">=</span> np.linalg.norm(rv_drag)</span>
+<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>    hv_drag <span class="op">=</span> np.cross(rv_drag, vv_drag)</span>
+<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a>    hm_drag <span class="op">=</span> np.linalg.norm(hv_drag)</span>
+<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a>    ev_drag <span class="op">=</span> (np.cross(vv_drag, hv_drag) <span class="op">/</span> MU) <span class="op">-</span> (rv_drag <span class="op">/</span> rm_drag)</span>
+<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a>    em_drag <span class="op">=</span> np.linalg.norm(ev_drag)</span>
+<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Magnitudes</span></span>
+<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a>    r_mags_drag.append(rm_drag)</span>
+<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a>    h_mags_drag.append(hm_drag)</span>
+<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a>    e_mags_drag.append(em_drag)</span>
+<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anomalia Verdadeira (theta)</span></span>
+<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a>    cp_drag <span class="op">=</span> np.clip(((hm_drag<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (MU <span class="op">*</span> rm_drag)) <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">/</span> em_drag, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a>    theta_drag <span class="op">=</span> np.arccos(cp_drag)</span>
+<span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.dot(rv_drag, vv_drag) <span class="op">&lt;</span> <span class="dv">0</span>: theta_drag <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> theta_drag</span>
+<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a>    nu_list_drag.append(np.degrees(theta_drag))</span>
+<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inclinação (i)</span></span>
+<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a>    incs_drag.append(np.degrees(np.arccos(np.clip(hv_drag[<span class="dv">2</span>]<span class="op">/</span>hm_drag, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))))</span>
+<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Big Omega (RAAN)</span></span>
+<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a>    nv_drag <span class="op">=</span> np.cross(K_drag, hv_drag)</span>
+<span id="cb9-268"><a href="#cb9-268" aria-hidden="true" tabindex="-1"></a>    nm_drag <span class="op">=</span> np.linalg.norm(nv_drag)</span>
+<span id="cb9-269"><a href="#cb9-269" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_drag <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb9-270"><a href="#cb9-270" aria-hidden="true" tabindex="-1"></a>        Omega_drag <span class="op">=</span> np.arccos(np.clip(nv_drag[<span class="dv">0</span>]<span class="op">/</span>nm_drag, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-271"><a href="#cb9-271" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> nv_drag[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span>: Omega_drag <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> Omega_drag</span>
+<span id="cb9-272"><a href="#cb9-272" aria-hidden="true" tabindex="-1"></a>        big_omegas_drag.append(np.degrees(Omega_drag))</span>
+<span id="cb9-273"><a href="#cb9-273" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-274"><a href="#cb9-274" aria-hidden="true" tabindex="-1"></a>        big_omegas_drag.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-275"><a href="#cb9-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-276"><a href="#cb9-276" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Small Omega (Arg. Perigeu)</span></span>
+<span id="cb9-277"><a href="#cb9-277" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_drag <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> em_drag <span class="op">&gt;</span> <span class="fl">1e-12</span>:</span>
+<span id="cb9-278"><a href="#cb9-278" aria-hidden="true" tabindex="-1"></a>        w_rad_drag <span class="op">=</span> np.arccos(np.clip(np.dot(nv_drag, ev_drag)<span class="op">/</span>(nm_drag<span class="op">*</span>em_drag), <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-279"><a href="#cb9-279" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ev_drag[<span class="dv">2</span>] <span class="op">&lt;</span> <span class="dv">0</span>: w_rad_drag <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> w_rad_drag</span>
+<span id="cb9-280"><a href="#cb9-280" aria-hidden="true" tabindex="-1"></a>        small_omegas_drag.append(np.degrees(w_rad_drag))</span>
+<span id="cb9-281"><a href="#cb9-281" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-282"><a href="#cb9-282" aria-hidden="true" tabindex="-1"></a>        small_omegas_drag.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-283"><a href="#cb9-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-284"><a href="#cb9-284" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semilatus Rectum (p)</span></span>
+<span id="cb9-285"><a href="#cb9-285" aria-hidden="true" tabindex="-1"></a>    p_mag_drag <span class="op">=</span> (hm_drag<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> MU)</span>
+<span id="cb9-286"><a href="#cb9-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-287"><a href="#cb9-287" aria-hidden="true" tabindex="-1"></a>    p_drag.append(p_mag_drag)</span>
+<span id="cb9-288"><a href="#cb9-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-289"><a href="#cb9-289" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semi eixo maior (a)</span></span>
+<span id="cb9-290"><a href="#cb9-290" aria-hidden="true" tabindex="-1"></a>    a_mag_drag <span class="op">=</span> (p_mag_drag <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> em_drag<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb9-291"><a href="#cb9-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-292"><a href="#cb9-292" aria-hidden="true" tabindex="-1"></a>    a_drag.append(a_mag_drag)</span>
+<span id="cb9-293"><a href="#cb9-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-294"><a href="#cb9-294" aria-hidden="true" tabindex="-1"></a><span class="co"># Erro Numérico</span></span>
+<span id="cb9-295"><a href="#cb9-295" aria-hidden="true" tabindex="-1"></a>minimo_drag <span class="op">=</span> <span class="bu">min</span>(h_mags_drag)</span>
+<span id="cb9-296"><a href="#cb9-296" aria-hidden="true" tabindex="-1"></a>maximo_drag <span class="op">=</span> <span class="bu">max</span>(h_mags_drag)</span>
+<span id="cb9-297"><a href="#cb9-297" aria-hidden="true" tabindex="-1"></a>erro_numerico_drag <span class="op">=</span> maximo_drag <span class="op">-</span> minimo_drag</span>
+<span id="cb9-298"><a href="#cb9-298" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Erro Numérico com Arrasto: </span><span class="sc">{</span>erro_numerico_drag<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-299"><a href="#cb9-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-300"><a href="#cb9-300" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento de todos os Parâmetros com J2</span></span>
+<span id="cb9-301"><a href="#cb9-301" aria-hidden="true" tabindex="-1"></a>r_mags_J2, h_mags_J2, e_mags_J2, nu_list_J2, p_J2, a_J2 <span class="op">=</span> [], [], [], [], [], []</span>
+<span id="cb9-302"><a href="#cb9-302" aria-hidden="true" tabindex="-1"></a>incs_J2, big_omegas_J2, small_omegas_J2 <span class="op">=</span> [], [], []</span>
+<span id="cb9-303"><a href="#cb9-303" aria-hidden="true" tabindex="-1"></a>K_J2 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb9-304"><a href="#cb9-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-305"><a href="#cb9-305" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state <span class="kw">in</span> pos_J2:</span>
+<span id="cb9-306"><a href="#cb9-306" aria-hidden="true" tabindex="-1"></a>    rv_J2, vv_J2 <span class="op">=</span> state[:<span class="dv">3</span>], state[<span class="dv">3</span>:]</span>
+<span id="cb9-307"><a href="#cb9-307" aria-hidden="true" tabindex="-1"></a>    rm_J2 <span class="op">=</span> np.linalg.norm(rv_J2)</span>
+<span id="cb9-308"><a href="#cb9-308" aria-hidden="true" tabindex="-1"></a>    hv_J2 <span class="op">=</span> np.cross(rv_J2, vv_J2)</span>
+<span id="cb9-309"><a href="#cb9-309" aria-hidden="true" tabindex="-1"></a>    hm_J2 <span class="op">=</span> np.linalg.norm(hv_J2)</span>
+<span id="cb9-310"><a href="#cb9-310" aria-hidden="true" tabindex="-1"></a>    ev_J2 <span class="op">=</span> (np.cross(vv_J2, hv_J2) <span class="op">/</span> MU) <span class="op">-</span> (rv_J2 <span class="op">/</span> rm_J2)</span>
+<span id="cb9-311"><a href="#cb9-311" aria-hidden="true" tabindex="-1"></a>    em_J2 <span class="op">=</span> np.linalg.norm(ev_J2)</span>
+<span id="cb9-312"><a href="#cb9-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-313"><a href="#cb9-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-314"><a href="#cb9-314" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Magnitudes</span></span>
+<span id="cb9-315"><a href="#cb9-315" aria-hidden="true" tabindex="-1"></a>    r_mags_J2.append(rm_J2)</span>
+<span id="cb9-316"><a href="#cb9-316" aria-hidden="true" tabindex="-1"></a>    h_mags_J2.append(hm_J2)</span>
+<span id="cb9-317"><a href="#cb9-317" aria-hidden="true" tabindex="-1"></a>    e_mags_J2.append(em_J2)</span>
+<span id="cb9-318"><a href="#cb9-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-319"><a href="#cb9-319" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anomalia Verdadeira (theta)</span></span>
+<span id="cb9-320"><a href="#cb9-320" aria-hidden="true" tabindex="-1"></a>    cp_J2 <span class="op">=</span> np.clip(((hm_J2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (MU <span class="op">*</span> rm_J2)) <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">/</span> em_J2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb9-321"><a href="#cb9-321" aria-hidden="true" tabindex="-1"></a>    theta_J2 <span class="op">=</span> np.arccos(cp_J2)</span>
+<span id="cb9-322"><a href="#cb9-322" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.dot(rv_J2, vv_J2) <span class="op">&lt;</span> <span class="dv">0</span>: theta_J2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> theta_J2</span>
+<span id="cb9-323"><a href="#cb9-323" aria-hidden="true" tabindex="-1"></a>    nu_list_J2.append(np.degrees(theta_J2))</span>
+<span id="cb9-324"><a href="#cb9-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-325"><a href="#cb9-325" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inclinação (i)</span></span>
+<span id="cb9-326"><a href="#cb9-326" aria-hidden="true" tabindex="-1"></a>    incs_J2.append(np.degrees(np.arccos(np.clip(hv_J2[<span class="dv">2</span>]<span class="op">/</span>hm_J2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))))</span>
+<span id="cb9-327"><a href="#cb9-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-328"><a href="#cb9-328" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Big Omega (RAAN)</span></span>
+<span id="cb9-329"><a href="#cb9-329" aria-hidden="true" tabindex="-1"></a>    nv_J2 <span class="op">=</span> np.cross(K_J2, hv_J2)</span>
+<span id="cb9-330"><a href="#cb9-330" aria-hidden="true" tabindex="-1"></a>    nm_J2 <span class="op">=</span> np.linalg.norm(nv_J2)</span>
+<span id="cb9-331"><a href="#cb9-331" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_J2 <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb9-332"><a href="#cb9-332" aria-hidden="true" tabindex="-1"></a>        Omega_J2 <span class="op">=</span> np.arccos(np.clip(nv_J2[<span class="dv">0</span>]<span class="op">/</span>nm_J2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-333"><a href="#cb9-333" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> nv_J2[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span>: Omega_J2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> Omega_J2</span>
+<span id="cb9-334"><a href="#cb9-334" aria-hidden="true" tabindex="-1"></a>        big_omegas_J2.append(np.degrees(Omega_J2))</span>
+<span id="cb9-335"><a href="#cb9-335" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-336"><a href="#cb9-336" aria-hidden="true" tabindex="-1"></a>        big_omegas_J2.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-337"><a href="#cb9-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-338"><a href="#cb9-338" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Small Omega (Arg. Perigeu)</span></span>
+<span id="cb9-339"><a href="#cb9-339" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_J2 <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> em_J2 <span class="op">&gt;</span> <span class="fl">1e-12</span>:</span>
+<span id="cb9-340"><a href="#cb9-340" aria-hidden="true" tabindex="-1"></a>        w_rad_J2 <span class="op">=</span> np.arccos(np.clip(np.dot(nv_J2, ev_J2)<span class="op">/</span>(nm_J2<span class="op">*</span>em_J2), <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-341"><a href="#cb9-341" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ev_J2[<span class="dv">2</span>] <span class="op">&lt;</span> <span class="dv">0</span>: w_rad_J2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> w_rad_J2</span>
+<span id="cb9-342"><a href="#cb9-342" aria-hidden="true" tabindex="-1"></a>        small_omegas_J2.append(np.degrees(w_rad_J2))</span>
+<span id="cb9-343"><a href="#cb9-343" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-344"><a href="#cb9-344" aria-hidden="true" tabindex="-1"></a>        small_omegas_J2.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-345"><a href="#cb9-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-346"><a href="#cb9-346" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semilatus Rectum (p)</span></span>
+<span id="cb9-347"><a href="#cb9-347" aria-hidden="true" tabindex="-1"></a>    p_mag_J2 <span class="op">=</span> (hm_J2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> MU)</span>
+<span id="cb9-348"><a href="#cb9-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-349"><a href="#cb9-349" aria-hidden="true" tabindex="-1"></a>    p_J2.append(p_mag_J2)</span>
+<span id="cb9-350"><a href="#cb9-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-351"><a href="#cb9-351" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semi eixo maior (a)</span></span>
+<span id="cb9-352"><a href="#cb9-352" aria-hidden="true" tabindex="-1"></a>    a_mag_J2 <span class="op">=</span> (p_mag_J2 <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> em_J2<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb9-353"><a href="#cb9-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-354"><a href="#cb9-354" aria-hidden="true" tabindex="-1"></a>    a_J2.append(a_mag_J2)</span>
+<span id="cb9-355"><a href="#cb9-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-356"><a href="#cb9-356" aria-hidden="true" tabindex="-1"></a><span class="co"># Erro Numérico</span></span>
+<span id="cb9-357"><a href="#cb9-357" aria-hidden="true" tabindex="-1"></a>minimo_J2 <span class="op">=</span> <span class="bu">min</span>(h_mags_J2)</span>
+<span id="cb9-358"><a href="#cb9-358" aria-hidden="true" tabindex="-1"></a>maximo_J2 <span class="op">=</span> <span class="bu">max</span>(h_mags_J2)</span>
+<span id="cb9-359"><a href="#cb9-359" aria-hidden="true" tabindex="-1"></a>erro_numerico_J2 <span class="op">=</span> maximo_J2 <span class="op">-</span> minimo_J2</span>
+<span id="cb9-360"><a href="#cb9-360" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Erro Numérico com J2: </span><span class="sc">{</span>erro_numerico_J2<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-361"><a href="#cb9-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-362"><a href="#cb9-362" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento de todos os Parâmetros com arrasto e J2</span></span>
+<span id="cb9-363"><a href="#cb9-363" aria-hidden="true" tabindex="-1"></a>r_mags_dragJ2, h_mags_dragJ2, e_mags_dragJ2, nu_list_dragJ2, p_dragJ2, a_dragJ2 <span class="op">=</span> [], [], [], [], [], []</span>
+<span id="cb9-364"><a href="#cb9-364" aria-hidden="true" tabindex="-1"></a>incs_dragJ2, big_omegas_dragJ2, small_omegas_dragJ2 <span class="op">=</span> [], [], []</span>
+<span id="cb9-365"><a href="#cb9-365" aria-hidden="true" tabindex="-1"></a>K_dragJ2 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb9-366"><a href="#cb9-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-367"><a href="#cb9-367" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state <span class="kw">in</span> pos_dragJ2:</span>
+<span id="cb9-368"><a href="#cb9-368" aria-hidden="true" tabindex="-1"></a>    rv_dragJ2, vv_dragJ2 <span class="op">=</span> state[:<span class="dv">3</span>], state[<span class="dv">3</span>:]</span>
+<span id="cb9-369"><a href="#cb9-369" aria-hidden="true" tabindex="-1"></a>    rm_dragJ2 <span class="op">=</span> np.linalg.norm(rv_dragJ2)</span>
+<span id="cb9-370"><a href="#cb9-370" aria-hidden="true" tabindex="-1"></a>    hv_dragJ2 <span class="op">=</span> np.cross(rv_dragJ2, vv_dragJ2)</span>
+<span id="cb9-371"><a href="#cb9-371" aria-hidden="true" tabindex="-1"></a>    hm_dragJ2 <span class="op">=</span> np.linalg.norm(hv_dragJ2)</span>
+<span id="cb9-372"><a href="#cb9-372" aria-hidden="true" tabindex="-1"></a>    ev_dragJ2 <span class="op">=</span> (np.cross(vv_dragJ2, hv_dragJ2) <span class="op">/</span> MU) <span class="op">-</span> (rv_dragJ2 <span class="op">/</span> rm_dragJ2)</span>
+<span id="cb9-373"><a href="#cb9-373" aria-hidden="true" tabindex="-1"></a>    em_dragJ2 <span class="op">=</span> np.linalg.norm(ev_dragJ2)</span>
+<span id="cb9-374"><a href="#cb9-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-375"><a href="#cb9-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-376"><a href="#cb9-376" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Magnitudes</span></span>
+<span id="cb9-377"><a href="#cb9-377" aria-hidden="true" tabindex="-1"></a>    r_mags_dragJ2.append(rm_dragJ2)</span>
+<span id="cb9-378"><a href="#cb9-378" aria-hidden="true" tabindex="-1"></a>    h_mags_dragJ2.append(hm_dragJ2)</span>
+<span id="cb9-379"><a href="#cb9-379" aria-hidden="true" tabindex="-1"></a>    e_mags_dragJ2.append(em_dragJ2)</span>
+<span id="cb9-380"><a href="#cb9-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-381"><a href="#cb9-381" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anomalia Verdadeira (theta)</span></span>
+<span id="cb9-382"><a href="#cb9-382" aria-hidden="true" tabindex="-1"></a>    cp_dragJ2 <span class="op">=</span> np.clip(((hm_dragJ2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (MU <span class="op">*</span> rm_dragJ2)) <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">/</span> em_dragJ2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb9-383"><a href="#cb9-383" aria-hidden="true" tabindex="-1"></a>    theta_dragJ2 <span class="op">=</span> np.arccos(cp_dragJ2)</span>
+<span id="cb9-384"><a href="#cb9-384" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.dot(rv_dragJ2, vv_dragJ2) <span class="op">&lt;</span> <span class="dv">0</span>: theta_dragJ2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> theta_dragJ2</span>
+<span id="cb9-385"><a href="#cb9-385" aria-hidden="true" tabindex="-1"></a>    nu_list_dragJ2.append(np.degrees(theta_dragJ2))</span>
+<span id="cb9-386"><a href="#cb9-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-387"><a href="#cb9-387" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inclinação (i)</span></span>
+<span id="cb9-388"><a href="#cb9-388" aria-hidden="true" tabindex="-1"></a>    incs_dragJ2.append(np.degrees(np.arccos(np.clip(hv_dragJ2[<span class="dv">2</span>]<span class="op">/</span>hm_dragJ2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))))</span>
+<span id="cb9-389"><a href="#cb9-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-390"><a href="#cb9-390" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Big Omega (RAAN)</span></span>
+<span id="cb9-391"><a href="#cb9-391" aria-hidden="true" tabindex="-1"></a>    nv_dragJ2 <span class="op">=</span> np.cross(K_dragJ2, hv_dragJ2)</span>
+<span id="cb9-392"><a href="#cb9-392" aria-hidden="true" tabindex="-1"></a>    nm_dragJ2 <span class="op">=</span> np.linalg.norm(nv_dragJ2)</span>
+<span id="cb9-393"><a href="#cb9-393" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_dragJ2 <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb9-394"><a href="#cb9-394" aria-hidden="true" tabindex="-1"></a>        Omega_dragJ2 <span class="op">=</span> np.arccos(np.clip(nv_dragJ2[<span class="dv">0</span>]<span class="op">/</span>nm_dragJ2, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-395"><a href="#cb9-395" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> nv_dragJ2[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span>: Omega_dragJ2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> Omega_dragJ2</span>
+<span id="cb9-396"><a href="#cb9-396" aria-hidden="true" tabindex="-1"></a>        big_omegas_dragJ2.append(np.degrees(Omega_dragJ2))</span>
+<span id="cb9-397"><a href="#cb9-397" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-398"><a href="#cb9-398" aria-hidden="true" tabindex="-1"></a>        big_omegas_dragJ2.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-399"><a href="#cb9-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-400"><a href="#cb9-400" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Small Omega (Arg. Perigeu)</span></span>
+<span id="cb9-401"><a href="#cb9-401" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nm_dragJ2 <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> em_dragJ2 <span class="op">&gt;</span> <span class="fl">1e-12</span>:</span>
+<span id="cb9-402"><a href="#cb9-402" aria-hidden="true" tabindex="-1"></a>        w_rad_dragJ2 <span class="op">=</span> np.arccos(np.clip(np.dot(nv_dragJ2, ev_dragJ2)<span class="op">/</span>(nm_dragJ2<span class="op">*</span>em_dragJ2), <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb9-403"><a href="#cb9-403" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ev_dragJ2[<span class="dv">2</span>] <span class="op">&lt;</span> <span class="dv">0</span>: w_rad_dragJ2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">-</span> w_rad_dragJ2</span>
+<span id="cb9-404"><a href="#cb9-404" aria-hidden="true" tabindex="-1"></a>        small_omegas_dragJ2.append(np.degrees(w_rad_dragJ2))</span>
+<span id="cb9-405"><a href="#cb9-405" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-406"><a href="#cb9-406" aria-hidden="true" tabindex="-1"></a>        small_omegas_dragJ2.append(<span class="fl">0.0</span>)</span>
+<span id="cb9-407"><a href="#cb9-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-408"><a href="#cb9-408" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semilatus Rectum (p)</span></span>
+<span id="cb9-409"><a href="#cb9-409" aria-hidden="true" tabindex="-1"></a>    p_mag_dragJ2 <span class="op">=</span> (hm_dragJ2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> MU)</span>
+<span id="cb9-410"><a href="#cb9-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-411"><a href="#cb9-411" aria-hidden="true" tabindex="-1"></a>    p_dragJ2.append(p_mag_dragJ2)</span>
+<span id="cb9-412"><a href="#cb9-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-413"><a href="#cb9-413" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Semi eixo maior (a)</span></span>
+<span id="cb9-414"><a href="#cb9-414" aria-hidden="true" tabindex="-1"></a>    a_mag_dragJ2 <span class="op">=</span> (p_mag_dragJ2 <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> em_dragJ2<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb9-415"><a href="#cb9-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-416"><a href="#cb9-416" aria-hidden="true" tabindex="-1"></a>    a_dragJ2.append(a_mag_dragJ2)</span>
+<span id="cb9-417"><a href="#cb9-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-418"><a href="#cb9-418" aria-hidden="true" tabindex="-1"></a><span class="co"># Erro Numérico</span></span>
+<span id="cb9-419"><a href="#cb9-419" aria-hidden="true" tabindex="-1"></a>minimo_dragJ2 <span class="op">=</span> <span class="bu">min</span>(h_mags_dragJ2)</span>
+<span id="cb9-420"><a href="#cb9-420" aria-hidden="true" tabindex="-1"></a>maximo_dragJ2 <span class="op">=</span> <span class="bu">max</span>(h_mags_dragJ2)</span>
+<span id="cb9-421"><a href="#cb9-421" aria-hidden="true" tabindex="-1"></a>erro_numerico_dragJ2 <span class="op">=</span> maximo_dragJ2 <span class="op">-</span> minimo_dragJ2</span>
+<span id="cb9-422"><a href="#cb9-422" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Erro Numérico com Arrasto e J2: </span><span class="sc">{</span>erro_numerico_dragJ2<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-423"><a href="#cb9-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-424"><a href="#cb9-424" aria-hidden="true" tabindex="-1"></a><span class="co"># Extração de Dados para Plotagem sem perturbação</span></span>
+<span id="cb9-425"><a href="#cb9-425" aria-hidden="true" tabindex="-1"></a>x_0 <span class="op">=</span> pos_0[:, <span class="dv">0</span>]</span>
+<span id="cb9-426"><a href="#cb9-426" aria-hidden="true" tabindex="-1"></a>y_0 <span class="op">=</span> pos_0[:, <span class="dv">1</span>]</span>
+<span id="cb9-427"><a href="#cb9-427" aria-hidden="true" tabindex="-1"></a>z_0 <span class="op">=</span> pos_0[:, <span class="dv">2</span>]</span>
+<span id="cb9-428"><a href="#cb9-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-429"><a href="#cb9-429" aria-hidden="true" tabindex="-1"></a><span class="co"># Extração de Dados para Plotagem com Arrasto</span></span>
+<span id="cb9-430"><a href="#cb9-430" aria-hidden="true" tabindex="-1"></a>x_drag <span class="op">=</span> pos_drag[:, <span class="dv">0</span>]</span>
+<span id="cb9-431"><a href="#cb9-431" aria-hidden="true" tabindex="-1"></a>y_drag <span class="op">=</span> pos_drag[:, <span class="dv">1</span>]</span>
+<span id="cb9-432"><a href="#cb9-432" aria-hidden="true" tabindex="-1"></a>z_drag <span class="op">=</span> pos_drag[:, <span class="dv">2</span>]</span>
+<span id="cb9-433"><a href="#cb9-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-434"><a href="#cb9-434" aria-hidden="true" tabindex="-1"></a><span class="co"># Extração de Dados para Plotagem</span></span>
+<span id="cb9-435"><a href="#cb9-435" aria-hidden="true" tabindex="-1"></a>x_J2 <span class="op">=</span> pos_J2[:, <span class="dv">0</span>]</span>
+<span id="cb9-436"><a href="#cb9-436" aria-hidden="true" tabindex="-1"></a>y_J2 <span class="op">=</span> pos_J2[:, <span class="dv">1</span>]</span>
+<span id="cb9-437"><a href="#cb9-437" aria-hidden="true" tabindex="-1"></a>z_J2 <span class="op">=</span> pos_J2[:, <span class="dv">2</span>]</span>
+<span id="cb9-438"><a href="#cb9-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-439"><a href="#cb9-439" aria-hidden="true" tabindex="-1"></a><span class="co"># Extração de Dados para Plotagem com Arrasto e J2</span></span>
+<span id="cb9-440"><a href="#cb9-440" aria-hidden="true" tabindex="-1"></a>x_dragJ2 <span class="op">=</span> pos_dragJ2[:, <span class="dv">0</span>]</span>
+<span id="cb9-441"><a href="#cb9-441" aria-hidden="true" tabindex="-1"></a>y_dragJ2 <span class="op">=</span> pos_dragJ2[:, <span class="dv">1</span>]</span>
+<span id="cb9-442"><a href="#cb9-442" aria-hidden="true" tabindex="-1"></a>z_dragJ2 <span class="op">=</span> pos_dragJ2[:, <span class="dv">2</span>]</span>
+<span id="cb9-443"><a href="#cb9-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-444"><a href="#cb9-444" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para converter Cartesiano para esférico sem perturbação</span></span>
+<span id="cb9-445"><a href="#cb9-445" aria-hidden="true" tabindex="-1"></a>latitudes_0 <span class="op">=</span> np.degrees(np.arcsin(z_0 <span class="op">/</span> r_mags_0))</span>
+<span id="cb9-446"><a href="#cb9-446" aria-hidden="true" tabindex="-1"></a>longitudes_0 <span class="op">=</span> np.degrees(np.arctan2(y_0, x_0))</span>
+<span id="cb9-447"><a href="#cb9-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-448"><a href="#cb9-448" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para converter Cartesiano para esférico com arrasto</span></span>
+<span id="cb9-449"><a href="#cb9-449" aria-hidden="true" tabindex="-1"></a>latitudes_drag <span class="op">=</span> np.degrees(np.arcsin(z_drag <span class="op">/</span> r_mags_drag))</span>
+<span id="cb9-450"><a href="#cb9-450" aria-hidden="true" tabindex="-1"></a>longitudes_drag <span class="op">=</span> np.degrees(np.arctan2(y_drag, x_drag))</span>
+<span id="cb9-451"><a href="#cb9-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-452"><a href="#cb9-452" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para converter Cartesiano para esférico com J2</span></span>
+<span id="cb9-453"><a href="#cb9-453" aria-hidden="true" tabindex="-1"></a>latitudes_J2 <span class="op">=</span> np.degrees(np.arcsin(z_J2 <span class="op">/</span> r_mags_J2))</span>
+<span id="cb9-454"><a href="#cb9-454" aria-hidden="true" tabindex="-1"></a>longitudes_J2 <span class="op">=</span> np.degrees(np.arctan2(y_J2, x_J2))</span>
+<span id="cb9-455"><a href="#cb9-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-456"><a href="#cb9-456" aria-hidden="true" tabindex="-1"></a><span class="co"># Função para converter Cartesiano para esférico com Arrasto e J2</span></span>
+<span id="cb9-457"><a href="#cb9-457" aria-hidden="true" tabindex="-1"></a>latitudes_dragJ2 <span class="op">=</span> np.degrees(np.arcsin(z_dragJ2 <span class="op">/</span> r_mags_dragJ2))</span>
+<span id="cb9-458"><a href="#cb9-458" aria-hidden="true" tabindex="-1"></a>longitudes_dragJ2 <span class="op">=</span> np.degrees(np.arctan2(y_dragJ2, x_dragJ2))</span>
+<span id="cb9-459"><a href="#cb9-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-460"><a href="#cb9-460" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotagem</span></span>
+<span id="cb9-461"><a href="#cb9-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-462"><a href="#cb9-462" aria-hidden="true" tabindex="-1"></a><span class="co"># Momento Angular e Excentricidade</span></span>
+<span id="cb9-463"><a href="#cb9-463" aria-hidden="true" tabindex="-1"></a>plt.plot(times, h_mags_0, label<span class="op">=</span><span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-464"><a href="#cb9-464" aria-hidden="true" tabindex="-1"></a>plt.plot(times, h_mags_drag,linestyle <span class="op">=</span> <span class="st">':'</span>, label<span class="op">=</span><span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-465"><a href="#cb9-465" aria-hidden="true" tabindex="-1"></a>plt.plot(times, h_mags_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-466"><a href="#cb9-466" aria-hidden="true" tabindex="-1"></a>plt.plot(times, h_mags_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-467"><a href="#cb9-467" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-468"><a href="#cb9-468" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tempo (s)'</span>)</span>
+<span id="cb9-469"><a href="#cb9-469" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Momento Angular (h)'</span>)</span>
+<span id="cb9-470"><a href="#cb9-470" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-471"><a href="#cb9-471" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Momento Angular'</span>)</span>
+<span id="cb9-472"><a href="#cb9-472" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-473"><a href="#cb9-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-474"><a href="#cb9-474" aria-hidden="true" tabindex="-1"></a>plt.plot(times, e_mags_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-475"><a href="#cb9-475" aria-hidden="true" tabindex="-1"></a>plt.plot(times, e_mags_drag,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-476"><a href="#cb9-476" aria-hidden="true" tabindex="-1"></a>plt.plot(times, e_mags_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-477"><a href="#cb9-477" aria-hidden="true" tabindex="-1"></a>plt.plot(times, e_mags_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-478"><a href="#cb9-478" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-479"><a href="#cb9-479" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tempo (s)'</span>)</span>
+<span id="cb9-480"><a href="#cb9-480" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Excentricidade (e)'</span>)</span>
+<span id="cb9-481"><a href="#cb9-481" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-482"><a href="#cb9-482" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Excentricidade'</span>)</span>
+<span id="cb9-483"><a href="#cb9-483" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-484"><a href="#cb9-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-485"><a href="#cb9-485" aria-hidden="true" tabindex="-1"></a><span class="co"># Anomalia Verdadeira e Raio</span></span>
+<span id="cb9-486"><a href="#cb9-486" aria-hidden="true" tabindex="-1"></a>plt.plot(times, nu_list_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-487"><a href="#cb9-487" aria-hidden="true" tabindex="-1"></a>plt.plot(times, nu_list_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-488"><a href="#cb9-488" aria-hidden="true" tabindex="-1"></a>plt.plot(times, nu_list_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-489"><a href="#cb9-489" aria-hidden="true" tabindex="-1"></a>plt.plot(times, nu_list_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-490"><a href="#cb9-490" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-491"><a href="#cb9-491" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tempo (s)'</span>)</span>
+<span id="cb9-492"><a href="#cb9-492" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Anomalia Verdadeira ($</span><span class="ch">\\</span><span class="st">theta$) [°]'</span>)</span>
+<span id="cb9-493"><a href="#cb9-493" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-494"><a href="#cb9-494" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Anomalia Verdadeira'</span>)</span>
+<span id="cb9-495"><a href="#cb9-495" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-496"><a href="#cb9-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-497"><a href="#cb9-497" aria-hidden="true" tabindex="-1"></a>plt.plot(times, r_mags_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-498"><a href="#cb9-498" aria-hidden="true" tabindex="-1"></a>plt.plot(times, r_mags_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-499"><a href="#cb9-499" aria-hidden="true" tabindex="-1"></a>plt.plot(times, r_mags_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-500"><a href="#cb9-500" aria-hidden="true" tabindex="-1"></a>plt.plot(times, r_mags_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-501"><a href="#cb9-501" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-502"><a href="#cb9-502" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Tempo (s)'</span>)</span>
+<span id="cb9-503"><a href="#cb9-503" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Raio ($r$) [km]'</span>)</span>
+<span id="cb9-504"><a href="#cb9-504" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-505"><a href="#cb9-505" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distância Radial'</span>)</span>
+<span id="cb9-506"><a href="#cb9-506" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-507"><a href="#cb9-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-508"><a href="#cb9-508" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos de orientação (i, Omega, omega)</span></span>
+<span id="cb9-509"><a href="#cb9-509" aria-hidden="true" tabindex="-1"></a>plt.plot(times, incs_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-510"><a href="#cb9-510" aria-hidden="true" tabindex="-1"></a>plt.plot(times, incs_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-511"><a href="#cb9-511" aria-hidden="true" tabindex="-1"></a>plt.plot(times, incs_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-512"><a href="#cb9-512" aria-hidden="true" tabindex="-1"></a>plt.plot(times, incs_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-513"><a href="#cb9-513" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-514"><a href="#cb9-514" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inclinação (i) [°]'</span>)</span>
+<span id="cb9-515"><a href="#cb9-515" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-516"><a href="#cb9-516" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Inclinação'</span>)</span>
+<span id="cb9-517"><a href="#cb9-517" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-518"><a href="#cb9-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-519"><a href="#cb9-519" aria-hidden="true" tabindex="-1"></a>plt.plot(times, big_omegas_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-520"><a href="#cb9-520" aria-hidden="true" tabindex="-1"></a>plt.plot(times, big_omegas_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>,label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-521"><a href="#cb9-521" aria-hidden="true" tabindex="-1"></a>plt.plot(times, big_omegas_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-522"><a href="#cb9-522" aria-hidden="true" tabindex="-1"></a>plt.plot(times, big_omegas_dragJ2, linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-523"><a href="#cb9-523" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-524"><a href="#cb9-524" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Omega'</span>)</span>
+<span id="cb9-525"><a href="#cb9-525" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-526"><a href="#cb9-526" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$</span><span class="ch">\\</span><span class="st">Omega$ (RAAN) [°]'</span>)</span>
+<span id="cb9-527"><a href="#cb9-527" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-528"><a href="#cb9-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-529"><a href="#cb9-529" aria-hidden="true" tabindex="-1"></a>plt.plot(times, small_omegas_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-530"><a href="#cb9-530" aria-hidden="true" tabindex="-1"></a>plt.plot(times, small_omegas_drag,linestyle<span class="op">=</span><span class="st">":"</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-531"><a href="#cb9-531" aria-hidden="true" tabindex="-1"></a>plt.plot(times, small_omegas_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-532"><a href="#cb9-532" aria-hidden="true" tabindex="-1"></a>plt.plot(times, small_omegas_dragJ2, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-533"><a href="#cb9-533" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-534"><a href="#cb9-534" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'omega'</span>)</span>
+<span id="cb9-535"><a href="#cb9-535" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-536"><a href="#cb9-536" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$</span><span class="ch">\\</span><span class="st">omega$ (Arg. Perigeu) [°]'</span>)</span>
+<span id="cb9-537"><a href="#cb9-537" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-538"><a href="#cb9-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-539"><a href="#cb9-539" aria-hidden="true" tabindex="-1"></a><span class="co"># Semi-eixo maior</span></span>
+<span id="cb9-540"><a href="#cb9-540" aria-hidden="true" tabindex="-1"></a>plt.plot(times, a_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span>)</span>
+<span id="cb9-541"><a href="#cb9-541" aria-hidden="true" tabindex="-1"></a>plt.plot(times, a_drag,linestyle <span class="op">=</span> <span class="st">'-'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-542"><a href="#cb9-542" aria-hidden="true" tabindex="-1"></a>plt.plot(times, a_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-543"><a href="#cb9-543" aria-hidden="true" tabindex="-1"></a>plt.plot(times, a_dragJ2,linestyle <span class="op">=</span> <span class="st">'-'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-544"><a href="#cb9-544" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-545"><a href="#cb9-545" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Semi Eixo maior (a)'</span>)</span>
+<span id="cb9-546"><a href="#cb9-546" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-547"><a href="#cb9-547" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Semi Eixo maior (a) [km]'</span>)</span>
+<span id="cb9-548"><a href="#cb9-548" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-549"><a href="#cb9-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-550"><a href="#cb9-550" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitude e Latitude</span></span>
+<span id="cb9-551"><a href="#cb9-551" aria-hidden="true" tabindex="-1"></a>plt.scatter(longitudes_0, latitudes_0, label <span class="op">=</span> <span class="st">'Sem perturbação'</span> )</span>
+<span id="cb9-552"><a href="#cb9-552" aria-hidden="true" tabindex="-1"></a>plt.scatter(longitudes_drag, latitudes_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com arrasto'</span>)</span>
+<span id="cb9-553"><a href="#cb9-553" aria-hidden="true" tabindex="-1"></a>plt.scatter(longitudes_J2, latitudes_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-554"><a href="#cb9-554" aria-hidden="true" tabindex="-1"></a>plt.scatter(longitudes_dragJ2, latitudes_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span><span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-555"><a href="#cb9-555" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-556"><a href="#cb9-556" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Longitude [°]'</span>)</span>
+<span id="cb9-557"><a href="#cb9-557" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Latitude [°]'</span>)</span>
+<span id="cb9-558"><a href="#cb9-558" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-559"><a href="#cb9-559" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Latitude e Longitude'</span>)</span>
+<span id="cb9-560"><a href="#cb9-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-561"><a href="#cb9-561" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotagem Básica 2D</span></span>
+<span id="cb9-562"><a href="#cb9-562" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb9-563"><a href="#cb9-563" aria-hidden="true" tabindex="-1"></a>plt.plot(x_0, y_0, label<span class="op">=</span><span class="st">'Órbita (RKF45 Adaptativo) sem Perturbações'</span>)</span>
+<span id="cb9-564"><a href="#cb9-564" aria-hidden="true" tabindex="-1"></a>plt.plot(x_drag, y_drag, linestyle <span class="op">=</span> <span class="st">'--'</span>, label <span class="op">=</span> <span class="st">'Com Arrasto'</span>)</span>
+<span id="cb9-565"><a href="#cb9-565" aria-hidden="true" tabindex="-1"></a>plt.plot(x_J2, y_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>)</span>
+<span id="cb9-566"><a href="#cb9-566" aria-hidden="true" tabindex="-1"></a>plt.plot(x_dragJ2, y_dragJ2,linestyle <span class="op">=</span> <span class="st">':'</span>, label <span class="op">=</span> <span class="st">'Com arrasto e J2'</span>)</span>
+<span id="cb9-567"><a href="#cb9-567" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="dv">0</span>, <span class="dv">0</span>, <span class="st">'yo'</span>, markersize<span class="op">=</span><span class="dv">10</span>, label<span class="op">=</span><span class="st">'Terra (Centro)'</span>) <span class="co"># Centro</span></span>
+<span id="cb9-568"><a href="#cb9-568" aria-hidden="true" tabindex="-1"></a>plt.plot(x_0[<span class="dv">0</span>], y_0[<span class="dv">0</span>], <span class="st">'go'</span>, label<span class="op">=</span><span class="st">'Perigeu (Início)'</span>)</span>
+<span id="cb9-569"><a href="#cb9-569" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb9-570"><a href="#cb9-570" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-571"><a href="#cb9-571" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X (km)'</span>)</span>
+<span id="cb9-572"><a href="#cb9-572" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Y (km)'</span>)</span>
+<span id="cb9-573"><a href="#cb9-573" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Simulação de Órbita'</span>)</span>
+<span id="cb9-574"><a href="#cb9-574" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-575"><a href="#cb9-575" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-576"><a href="#cb9-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-577"><a href="#cb9-577" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotagem 3D</span></span>
+<span id="cb9-578"><a href="#cb9-578" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb9-579"><a href="#cb9-579" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb9-580"><a href="#cb9-580" aria-hidden="true" tabindex="-1"></a>ax.plot(x_J2, y_J2, z_J2, label <span class="op">=</span> <span class="st">'Com J2'</span>, linestyle <span class="op">=</span> <span class="st">"-"</span>)</span>
+<span id="cb9-581"><a href="#cb9-581" aria-hidden="true" tabindex="-1"></a>ax.plot(x_dragJ2, y_dragJ2, z_dragJ2, label <span class="op">=</span> <span class="st">'Com Arrasto e J2'</span>, linestyle <span class="op">=</span> <span class="st">':'</span>)</span>
+<span id="cb9-582"><a href="#cb9-582" aria-hidden="true" tabindex="-1"></a>ax.plot(x_0, y_0, z_0, label<span class="op">=</span><span class="st">'Sem Perturbação'</span>, linestyle <span class="op">=</span> <span class="st">"-"</span>)</span>
+<span id="cb9-583"><a href="#cb9-583" aria-hidden="true" tabindex="-1"></a>ax.plot(x_drag, y_drag, z_drag, label <span class="op">=</span> <span class="st">'Com Arrasto'</span>, linestyle <span class="op">=</span> <span class="st">':'</span>)</span>
+<span id="cb9-584"><a href="#cb9-584" aria-hidden="true" tabindex="-1"></a>ax.scatter([<span class="dv">0</span>], [<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span><span class="st">'y'</span>, s<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">'Centro'</span>)</span>
+<span id="cb9-585"><a href="#cb9-585" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb9-586"><a href="#cb9-586" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb9-587"><a href="#cb9-587" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">'Z'</span>)</span>
+<span id="cb9-588"><a href="#cb9-588" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Simulação de órbita 3D'</span>)</span>
+<span id="cb9-589"><a href="#cb9-589" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb9-590"><a href="#cb9-590" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Código final</code></pre>
+<pre><code>Estado Inicial: [ 2.10396343e+03 -6.35883874e+03  1.12878601e+03  4.28137832e+00
+  2.46835746e+00  5.86343808e+00]
+Integração sem perturbações concluída em 2502 passos.
+Integração com arrasto concluída em 2502 passos.
+Integração com J2 concluída em 2502 passos.
+Integração com arrasto e J2 concluída em 2502 passos.
+Erro Numérico sem Perturbações: 0.002166500984458253
+Erro Numérico com Arrasto: 0.08932800935872365
+Erro Numérico com J2: 45.594387778233795
+Erro Numérico com Arrasto e J2: 45.66865785454138</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-2.png" width="612" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-3.png" width="616" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-4.png" width="595" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-5.png" width="604" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-6.png" width="616" height="432" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-7.png" width="595" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-8.png" width="588" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-9.png" width="603" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-10.png" width="596" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-11.png" width="836" height="674" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Portfolio_WEB_files/figure-html/cell-7-output-12.png" width="626" height="632" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
