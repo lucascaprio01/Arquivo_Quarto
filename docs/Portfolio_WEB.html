@@ -185,7 +185,15 @@ window.Quarto = {
   </ul></li>
   <li><a href="#órbitas-keplerianas" id="toc-órbitas-keplerianas" class="nav-link" data-scroll-target="#órbitas-keplerianas"><span class="header-section-number">7</span> Órbitas Keplerianas</a>
   <ul class="collapse">
-  <li><a href="#tipos-de-órbitas" id="toc-tipos-de-órbitas" class="nav-link" data-scroll-target="#tipos-de-órbitas"><span class="header-section-number">7.1</span> Tipos de órbitas</a></li>
+  <li><a href="#tipos-de-órbitas" id="toc-tipos-de-órbitas" class="nav-link" data-scroll-target="#tipos-de-órbitas"><span class="header-section-number">7.1</span> Tipos de órbitas</a>
+  <ul class="collapse">
+  <li><a href="#leo-low-earth-orbits" id="toc-leo-low-earth-orbits" class="nav-link" data-scroll-target="#leo-low-earth-orbits"><span class="header-section-number">7.1.1</span> LEO (Low Earth Orbits)</a></li>
+  <li><a href="#geo-geostationary-orbits" id="toc-geo-geostationary-orbits" class="nav-link" data-scroll-target="#geo-geostationary-orbits"><span class="header-section-number">7.1.2</span> GEO (Geostationary Orbits)</a></li>
+  <li><a href="#meo-medium-earth-orbits" id="toc-meo-medium-earth-orbits" class="nav-link" data-scroll-target="#meo-medium-earth-orbits"><span class="header-section-number">7.1.3</span> MEO (Medium Earth Orbits)</a></li>
+  <li><a href="#órbita-polar-op" id="toc-órbita-polar-op" class="nav-link" data-scroll-target="#órbita-polar-op"><span class="header-section-number">7.1.4</span> Órbita Polar (OP)</a></li>
+  <li><a href="#órbita-síncrona-com-o-sol-sso" id="toc-órbita-síncrona-com-o-sol-sso" class="nav-link" data-scroll-target="#órbita-síncrona-com-o-sol-sso"><span class="header-section-number">7.1.5</span> Órbita Síncrona com o Sol (SSO)</a></li>
+  <li><a href="#órbita-molniya" id="toc-órbita-molniya" class="nav-link" data-scroll-target="#órbita-molniya"><span class="header-section-number">7.1.6</span> Órbita Molniya</a></li>
+  </ul></li>
   <li><a href="#elementos-orbitais-clássicos" id="toc-elementos-orbitais-clássicos" class="nav-link" data-scroll-target="#elementos-orbitais-clássicos"><span class="header-section-number">7.2</span> Elementos Orbitais Clássicos</a>
   <ul class="collapse">
   <li><a href="#semieixo-maior-a" id="toc-semieixo-maior-a" class="nav-link" data-scroll-target="#semieixo-maior-a"><span class="header-section-number">7.2.1</span> Semieixo maior <span class="math inline">\(a\)</span></a></li>
@@ -385,7 +393,7 @@ Figura&nbsp;7: Elipse da terceira lei.
 <section id="primeira-simulação" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="primeira-simulação"><span class="header-section-number">4.3</span> Primeira simulação</h2>
 <p>Agora, seguindo o passo a passo comentado do código a seguir, é possível fazermos nossa primeira simulação em python, baseada na equação da elipse e fundamentada nas leis de Kepler.</p>
-<div id="5d7819d2" class="cell" data-execution_count="1">
+<div id="ef83a909" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -584,8 +592,8 @@ Figura&nbsp;13: Esquema do problema de dois corpos
 <section id="tipos-de-órbitas" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="tipos-de-órbitas"><span class="header-section-number">7.1</span> Tipos de órbitas</h2>
 <p>Agora, por questão de curiosidade, faremos uma breve introdução aos principais tipos de órbitas terrestres. Para basear este material, utilizamos como referência <span class="citation" data-cites="esa">ESA (<a href="#ref-esa" role="doc-biblioref">2020</a>)</span> e <span class="citation" data-cites="vallado2013">VALLADO (<a href="#ref-vallado2013" role="doc-biblioref">2013</a>)</span>.</p>
-<section id="leo-low-earth-orbits" class="level4" data-number="7.1.0.1">
-<h4 data-number="7.1.0.1" class="anchored" data-anchor-id="leo-low-earth-orbits"><span class="header-section-number">7.1.0.1</span> LEO (Low Earth Orbits)</h4>
+<section id="leo-low-earth-orbits" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="leo-low-earth-orbits"><span class="header-section-number">7.1.1</span> LEO (Low Earth Orbits)</h3>
 <p>É o principal tipo de órbita estudado neste portfólio, pois se trata da órbita que a Estação Espacial Internacional realiza. Como seu próprio nome sugere, essa órbita precisa ser próxima da Terra, com o limite superior de <span class="math inline">\(2000 \text{Km}\)</span> e limite inferior de <span class="math inline">\(180 \text{Km}\)</span>, que é, aproximadamente, o mínimo de altitude que um satélite pode orbitar sem ocasionar na colisão com a Terra. Além da ISS, outro satélite famoso que desempenha uma órbita LEO, é o telescópio espacial Hubble.</p>
 <div id="fig-LEO" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -598,8 +606,8 @@ Figura&nbsp;14: Esquema exemplo da LEO.
 </figure>
 </div>
 </section>
-<section id="geo-geostationary-orbits" class="level4" data-number="7.1.0.2">
-<h4 data-number="7.1.0.2" class="anchored" data-anchor-id="geo-geostationary-orbits"><span class="header-section-number">7.1.0.2</span> GEO (Geostationary Orbits)</h4>
+<section id="geo-geostationary-orbits" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="geo-geostationary-orbits"><span class="header-section-number">7.1.2</span> GEO (Geostationary Orbits)</h3>
 <p>É uma órbita que fica específicamente em cima do equador Terrestre. Ela possui a característica de estar sincronizada com o movimento de rotação da Terra, por isso o nome Geoestacionária, o que implica em uma velocidade específica de <span class="math inline">\(3 \space \text{Km/s}\)</span>. Sua altitude também é mantida fixa, sendo de <span class="math inline">\(35.786 \space \text{Km}\)</span>. Ela é muito utilizada para satélites que precisam ficar parados em uma posição, como redes de comunicação.</p>
 <div id="fig-GEO1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -622,8 +630,8 @@ Figura&nbsp;16: Esquema mostrando o acompanhamento terrestre (Ground tracking) d
 </figure>
 </div>
 </section>
-<section id="meo-medium-earth-orbits" class="level4" data-number="7.1.0.3">
-<h4 data-number="7.1.0.3" class="anchored" data-anchor-id="meo-medium-earth-orbits"><span class="header-section-number">7.1.0.3</span> MEO (Medium Earth Orbits)</h4>
+<section id="meo-medium-earth-orbits" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="meo-medium-earth-orbits"><span class="header-section-number">7.1.3</span> MEO (Medium Earth Orbits)</h3>
 <p>As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas (<span class="math inline">\(2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}\)</span>). Como a LEO, ela não precisa ter rotas específicas.</p>
 <div id="fig-MEO" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -636,8 +644,8 @@ Figura&nbsp;17: Esquema exemplo da MEO.
 </figure>
 </div>
 </section>
-<section id="órbita-polar-op" class="level4" data-number="7.1.0.4">
-<h4 data-number="7.1.0.4" class="anchored" data-anchor-id="órbita-polar-op"><span class="header-section-number">7.1.0.4</span> Órbita Polar (OP)</h4>
+<section id="órbita-polar-op" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="órbita-polar-op"><span class="header-section-number">7.1.4</span> Órbita Polar (OP)</h3>
 <p>As órbitas polares são baixas em altitude e possuem uma inclinação (<span class="math inline">\(i\)</span>) muito elevada, fazendo com que passem muito próximo ou exatamente em cima dos Polos Norte e Sul. Para ser classificada como uma órbita polar, é aceito um desvio de até <span class="math inline">\(10 \degree\)</span> dos Polos. São excelentes tipos de órbitas para rastreio terrestre.</p>
 <div id="fig-Polar" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -650,8 +658,8 @@ Figura&nbsp;18: Esquema exemplo da Órbita Polar.
 </figure>
 </div>
 </section>
-<section id="órbita-síncrona-com-o-sol-sso" class="level4" data-number="7.1.0.5">
-<h4 data-number="7.1.0.5" class="anchored" data-anchor-id="órbita-síncrona-com-o-sol-sso"><span class="header-section-number">7.1.0.5</span> Órbita Síncrona com o Sol (SSO)</h4>
+<section id="órbita-síncrona-com-o-sol-sso" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="órbita-síncrona-com-o-sol-sso"><span class="header-section-number">7.1.5</span> Órbita Síncrona com o Sol (SSO)</h3>
 <p>São órbitas, com alta inclinação (<span class="math inline">\(i\)</span>), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres. Para melhor visualização, pode ser encontrada uma simulação da órbita no seguinte endereço: <a href="https://www.youtube.com/watch?v=ylvgxNF3C0c">Órbita SSO</a>.</p>
 <div id="fig-SSO" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -664,8 +672,8 @@ Figura&nbsp;19: Esquema exemplo da Órbita SSO.
 </figure>
 </div>
 </section>
-<section id="órbita-molniya" class="level4" data-number="7.1.0.6">
-<h4 data-number="7.1.0.6" class="anchored" data-anchor-id="órbita-molniya"><span class="header-section-number">7.1.0.6</span> Órbita Molniya</h4>
+<section id="órbita-molniya" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="órbita-molniya"><span class="header-section-number">7.1.6</span> Órbita Molniya</h3>
 <p>São órbitas que possuem inclinação (<span class="math inline">\(i\)</span>) de <span class="math inline">\(63,4 \degree\)</span>, são altamente elípticas, ou seja, possuem uma excentricidade (<span class="math inline">\(e\)</span>) elevada, com a Terra em um dos seus focos. Ela possui um período orbital específico de meio dia sideral, logo dão duas voltas ao redor da Terra por dia. São órbitas muito utilizadas para redes de comunicação, principalmente nas áreas em que as GEOs não conseguem cobrir.</p>
 <div id="fig-Molniya" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -830,7 +838,7 @@ M = E - e \space \text{sen}(E)
 p_{n} = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})}
 \tag{23}\]</span></span></p>
 <p>Para colocar isso em prática no Python, utilizaremos a biblioteca math para auxílios matemático. O algoritmo se dá abaixo, utilizando a função <span class="math inline">\(\cos{x} - x\)</span> como exemplo e o chute inicial sendo <span class="math inline">\(x_{0} = 0.5\)</span>, tendo em vista que <span class="math inline">\(\cos{x}\)</span> é uma função que varia de <span class="math inline">\(-1\)</span> a <span class="math inline">\(1\)</span>.</p>
-<div id="44311625" class="cell" data-execution_count="2">
+<div id="4e66732e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo_newton(f, df, x0, tolerancia<span class="op">=</span><span class="fl">1e-5</span>, max_interacoes<span class="op">=</span><span class="dv">1000</span>):</span>
@@ -874,7 +882,7 @@ a raiz é 0.7390851339208068</code></pre>
 </div>
 </div>
 <p>Para fins de confirmação, escreveremos outro código em Python para aferir os resultados, utilizando dessa vez as bibliotecas matplotlib, para visualização do gráfico, e numpy para auxílios matemáticos. O código a seguir expressa um gráfico da função, onde é possível visualizar sua raiz.</p>
-<div id="3c2eefe3" class="cell" data-execution_count="3">
+<div id="a2aede88" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -977,7 +985,7 @@ w_{i+1} = w_{i} +h f(t_{i}, w_{i}), \space i = 0,1,...,N-1
 <p><span class="math display">\[
 \dot{y} = y - t^2 + 1, \space \space \space 0 \leq t \leq 2, \space \space \space y(0) = 0.5
 \]</span></p>
-<div id="a2280567" class="cell" data-execution_count="4">
+<div id="a78790a6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Euler para a função y_dot = y - t^2 + 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euler(a, b, N, alpha): <span class="co"># definindo a função de euler</span></span>
@@ -1072,7 +1080,7 @@ w_{i+1} &amp;= w_{i} + \frac{1}{6}(k_{1} + 2k_{2} + 2 k_{3} + k_{4}), \\
 \end{aligned}
 \]</span></p>
 <p>Agora, a fim de praticar, aplicaremos o Runge-Kutta em um algoritmo em Python.</p>
-<div id="7d737819" class="cell" data-execution_count="5">
+<div id="5162698e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runge-Kutta quarta ordem para a função y_dot = y - t**2 + 1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rk4(a,b,N, alpha):</span>
@@ -1188,7 +1196,7 @@ k_{6} &amp;= h f(t_{i} + \frac{h}{2}, w_{i} - \frac{8}{27} k_{1} + 2 k_{2} - \fr
 \end{aligned}
 \]</span></p>
 <p>Fazendo essa alteração no código, junto com a adição das perturbações, chegamos, então, ao código final do propagador, sendo:</p>
-<div id="348d37cf" class="cell" data-execution_count="6">
+<div id="7ea180bc" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>

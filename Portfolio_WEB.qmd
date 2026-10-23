@@ -290,37 +290,37 @@ Sendo, $p$ = $a(1-e^2)$ o semi-latus rectum, $a$ o comprimento do semi eixo maio
 ## Tipos de órbitas
 Agora, por questão de curiosidade, faremos uma breve introdução aos principais tipos de órbitas terrestres. Para basear este material, utilizamos como referência @esa e @vallado2013.
 
-#### LEO (Low Earth Orbits)
+### LEO (Low Earth Orbits)
 É o principal tipo de órbita estudado neste portfólio, pois se trata da órbita que a Estação Espacial Internacional realiza. Como seu próprio nome sugere, essa órbita precisa ser próxima da Terra, com o limite superior de $2000 \text{Km}$ e limite inferior de $180 \text{Km}$, que é, aproximadamente, o mínimo de altitude que um satélite pode orbitar sem ocasionar na colisão com a Terra. Além da ISS, outro satélite famoso que desempenha uma órbita LEO, é o telescópio espacial Hubble.
 
 ![Esquema exemplo da LEO.](Imagens/LEO.png){width="70%" #fig-LEO}
 
-#### GEO (Geostationary Orbits)
+### GEO (Geostationary Orbits)
 É uma órbita que fica específicamente em cima do equador Terrestre. Ela possui a característica de estar sincronizada com o movimento de rotação da Terra, por isso o nome Geoestacionária, o que implica em uma velocidade específica de $3 \space \text{Km/s}$. Sua altitude também é mantida fixa, sendo de $35.786 \space \text{Km}$. Ela é muito utilizada para satélites que precisam ficar parados em uma posição, como redes de comunicação.
 
 ![Esquema exemplo da GEO](Imagens/GEO2.png){width="70%" #fig-GEO1}
 
 ![Esquema mostrando o acompanhamento terrestre (Ground tracking) de um satélite em uma GEO.](Imagens/GEO.png){width="70%" #fig-GEO}
 
-#### MEO (Medium Earth Orbits)
+### MEO (Medium Earth Orbits)
 As órbitas MEO preenchem a lacuna que fica entre as LEOs e a GEO, abrangendo toda a altitude entre as duas ($2000 \text{Km} \space \text{à} \space 35.786 \space \text{Km}$). Como a LEO, ela não precisa ter rotas específicas.
 
 ![Esquema exemplo da MEO.](Imagens/MEO.png){width="70%" #fig-MEO}
 
 
-#### Órbita Polar (OP)
+### Órbita Polar (OP)
 As órbitas polares são baixas em altitude e possuem uma inclinação ($i$) muito elevada, fazendo com que passem muito próximo ou exatamente em cima dos Polos Norte e Sul. Para ser classificada como uma órbita polar, é aceito um desvio de até $10 \degree$ dos Polos. São excelentes tipos de órbitas para rastreio terrestre.
 
 ![Esquema exemplo da Órbita Polar.](Imagens/Polar.png){width="70%" #fig-Polar}
 
 
-#### Órbita Síncrona com o Sol (SSO)
+### Órbita Síncrona com o Sol (SSO)
 São órbitas, com alta inclinação ($i$), que precessam ao redor da Terra de forma sincronizada com a translação da Terra ao redor do Sol. Isso cria um efeito na qual a órbita passa sempre pelo mesmo ponto no mesmo horário. Como possui iluminação constante, é um excelente tipo de órbita para ser usada para fotografias terrestres. Para melhor visualização, pode ser encontrada uma simulação da órbita no seguinte endereço:
 [Órbita SSO](https://www.youtube.com/watch?v=ylvgxNF3C0c).
 
 ![Esquema exemplo da Órbita SSO.](Imagens/SSO.png){width="70%" #fig-SSO}
 
-#### Órbita Molniya
+### Órbita Molniya
 São órbitas que possuem inclinação ($i$) de $63,4 \degree$, são altamente elípticas, ou seja, possuem uma excentricidade ($e$) elevada, com a Terra em um dos seus focos. Ela possui um período orbital específico de meio dia sideral, logo dão duas voltas ao redor da Terra por dia. São órbitas muito utilizadas para redes de comunicação, principalmente nas áreas em que as GEOs não conseguem cobrir.
 
 ![Esquema exemplo da Órbita Molniya.](Imagens/Molniya.png){width="70%" #fig-Molniya}
